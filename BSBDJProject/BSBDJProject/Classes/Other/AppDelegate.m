@@ -8,6 +8,8 @@
 
 #import "AppDelegate.h"
 
+#import "BDJTabBarController.h"
+
 @interface AppDelegate ()
 
 @end
@@ -19,7 +21,9 @@
     
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     
-    self.window.rootViewController = [[UITabBarController alloc] init];
+    BDJTabBarController *tabBarVC = [[BDJTabBarController alloc] init];
+    
+    self.window.rootViewController = tabBarVC;
     
     [self.window makeKeyAndVisible];
     
