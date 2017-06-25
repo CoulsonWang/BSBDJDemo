@@ -20,6 +20,7 @@
 		B9DE8D7D1EFFE34400FF2F14 /* UIImage+Render.m in Sources */ = {isa = PBXBuildFile; fileRef = B9DE8D7C1EFFE34400FF2F14 /* UIImage+Render.m */; };
 		B9DE8D801EFFF9CA00FF2F14 /* BDJTaBbar.m in Sources */ = {isa = PBXBuildFile; fileRef = B9DE8D7F1EFFF9CA00FF2F14 /* BDJTaBbar.m */; };
 		B9DE8D831F0005CD00FF2F14 /* UIView+Frame.m in Sources */ = {isa = PBXBuildFile; fileRef = B9DE8D821F0005CD00FF2F14 /* UIView+Frame.m */; };
+		B9DE8D871F000E8100FF2F14 /* UIBarButtonItem+CreateItem.m in Sources */ = {isa = PBXBuildFile; fileRef = B9DE8D861F000E8100FF2F14 /* UIBarButtonItem+CreateItem.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +62,8 @@
 		B9DE8D811F0005CD00FF2F14 /* UIView+Frame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Frame.h"; sourceTree = "<group>"; };
 		B9DE8D821F0005CD00FF2F14 /* UIView+Frame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Frame.m"; sourceTree = "<group>"; };
 		B9DE8D841F00077D00FF2F14 /* BSBDJProject_Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BSBDJProject_Prefix.pch; sourceTree = "<group>"; };
+		B9DE8D851F000E8100FF2F14 /* UIBarButtonItem+CreateItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIBarButtonItem+CreateItem.h"; sourceTree = "<group>"; };
+		B9DE8D861F000E8100FF2F14 /* UIBarButtonItem+CreateItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIBarButtonItem+CreateItem.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -359,6 +362,8 @@
 				B9DE8D7C1EFFE34400FF2F14 /* UIImage+Render.m */,
 				B9DE8D811F0005CD00FF2F14 /* UIView+Frame.h */,
 				B9DE8D821F0005CD00FF2F14 /* UIView+Frame.m */,
+				B9DE8D851F000E8100FF2F14 /* UIBarButtonItem+CreateItem.h */,
+				B9DE8D861F000E8100FF2F14 /* UIBarButtonItem+CreateItem.m */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -471,6 +476,7 @@
 				B9DE8D6C1EFFD5F900FF2F14 /* BDJMineViewController.m in Sources */,
 				B9DE8D721EFFD61E00FF2F14 /* BDJPublishViewController.m in Sources */,
 				B9DE8D281EFFC05000FF2F14 /* main.m in Sources */,
+				B9DE8D871F000E8100FF2F14 /* UIBarButtonItem+CreateItem.m in Sources */,
 				B9DE8D6F1EFFD60A00FF2F14 /* BDJNewViewController.m in Sources */,
 				B9DE8D801EFFF9CA00FF2F14 /* BDJTaBbar.m in Sources */,
 				B9DE8D661EFFD5C100FF2F14 /* BDJEssenceViewController.m in Sources */,

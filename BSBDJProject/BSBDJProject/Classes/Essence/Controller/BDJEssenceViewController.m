@@ -7,6 +7,7 @@
 //
 
 #import "BDJEssenceViewController.h"
+#import "UIBarButtonItem+CreateItem.h"
 
 @interface BDJEssenceViewController ()
 
@@ -31,22 +32,23 @@
  设置导航条
  */
 - (void)setUpNavigationBar {
-    UIButton *leftBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    [leftBtn setImage:[UIImage imageNamed:@"nav_item_game_icon"] forState:UIControlStateNormal];
-    [leftBtn setImage:[UIImage imageNamed:@"nav_item_game_click_icon"] forState:UIControlStateHighlighted];
-    [leftBtn sizeToFit];
-    [leftBtn addTarget:self action:@selector(leftNavBtnClick) forControlEvents:UIControlEventTouchUpInside];
-    UIView *leftView = [[UIView alloc] initWithFrame:leftBtn.bounds];
-    [leftView addSubview:leftBtn];
-    
-    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:leftView];
+    //通过调用分类中的类方法快速创建UIBarButtonItem
+    self.navigationItem.leftBarButtonItem = [UIBarButtonItem itemWithImage:[UIImage imageNamed:@"nav_item_game_icon"] highLightImage:[UIImage imageNamed:@"nav_item_game_click_icon"]target:self action:@selector(leftNavBtnClick)];
+    self.navigationItem.rightBarButtonItem = [UIBarButtonItem itemWithImage:[UIImage imageNamed:@"navigationButtonRandomN"] highLightImage:[UIImage imageNamed:@"navigationButtonRandomClick"] target:self action:@selector(rightNavBtnClick)];
+    self.navigationItem.titleView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"MainTitle"]];
 }
+
+
 
 /**
  处理左侧导航条按钮点击事件
  */
 - (void)leftNavBtnClick {
-    
+    NSLog(@"%s,%d",__func__,__LINE__);
+}
+
+- (void)rightNavBtnClick {
+    NSLog(@"%s,%d",__func__,__LINE__);
 }
 
 @end
