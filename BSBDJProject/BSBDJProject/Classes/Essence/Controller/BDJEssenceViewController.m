@@ -16,7 +16,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    
+    [self setUpNavigationBar];
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -24,14 +26,27 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+/**
+ 设置导航条
+ */
+- (void)setUpNavigationBar {
+    UIButton *leftBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    [leftBtn setImage:[UIImage imageNamed:@"nav_item_game_icon"] forState:UIControlStateNormal];
+    [leftBtn setImage:[UIImage imageNamed:@"nav_item_game_click_icon"] forState:UIControlStateHighlighted];
+    [leftBtn sizeToFit];
+    [leftBtn addTarget:self action:@selector(leftNavBtnClick) forControlEvents:UIControlEventTouchUpInside];
+    UIView *leftView = [[UIView alloc] initWithFrame:leftBtn.bounds];
+    [leftView addSubview:leftBtn];
+    
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:leftView];
 }
-*/
+
+/**
+ 处理左侧导航条按钮点击事件
+ */
+- (void)leftNavBtnClick {
+    
+}
 
 @end
