@@ -73,6 +73,10 @@
 
 - (void)setUpOneBarButton:(UIViewController *)vc title:(NSString *)title image:(UIImage *)image selectedImage:(UIImage *)selectedImage {
     vc.tabBarItem.title = title;
+    NSDictionary *attrs_selected = @{NSForegroundColorAttributeName : [UIColor blackColor]};
+    NSDictionary *attrs_normal = @{NSFontAttributeName : [UIFont systemFontOfSize:14]};
+    [vc.tabBarItem setTitleTextAttributes:attrs_normal forState:UIControlStateNormal];
+    [vc.tabBarItem setTitleTextAttributes:attrs_selected forState:UIControlStateSelected];
     vc.tabBarItem.image = [image imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
     vc.tabBarItem.selectedImage = [selectedImage imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
 }
