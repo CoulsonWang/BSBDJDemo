@@ -19,6 +19,7 @@
 		B9DE8D791EFFDEA400FF2F14 /* BDJTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = B9DE8D781EFFDEA400FF2F14 /* BDJTabBarController.m */; };
 		B9DE8D7D1EFFE34400FF2F14 /* UIImage+Render.m in Sources */ = {isa = PBXBuildFile; fileRef = B9DE8D7C1EFFE34400FF2F14 /* UIImage+Render.m */; };
 		B9DE8D801EFFF9CA00FF2F14 /* BDJTaBbar.m in Sources */ = {isa = PBXBuildFile; fileRef = B9DE8D7F1EFFF9CA00FF2F14 /* BDJTaBbar.m */; };
+		B9DE8D831F0005CD00FF2F14 /* UIView+Frame.m in Sources */ = {isa = PBXBuildFile; fileRef = B9DE8D821F0005CD00FF2F14 /* UIView+Frame.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +58,9 @@
 		B9DE8D7C1EFFE34400FF2F14 /* UIImage+Render.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Render.m"; sourceTree = "<group>"; };
 		B9DE8D7E1EFFF9CA00FF2F14 /* BDJTaBbar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BDJTaBbar.h; sourceTree = "<group>"; };
 		B9DE8D7F1EFFF9CA00FF2F14 /* BDJTaBbar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BDJTaBbar.m; sourceTree = "<group>"; };
+		B9DE8D811F0005CD00FF2F14 /* UIView+Frame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Frame.h"; sourceTree = "<group>"; };
+		B9DE8D821F0005CD00FF2F14 /* UIView+Frame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Frame.m"; sourceTree = "<group>"; };
+		B9DE8D841F00077D00FF2F14 /* BSBDJProject_Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BSBDJProject_Prefix.pch; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -275,6 +279,7 @@
 				B9DE8D7A1EFFE2D700FF2F14 /* Category */,
 				B9DE8D5D1EFFD59000FF2F14 /* AppDelegate.h */,
 				B9DE8D5E1EFFD59100FF2F14 /* AppDelegate.m */,
+				B9DE8D841F00077D00FF2F14 /* BSBDJProject_Prefix.pch */,
 			);
 			path = Other;
 			sourceTree = "<group>";
@@ -352,6 +357,8 @@
 			children = (
 				B9DE8D7B1EFFE34400FF2F14 /* UIImage+Render.h */,
 				B9DE8D7C1EFFE34400FF2F14 /* UIImage+Render.m */,
+				B9DE8D811F0005CD00FF2F14 /* UIView+Frame.h */,
+				B9DE8D821F0005CD00FF2F14 /* UIView+Frame.m */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -467,6 +474,7 @@
 				B9DE8D6F1EFFD60A00FF2F14 /* BDJNewViewController.m in Sources */,
 				B9DE8D801EFFF9CA00FF2F14 /* BDJTaBbar.m in Sources */,
 				B9DE8D661EFFD5C100FF2F14 /* BDJEssenceViewController.m in Sources */,
+				B9DE8D831F0005CD00FF2F14 /* UIView+Frame.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -584,6 +592,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = BSBDJProject/Classes/Other/BSBDJProject_Prefix.pch;
 				INFOPLIST_FILE = BSBDJProject/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -597,6 +607,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = BSBDJProject/Classes/Other/BSBDJProject_Prefix.pch;
 				INFOPLIST_FILE = BSBDJProject/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
