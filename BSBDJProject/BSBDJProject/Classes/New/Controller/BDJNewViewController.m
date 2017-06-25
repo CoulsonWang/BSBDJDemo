@@ -7,6 +7,7 @@
 //
 
 #import "BDJNewViewController.h"
+#import "UIBarButtonItem+CreateItem.h"
 
 @interface BDJNewViewController ()
 
@@ -16,7 +17,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    
+    [self setUpNavigationBar];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -24,14 +26,22 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+/**
+ 设置导航条
+ */
+- (void)setUpNavigationBar {
+    //通过调用分类中的类方法快速创建UIBarButtonItem
+    self.navigationItem.leftBarButtonItem = [UIBarButtonItem itemWithImage:[UIImage imageNamed:@"MainTagSubIcon"] highLightImage:[UIImage imageWithOriginalRenderMode:@"MainTagSubIconClick"] target:self action:@selector(leftNavBtnClick)];
+    self.navigationItem.titleView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"MainTitle"]];
 }
-*/
+
+
+
+/**
+ 处理左侧导航条按钮点击事件
+ */
+- (void)leftNavBtnClick {
+    
+}
 
 @end

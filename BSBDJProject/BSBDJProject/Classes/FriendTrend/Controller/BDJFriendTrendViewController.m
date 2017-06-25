@@ -7,6 +7,7 @@
 //
 
 #import "BDJFriendTrendViewController.h"
+#import "UIBarButtonItem+CreateItem.h"
 
 @interface BDJFriendTrendViewController ()
 
@@ -17,6 +18,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    [self setUpNavigationBar];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -33,5 +35,29 @@
     // Pass the selected object to the new view controller.
 }
 */
+
+/**
+ 设置导航条
+ */
+- (void)setUpNavigationBar {
+    //通过调用分类中的类方法快速创建UIBarButtonItem
+    self.navigationItem.leftBarButtonItem = [UIBarButtonItem itemWithImage:[UIImage imageNamed:@"friendsRecommentIcon"] highLightImage:nil target:self action:@selector(leftNavBtnClick)];
+    UILabel *titleLable = [[UILabel alloc] init];
+    titleLable.text = @"我的关注";
+    titleLable.font = [UIFont boldSystemFontOfSize:20];
+    [titleLable sizeToFit];
+    self.navigationItem.titleView = titleLable;
+}
+
+
+
+/**
+ 处理左侧导航条按钮点击事件
+ */
+- (void)leftNavBtnClick {
+    
+}
+
+
 
 @end

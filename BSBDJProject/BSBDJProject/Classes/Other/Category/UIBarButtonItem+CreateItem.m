@@ -10,7 +10,7 @@
 
 @implementation UIBarButtonItem (CreateItem)
 
-+ (instancetype)itemWithImage:(UIImage *)image highLightImage:(UIImage *)highLightImage target:(nullable id)target action:(SEL)action {
++ (instancetype)itemWithImage:(UIImage *)image highLightImage:(UIImage *)highLightImage target:(id)target action:(SEL)action {
     
     UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
     [btn setImage:image forState:UIControlStateNormal];
@@ -22,5 +22,20 @@
     
     return [[UIBarButtonItem alloc] initWithCustomView:view];
 }
+
++ (instancetype)itemWithImage:(UIImage *)image highLightImage:(UIImage *)highLightImage selectedImage:(UIImage *)selectedImage target:(id)target action:(SEL)action {
+    
+    UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
+    [btn setImage:image forState:UIControlStateNormal];
+    [btn setImage:highLightImage forState:UIControlStateHighlighted];
+    [btn setImage:selectedImage forState:UIControlStateSelected];
+    [btn sizeToFit];
+    [btn addTarget:target action:action forControlEvents:UIControlEventTouchUpInside];
+    UIView *view = [[UIView alloc] initWithFrame:btn.bounds];
+    [view addSubview:btn];
+    
+    return [[UIBarButtonItem alloc] initWithCustomView:view];
+}
+
 
 @end

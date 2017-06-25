@@ -10,6 +10,8 @@
 
 @interface UIBarButtonItem (CreateItem)
 
-+ (instancetype)itemWithImage:(UIImage *)image highLightImage:(UIImage *)highLightImage target:(nullable id)target action:(SEL)action;
++ (instancetype)itemWithImage:(UIImage *)image highLightImage:(UIImage *)highLightImage target:(id)target action:(SEL)action;
+
++ (instancetype)itemWithImage:(UIImage *)image highLightImage:(UIImage *)highLightImage selectedImage:(UIImage *)selectedImage target:(id)target action:(SEL)action;
 
 @end

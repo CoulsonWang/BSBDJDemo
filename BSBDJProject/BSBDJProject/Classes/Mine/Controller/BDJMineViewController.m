@@ -7,6 +7,7 @@
 //
 
 #import "BDJMineViewController.h"
+#import "UIBarButtonItem+CreateItem.h"
 
 @interface BDJMineViewController ()
 
@@ -17,16 +18,40 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    [self setUpNavigationBar];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+/**
+ 设置导航条
+ */
+- (void)setUpNavigationBar {
+    //通过调用分类中的类方法快速创建UIBarButtonItem
+    UIBarButtonItem *nightModeBtn = [UIBarButtonItem itemWithImage:[UIImage imageNamed:@"mine-moon-icon"] highLightImage:[UIImage imageNamed:@"mine-sun-icon-click"] selectedImage:[UIImage imageNamed:@"mine-sun-icon"] target:self action:@selector(nightModeBtnClick:)];
+    UIBarButtonItem *settingBtn = [UIBarButtonItem itemWithImage:[UIImage imageNamed:@"mine-setting-icon"] highLightImage:[UIImage imageNamed:@"mine-setting-icon-click"] target:self action:@selector(settingBtnClick)];
+    self.navigationItem.rightBarButtonItems = @[settingBtn,nightModeBtn];
+    UILabel *titleLable = [[UILabel alloc] init];
+    titleLable.text = @"我的";
+    titleLable.font = [UIFont boldSystemFontOfSize:20];
+    [titleLable sizeToFit];
+    self.navigationItem.titleView = titleLable;
+}
+
+
+
+/**
+ 处理夜间模式按钮点击
+ */
+- (void)nightModeBtnClick:(UIButton *)btn {
+    btn.selected = !btn.isSelected;
+}
+
+- (void)settingBtnClick {
+    
 }
 
 #pragma mark - Table view data source
