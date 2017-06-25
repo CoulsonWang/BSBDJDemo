@@ -17,6 +17,7 @@
 		B9DE8D6F1EFFD60A00FF2F14 /* BDJNewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B9DE8D6E1EFFD60A00FF2F14 /* BDJNewViewController.m */; };
 		B9DE8D721EFFD61E00FF2F14 /* BDJPublishViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B9DE8D711EFFD61E00FF2F14 /* BDJPublishViewController.m */; };
 		B9DE8D791EFFDEA400FF2F14 /* BDJTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = B9DE8D781EFFDEA400FF2F14 /* BDJTabBarController.m */; };
+		B9DE8D7D1EFFE34400FF2F14 /* UIImage+Render.m in Sources */ = {isa = PBXBuildFile; fileRef = B9DE8D7C1EFFE34400FF2F14 /* UIImage+Render.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,8 @@
 		B9DE8D711EFFD61E00FF2F14 /* BDJPublishViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BDJPublishViewController.m; sourceTree = "<group>"; };
 		B9DE8D771EFFDEA400FF2F14 /* BDJTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BDJTabBarController.h; sourceTree = "<group>"; };
 		B9DE8D781EFFDEA400FF2F14 /* BDJTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BDJTabBarController.m; sourceTree = "<group>"; };
+		B9DE8D7B1EFFE34400FF2F14 /* UIImage+Render.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Render.h"; sourceTree = "<group>"; };
+		B9DE8D7C1EFFE34400FF2F14 /* UIImage+Render.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Render.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -266,6 +269,7 @@
 		B9DE8D5C1EFFD59000FF2F14 /* Other */ = {
 			isa = PBXGroup;
 			children = (
+				B9DE8D7A1EFFE2D700FF2F14 /* Category */,
 				B9DE8D5D1EFFD59000FF2F14 /* AppDelegate.h */,
 				B9DE8D5E1EFFD59100FF2F14 /* AppDelegate.m */,
 			);
@@ -336,6 +340,15 @@
 			children = (
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		B9DE8D7A1EFFE2D700FF2F14 /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				B9DE8D7B1EFFE34400FF2F14 /* UIImage+Render.h */,
+				B9DE8D7C1EFFE34400FF2F14 /* UIImage+Render.m */,
+			);
+			path = Category;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -440,6 +453,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B9DE8D791EFFDEA400FF2F14 /* BDJTabBarController.m in Sources */,
+				B9DE8D7D1EFFE34400FF2F14 /* UIImage+Render.m in Sources */,
 				B9DE8D631EFFD59100FF2F14 /* AppDelegate.m in Sources */,
 				B9DE8D691EFFD5D500FF2F14 /* BDJFriendTrendViewController.m in Sources */,
 				B9DE8D6C1EFFD5F900FF2F14 /* BDJMineViewController.m in Sources */,

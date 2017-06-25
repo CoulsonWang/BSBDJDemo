@@ -73,8 +73,8 @@
 
 - (void)setUpOneBarButton:(UIViewController *)vc title:(NSString *)title image:(UIImage *)image selectedImage:(UIImage *)selectedImage {
     vc.tabBarItem.title = title;
-    vc.tabBarItem.image = image;
-    vc.tabBarItem.selectedImage = selectedImage;
+    vc.tabBarItem.image = [image imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    vc.tabBarItem.selectedImage = [selectedImage imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
 }
 
 /*
