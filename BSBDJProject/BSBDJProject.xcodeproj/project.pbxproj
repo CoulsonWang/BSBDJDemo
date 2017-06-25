@@ -8,12 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		B9DE8D281EFFC05000FF2F14 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B9DE8D271EFFC05000FF2F14 /* main.m */; };
-		B9DE8D2B1EFFC05000FF2F14 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B9DE8D2A1EFFC05000FF2F14 /* AppDelegate.m */; };
-		B9DE8D2E1EFFC05000FF2F14 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B9DE8D2D1EFFC05000FF2F14 /* ViewController.m */; };
-		B9DE8D311EFFC05000FF2F14 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B9DE8D2F1EFFC05000FF2F14 /* Main.storyboard */; };
 		B9DE8D331EFFC05000FF2F14 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B9DE8D321EFFC05000FF2F14 /* Assets.xcassets */; };
-		B9DE8D361EFFC05000FF2F14 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B9DE8D341EFFC05000FF2F14 /* LaunchScreen.storyboard */; };
 		B9DE8D411EFFC05000FF2F14 /* BSBDJProjectUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = B9DE8D401EFFC05000FF2F14 /* BSBDJProjectUITests.m */; };
+		B9DE8D631EFFD59100FF2F14 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B9DE8D5E1EFFD59100FF2F14 /* AppDelegate.m */; };
+		B9DE8D661EFFD5C100FF2F14 /* BDJEssenceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B9DE8D651EFFD5C100FF2F14 /* BDJEssenceViewController.m */; };
+		B9DE8D691EFFD5D500FF2F14 /* BDJFriendTrendViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B9DE8D681EFFD5D500FF2F14 /* BDJFriendTrendViewController.m */; };
+		B9DE8D6C1EFFD5F900FF2F14 /* BDJMineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B9DE8D6B1EFFD5F900FF2F14 /* BDJMineViewController.m */; };
+		B9DE8D6F1EFFD60A00FF2F14 /* BDJNewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B9DE8D6E1EFFD60A00FF2F14 /* BDJNewViewController.m */; };
+		B9DE8D721EFFD61E00FF2F14 /* BDJPublishViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B9DE8D711EFFD61E00FF2F14 /* BDJPublishViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,17 +31,23 @@
 /* Begin PBXFileReference section */
 		B9DE8D231EFFC05000FF2F14 /* BSBDJProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BSBDJProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B9DE8D271EFFC05000FF2F14 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		B9DE8D291EFFC05000FF2F14 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		B9DE8D2A1EFFC05000FF2F14 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		B9DE8D2C1EFFC05000FF2F14 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		B9DE8D2D1EFFC05000FF2F14 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		B9DE8D301EFFC05000FF2F14 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		B9DE8D321EFFC05000FF2F14 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		B9DE8D351EFFC05000FF2F14 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B9DE8D371EFFC05000FF2F14 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B9DE8D3C1EFFC05000FF2F14 /* BSBDJProjectUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BSBDJProjectUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B9DE8D401EFFC05000FF2F14 /* BSBDJProjectUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BSBDJProjectUITests.m; sourceTree = "<group>"; };
 		B9DE8D421EFFC05000FF2F14 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B9DE8D5D1EFFD59000FF2F14 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		B9DE8D5E1EFFD59100FF2F14 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		B9DE8D641EFFD5C100FF2F14 /* BDJEssenceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BDJEssenceViewController.h; sourceTree = "<group>"; };
+		B9DE8D651EFFD5C100FF2F14 /* BDJEssenceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BDJEssenceViewController.m; sourceTree = "<group>"; };
+		B9DE8D671EFFD5D500FF2F14 /* BDJFriendTrendViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BDJFriendTrendViewController.h; sourceTree = "<group>"; };
+		B9DE8D681EFFD5D500FF2F14 /* BDJFriendTrendViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BDJFriendTrendViewController.m; sourceTree = "<group>"; };
+		B9DE8D6A1EFFD5F900FF2F14 /* BDJMineViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BDJMineViewController.h; sourceTree = "<group>"; };
+		B9DE8D6B1EFFD5F900FF2F14 /* BDJMineViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BDJMineViewController.m; sourceTree = "<group>"; };
+		B9DE8D6D1EFFD60A00FF2F14 /* BDJNewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BDJNewViewController.h; sourceTree = "<group>"; };
+		B9DE8D6E1EFFD60A00FF2F14 /* BDJNewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BDJNewViewController.m; sourceTree = "<group>"; };
+		B9DE8D701EFFD61E00FF2F14 /* BDJPublishViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BDJPublishViewController.h; sourceTree = "<group>"; };
+		B9DE8D711EFFD61E00FF2F14 /* BDJPublishViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BDJPublishViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,13 +89,8 @@
 		B9DE8D251EFFC05000FF2F14 /* BSBDJProject */ = {
 			isa = PBXGroup;
 			children = (
-				B9DE8D291EFFC05000FF2F14 /* AppDelegate.h */,
-				B9DE8D2A1EFFC05000FF2F14 /* AppDelegate.m */,
-				B9DE8D2C1EFFC05000FF2F14 /* ViewController.h */,
-				B9DE8D2D1EFFC05000FF2F14 /* ViewController.m */,
-				B9DE8D2F1EFFC05000FF2F14 /* Main.storyboard */,
+				B9DE8D4B1EFFD59000FF2F14 /* Classes */,
 				B9DE8D321EFFC05000FF2F14 /* Assets.xcassets */,
-				B9DE8D341EFFC05000FF2F14 /* LaunchScreen.storyboard */,
 				B9DE8D371EFFC05000FF2F14 /* Info.plist */,
 				B9DE8D261EFFC05000FF2F14 /* Supporting Files */,
 			);
@@ -109,6 +112,193 @@
 				B9DE8D421EFFC05000FF2F14 /* Info.plist */,
 			);
 			path = BSBDJProjectUITests;
+			sourceTree = "<group>";
+		};
+		B9DE8D4B1EFFD59000FF2F14 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				B9DE8D4C1EFFD59000FF2F14 /* Essence */,
+				B9DE8D501EFFD59000FF2F14 /* FriendTrend */,
+				B9DE8D541EFFD59000FF2F14 /* Mine */,
+				B9DE8D581EFFD59000FF2F14 /* New */,
+				B9DE8D5F1EFFD59100FF2F14 /* Publish */,
+				B9DE8D5C1EFFD59000FF2F14 /* Other */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		B9DE8D4C1EFFD59000FF2F14 /* Essence */ = {
+			isa = PBXGroup;
+			children = (
+				B9DE8D4D1EFFD59000FF2F14 /* Controller */,
+				B9DE8D4E1EFFD59000FF2F14 /* Model */,
+				B9DE8D4F1EFFD59000FF2F14 /* View */,
+			);
+			path = Essence;
+			sourceTree = "<group>";
+		};
+		B9DE8D4D1EFFD59000FF2F14 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				B9DE8D641EFFD5C100FF2F14 /* BDJEssenceViewController.h */,
+				B9DE8D651EFFD5C100FF2F14 /* BDJEssenceViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		B9DE8D4E1EFFD59000FF2F14 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		B9DE8D4F1EFFD59000FF2F14 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		B9DE8D501EFFD59000FF2F14 /* FriendTrend */ = {
+			isa = PBXGroup;
+			children = (
+				B9DE8D511EFFD59000FF2F14 /* Controller */,
+				B9DE8D521EFFD59000FF2F14 /* Model */,
+				B9DE8D531EFFD59000FF2F14 /* View */,
+			);
+			path = FriendTrend;
+			sourceTree = "<group>";
+		};
+		B9DE8D511EFFD59000FF2F14 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				B9DE8D671EFFD5D500FF2F14 /* BDJFriendTrendViewController.h */,
+				B9DE8D681EFFD5D500FF2F14 /* BDJFriendTrendViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		B9DE8D521EFFD59000FF2F14 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		B9DE8D531EFFD59000FF2F14 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		B9DE8D541EFFD59000FF2F14 /* Mine */ = {
+			isa = PBXGroup;
+			children = (
+				B9DE8D551EFFD59000FF2F14 /* Controller */,
+				B9DE8D561EFFD59000FF2F14 /* Model */,
+				B9DE8D571EFFD59000FF2F14 /* View */,
+			);
+			path = Mine;
+			sourceTree = "<group>";
+		};
+		B9DE8D551EFFD59000FF2F14 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				B9DE8D6A1EFFD5F900FF2F14 /* BDJMineViewController.h */,
+				B9DE8D6B1EFFD5F900FF2F14 /* BDJMineViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		B9DE8D561EFFD59000FF2F14 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		B9DE8D571EFFD59000FF2F14 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		B9DE8D581EFFD59000FF2F14 /* New */ = {
+			isa = PBXGroup;
+			children = (
+				B9DE8D591EFFD59000FF2F14 /* Controller */,
+				B9DE8D5A1EFFD59000FF2F14 /* Model */,
+				B9DE8D5B1EFFD59000FF2F14 /* View */,
+			);
+			path = New;
+			sourceTree = "<group>";
+		};
+		B9DE8D591EFFD59000FF2F14 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				B9DE8D6D1EFFD60A00FF2F14 /* BDJNewViewController.h */,
+				B9DE8D6E1EFFD60A00FF2F14 /* BDJNewViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		B9DE8D5A1EFFD59000FF2F14 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		B9DE8D5B1EFFD59000FF2F14 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		B9DE8D5C1EFFD59000FF2F14 /* Other */ = {
+			isa = PBXGroup;
+			children = (
+				B9DE8D5D1EFFD59000FF2F14 /* AppDelegate.h */,
+				B9DE8D5E1EFFD59100FF2F14 /* AppDelegate.m */,
+			);
+			path = Other;
+			sourceTree = "<group>";
+		};
+		B9DE8D5F1EFFD59100FF2F14 /* Publish */ = {
+			isa = PBXGroup;
+			children = (
+				B9DE8D601EFFD59100FF2F14 /* Controller */,
+				B9DE8D611EFFD59100FF2F14 /* Model */,
+				B9DE8D621EFFD59100FF2F14 /* View */,
+			);
+			path = Publish;
+			sourceTree = "<group>";
+		};
+		B9DE8D601EFFD59100FF2F14 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				B9DE8D701EFFD61E00FF2F14 /* BDJPublishViewController.h */,
+				B9DE8D711EFFD61E00FF2F14 /* BDJPublishViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		B9DE8D611EFFD59100FF2F14 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		B9DE8D621EFFD59100FF2F14 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -194,9 +384,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B9DE8D361EFFC05000FF2F14 /* LaunchScreen.storyboard in Resources */,
 				B9DE8D331EFFC05000FF2F14 /* Assets.xcassets in Resources */,
-				B9DE8D311EFFC05000FF2F14 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -214,9 +402,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B9DE8D2E1EFFC05000FF2F14 /* ViewController.m in Sources */,
-				B9DE8D2B1EFFC05000FF2F14 /* AppDelegate.m in Sources */,
+				B9DE8D631EFFD59100FF2F14 /* AppDelegate.m in Sources */,
+				B9DE8D691EFFD5D500FF2F14 /* BDJFriendTrendViewController.m in Sources */,
+				B9DE8D6C1EFFD5F900FF2F14 /* BDJMineViewController.m in Sources */,
+				B9DE8D721EFFD61E00FF2F14 /* BDJPublishViewController.m in Sources */,
 				B9DE8D281EFFC05000FF2F14 /* main.m in Sources */,
+				B9DE8D6F1EFFD60A00FF2F14 /* BDJNewViewController.m in Sources */,
+				B9DE8D661EFFD5C100FF2F14 /* BDJEssenceViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -237,25 +429,6 @@
 			targetProxy = B9DE8D3D1EFFC05000FF2F14 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
-
-/* Begin PBXVariantGroup section */
-		B9DE8D2F1EFFC05000FF2F14 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				B9DE8D301EFFC05000FF2F14 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		B9DE8D341EFFC05000FF2F14 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				B9DE8D351EFFC05000FF2F14 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		B9DE8D431EFFC05000FF2F14 /* Debug */ = {

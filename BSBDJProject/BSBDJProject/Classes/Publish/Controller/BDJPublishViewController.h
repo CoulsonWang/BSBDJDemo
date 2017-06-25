@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  BDJPublishViewController.h
 //  BSBDJProject
 //
 //  Created by Coulson_Wang on 2017/6/25.
@@ -8,8 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
-
+@interface BDJPublishViewController : UIViewController
 
 @end
-
