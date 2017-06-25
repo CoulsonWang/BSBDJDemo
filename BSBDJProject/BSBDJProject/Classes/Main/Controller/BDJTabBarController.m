@@ -12,6 +12,7 @@
 #import "BDJEssenceViewController.h"
 #import "BDJPublishViewController.h"
 #import "BDJFriendTrendViewController.h"
+#import "BDJTaBbar.h"
 
 @interface BDJTabBarController ()
 
@@ -19,20 +20,24 @@
 
 @implementation BDJTabBarController
 
+#pragma mark - Life Cycle
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    [self setUpTabBar];
     
     [self setUpAllChildViewController];
     
     [self setUpAllBarButton];
-    
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 #pragma mark - 初始化设置
+/**
+ 设置子控制器
+ */
 - (void)setUpAllChildViewController {
     //精华
     BDJEssenceViewController *essenceVC = [[BDJEssenceViewController alloc] init];
@@ -44,9 +49,6 @@
     UINavigationController *nav2 = [[UINavigationController alloc] initWithRootViewController:newVC];
     [self addChildViewController:nav2];
     
-    //发布
-    BDJPublishViewController *publishVC = [[BDJPublishViewController alloc] init];
-    [self addChildViewController:publishVC];
     
     //关注
     BDJFriendTrendViewController *friendTrendVC = [[BDJFriendTrendViewController alloc] init];
@@ -59,36 +61,39 @@
     [self addChildViewController:nav5];
 }
 
+/**
+ 设置按钮
+ */
 - (void)setUpAllBarButton {
     [self setUpOneBarButton:self.childViewControllers[0] title:@"精华" image:[UIImage imageNamed:@"tabBar_essence_icon"] selectedImage:[UIImage imageNamed:@"tabBar_essence_click_icon"]];
     
     [self setUpOneBarButton:self.childViewControllers[1] title:@"新帖" image:[UIImage imageNamed:@"tabBar_new_icon"] selectedImage:[UIImage imageNamed:@"tabBar_new_click_icon"]];
     
-    [self setUpOneBarButton:self.childViewControllers[2] title:nil image:[UIImage imageNamed:@"tabBar_publish_icon"] selectedImage:[UIImage imageNamed:@"tabBar_publish_click_icon"]];
+    [self setUpOneBarButton:self.childViewControllers[2] title:@"关注" image:[UIImage imageNamed:@"tabBar_friendTrends_icon"] selectedImage:[UIImage imageNamed:@"tabBar_friendTrends_click_icon"]];
     
-    [self setUpOneBarButton:self.childViewControllers[3] title:@"关注" image:[UIImage imageNamed:@"tabBar_friendTrends_icon"] selectedImage:[UIImage imageNamed:@"tabBar_friendTrends_click_icon"]];
-    
-    [self setUpOneBarButton:self.childViewControllers[4] title:@"我的" image:[UIImage imageNamed:@"tabBar_me_icon"] selectedImage:[UIImage imageNamed:@"tabBar_me_click_icon"]];
+    [self setUpOneBarButton:self.childViewControllers[3] title:@"我的" image:[UIImage imageNamed:@"tabBar_me_icon"] selectedImage:[UIImage imageNamed:@"tabBar_me_click_icon"]];
 }
 
 - (void)setUpOneBarButton:(UIViewController *)vc title:(NSString *)title image:(UIImage *)image selectedImage:(UIImage *)selectedImage {
+    //设置标题
     vc.tabBarItem.title = title;
+    //处理标题字体和字色
     NSDictionary *attrs_selected = @{NSForegroundColorAttributeName : [UIColor blackColor]};
     NSDictionary *attrs_normal = @{NSFontAttributeName : [UIFont systemFontOfSize:14]};
     [vc.tabBarItem setTitleTextAttributes:attrs_normal forState:UIControlStateNormal];
     [vc.tabBarItem setTitleTextAttributes:attrs_selected forState:UIControlStateSelected];
+    //设置按钮图片
     vc.tabBarItem.image = [image imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
     vc.tabBarItem.selectedImage = [selectedImage imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+/**
+ 用自定义的TabBar替换系统的TabBar
+ */
+- (void)setUpTabBar {
+    BDJTaBbar *tabBar = [[BDJTaBbar alloc] init];
+    
+    [self setValue:tabBar forKeyPath:@"tabBar"];
 }
-*/
 
 @end
