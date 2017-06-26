@@ -7,7 +7,6 @@
 //
 
 #import "BDJSettingViewController.h"
-#import "UIBarButtonItem+CreateItem.h"
 
 @interface BDJSettingViewController ()
 
@@ -18,21 +17,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    [self setUpNavgationItem];
 }
 
 
-
-/**
- 设置导航条按钮
- */
-- (void)setUpNavgationItem {
-    self.navigationItem.leftBarButtonItem = [UIBarButtonItem backItemWithImage:[UIImage imageNamed:@"navigationButtonReturn"] highLightImage:[UIImage imageNamed:@"navigationButtonReturnClick"] target:self action:@selector(getBack) title:@"返回"];
-}
-
-- (void)getBack {
-    [self.navigationController popViewControllerAnimated:YES];
-}
 
 #pragma mark - Table view data source
 
