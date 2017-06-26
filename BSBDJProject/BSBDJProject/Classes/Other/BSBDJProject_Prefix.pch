@@ -8,3 +8,12 @@
 
 #import "UIView+Frame.h"
 #import "UIImage+Render.h"
+
+#define screenW [UIScreen mainScreen].bounds.size.width
+#define screenH [UIScreen mainScreen].bounds.size.height
+
+#define iPhonePlus screenH == 736
+#define iPhone7 screenH == 667
+#define iPhone5 screenH == 568
+#define iPhone4 screenH == 480
+

@@ -9,6 +9,15 @@
 /* Begin PBXBuildFile section */
 		B903B05D1F00D56100255FEF /* BDJSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B903B05C1F00D56100255FEF /* BDJSettingViewController.m */; };
 		B903B0601F00DB6300255FEF /* BDJNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = B903B05F1F00DB6300255FEF /* BDJNavigationController.m */; settings = {COMPILER_FLAGS = "-w"; }; };
+		B9BBED6B1F00FD76005945BE /* BDJAdvertisementViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B9BBED691F00FD76005945BE /* BDJAdvertisementViewController.m */; };
+		B9BBED6C1F00FD76005945BE /* BDJAdvertisementViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B9BBED6A1F00FD76005945BE /* BDJAdvertisementViewController.xib */; };
+		B9BBED751F01032C005945BE /* LaunchImage-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B9BBED6E1F01032C005945BE /* LaunchImage-568h@2x.png */; };
+		B9BBED761F01032C005945BE /* LaunchImage-700-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B9BBED6F1F01032C005945BE /* LaunchImage-700-568h@2x.png */; };
+		B9BBED771F01032C005945BE /* LaunchImage-700@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B9BBED701F01032C005945BE /* LaunchImage-700@2x.png */; };
+		B9BBED781F01032C005945BE /* LaunchImage-800-667h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B9BBED711F01032C005945BE /* LaunchImage-800-667h@2x.png */; };
+		B9BBED791F01032C005945BE /* LaunchImage-800-Portrait-736h@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = B9BBED721F01032C005945BE /* LaunchImage-800-Portrait-736h@3x.png */; };
+		B9BBED7A1F01032C005945BE /* LaunchImage.png in Resources */ = {isa = PBXBuildFile; fileRef = B9BBED731F01032C005945BE /* LaunchImage.png */; };
+		B9BBED7B1F01032C005945BE /* LaunchImage@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B9BBED741F01032C005945BE /* LaunchImage@2x.png */; };
 		B9DE8D281EFFC05000FF2F14 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B9DE8D271EFFC05000FF2F14 /* main.m */; };
 		B9DE8D331EFFC05000FF2F14 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B9DE8D321EFFC05000FF2F14 /* Assets.xcassets */; };
 		B9DE8D411EFFC05000FF2F14 /* BSBDJProjectUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = B9DE8D401EFFC05000FF2F14 /* BSBDJProjectUITests.m */; };
@@ -40,6 +49,16 @@
 		B903B05C1F00D56100255FEF /* BDJSettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BDJSettingViewController.m; sourceTree = "<group>"; };
 		B903B05E1F00DB6300255FEF /* BDJNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BDJNavigationController.h; path = ../../Mine/Controller/BDJNavigationController.h; sourceTree = "<group>"; };
 		B903B05F1F00DB6300255FEF /* BDJNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BDJNavigationController.m; path = ../../Mine/Controller/BDJNavigationController.m; sourceTree = "<group>"; };
+		B9BBED681F00FD76005945BE /* BDJAdvertisementViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BDJAdvertisementViewController.h; sourceTree = "<group>"; };
+		B9BBED691F00FD76005945BE /* BDJAdvertisementViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BDJAdvertisementViewController.m; sourceTree = "<group>"; };
+		B9BBED6A1F00FD76005945BE /* BDJAdvertisementViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BDJAdvertisementViewController.xib; sourceTree = "<group>"; };
+		B9BBED6E1F01032C005945BE /* LaunchImage-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "LaunchImage-568h@2x.png"; sourceTree = "<group>"; };
+		B9BBED6F1F01032C005945BE /* LaunchImage-700-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "LaunchImage-700-568h@2x.png"; sourceTree = "<group>"; };
+		B9BBED701F01032C005945BE /* LaunchImage-700@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "LaunchImage-700@2x.png"; sourceTree = "<group>"; };
+		B9BBED711F01032C005945BE /* LaunchImage-800-667h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "LaunchImage-800-667h@2x.png"; sourceTree = "<group>"; };
+		B9BBED721F01032C005945BE /* LaunchImage-800-Portrait-736h@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "LaunchImage-800-Portrait-736h@3x.png"; sourceTree = "<group>"; };
+		B9BBED731F01032C005945BE /* LaunchImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = LaunchImage.png; sourceTree = "<group>"; };
+		B9BBED741F01032C005945BE /* LaunchImage@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "LaunchImage@2x.png"; sourceTree = "<group>"; };
 		B9DE8D231EFFC05000FF2F14 /* BSBDJProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BSBDJProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B9DE8D271EFFC05000FF2F14 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		B9DE8D321EFFC05000FF2F14 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -123,6 +142,54 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		B9BBED641F00FD21005945BE /* Advertisement */ = {
+			isa = PBXGroup;
+			children = (
+				B9BBED651F00FD21005945BE /* Controller */,
+				B9BBED661F00FD21005945BE /* Model */,
+				B9BBED671F00FD21005945BE /* View */,
+			);
+			path = Advertisement;
+			sourceTree = "<group>";
+		};
+		B9BBED651F00FD21005945BE /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				B9BBED681F00FD76005945BE /* BDJAdvertisementViewController.h */,
+				B9BBED691F00FD76005945BE /* BDJAdvertisementViewController.m */,
+				B9BBED6A1F00FD76005945BE /* BDJAdvertisementViewController.xib */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		B9BBED661F00FD21005945BE /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		B9BBED671F00FD21005945BE /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		B9BBED6D1F01032C005945BE /* 启动图片 */ = {
+			isa = PBXGroup;
+			children = (
+				B9BBED6E1F01032C005945BE /* LaunchImage-568h@2x.png */,
+				B9BBED6F1F01032C005945BE /* LaunchImage-700-568h@2x.png */,
+				B9BBED701F01032C005945BE /* LaunchImage-700@2x.png */,
+				B9BBED711F01032C005945BE /* LaunchImage-800-667h@2x.png */,
+				B9BBED721F01032C005945BE /* LaunchImage-800-Portrait-736h@3x.png */,
+				B9BBED731F01032C005945BE /* LaunchImage.png */,
+				B9BBED741F01032C005945BE /* LaunchImage@2x.png */,
+			);
+			path = "启动图片";
+			sourceTree = "<group>";
+		};
 		B9DE8D1A1EFFC04F00FF2F14 = {
 			isa = PBXGroup;
 			children = (
@@ -155,6 +222,7 @@
 		B9DE8D261EFFC05000FF2F14 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				B9BBED6D1F01032C005945BE /* 启动图片 */,
 				B9DE8D271EFFC05000FF2F14 /* main.m */,
 			);
 			name = "Supporting Files";
@@ -172,6 +240,7 @@
 		B9DE8D4B1EFFD59000FF2F14 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				B9BBED641F00FD21005945BE /* Advertisement */,
 				B9DE8D731EFFDE8800FF2F14 /* Main */,
 				B9DE8D4C1EFFD59000FF2F14 /* Essence */,
 				B9DE8D581EFFD59000FF2F14 /* New */,
@@ -494,7 +563,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B9BBED7A1F01032C005945BE /* LaunchImage.png in Resources */,
+				B9BBED7B1F01032C005945BE /* LaunchImage@2x.png in Resources */,
 				B9DE8D331EFFC05000FF2F14 /* Assets.xcassets in Resources */,
+				B9BBED781F01032C005945BE /* LaunchImage-800-667h@2x.png in Resources */,
+				B9BBED751F01032C005945BE /* LaunchImage-568h@2x.png in Resources */,
+				B9BBED771F01032C005945BE /* LaunchImage-700@2x.png in Resources */,
+				B9BBED761F01032C005945BE /* LaunchImage-700-568h@2x.png in Resources */,
+				B9BBED6C1F00FD76005945BE /* BDJAdvertisementViewController.xib in Resources */,
+				B9BBED791F01032C005945BE /* LaunchImage-800-Portrait-736h@3x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -518,6 +595,7 @@
 				B9DE8D631EFFD59100FF2F14 /* AppDelegate.m in Sources */,
 				B9DE8D691EFFD5D500FF2F14 /* BDJFriendTrendViewController.m in Sources */,
 				B9DE8D6C1EFFD5F900FF2F14 /* BDJMineViewController.m in Sources */,
+				B9BBED6B1F00FD76005945BE /* BDJAdvertisementViewController.m in Sources */,
 				B9DE8D721EFFD61E00FF2F14 /* BDJPublishViewController.m in Sources */,
 				B9DE8D281EFFC05000FF2F14 /* main.m in Sources */,
 				B9DE8D871F000E8100FF2F14 /* UIBarButtonItem+CreateItem.m in Sources */,

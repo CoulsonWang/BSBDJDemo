@@ -7,8 +7,7 @@
 //
 
 #import "AppDelegate.h"
-
-#import "BDJTabBarController.h"
+#import "BDJAdvertisementViewController.h"
 
 @interface AppDelegate ()
 
@@ -20,11 +19,8 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
-    
-    BDJTabBarController *tabBarVC = [[BDJTabBarController alloc] init];
-    
-    self.window.rootViewController = tabBarVC;
-    
+    BDJAdvertisementViewController *adVC = [[BDJAdvertisementViewController alloc] init];
+    self.window.rootViewController = adVC;
     [self.window makeKeyAndVisible];
     
     return YES;
