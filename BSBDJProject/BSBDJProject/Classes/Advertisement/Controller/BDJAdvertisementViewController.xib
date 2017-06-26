@@ -13,6 +13,7 @@
             <connections>
                 <outlet property="adView" destination="gaK-Dz-SN2" id="Xxj-wK-sqW"/>
                 <outlet property="launchView" destination="Qki-Jk-gVm" id="ORi-aS-tpi"/>
+                <outlet property="skipButton" destination="Ufg-il-8Bh" id="vz5-uO-DbE"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -28,15 +29,19 @@
                     <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                 </view>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ufg-il-8Bh">
-                    <rect key="frame" x="319" y="25" width="75" height="30"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ufg-il-8Bh">
+                    <rect key="frame" x="319" y="25" width="75" height="32"/>
                     <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.68438458588957052" colorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="75" id="W83-s3-2ni"/>
                     </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
                     <state key="normal" title="跳过 (3)">
                         <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </state>
+                    <connections>
+                        <action selector="skipBtnClicked:" destination="-1" eventType="touchUpInside" id="YcD-ho-AGY"/>
+                    </connections>
                 </button>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

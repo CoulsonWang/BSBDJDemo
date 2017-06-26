@@ -16,19 +16,23 @@
 #import "BDJAdvertisementViewController.h"
 #import <AFNetworking.h>
 #import <MJExtension.h>
+#import "BDJTabBarController.h"
 #import "BDJAdItem.h"
 #import <UIImageView+WebCache.h>
 
 @interface BDJAdvertisementViewController ()
 @property (weak, nonatomic) IBOutlet UIImageView *launchView;
 @property (weak, nonatomic) IBOutlet UIView *adView;
+@property (weak, nonatomic) IBOutlet UIButton *skipButton;
 @property (weak, nonatomic) UIImageView *adImageView;
 @property (strong, nonatomic) BDJAdItem *adItem;
+@property (weak, nonatomic) NSTimer *timer;
 
 @end
 
 @implementation BDJAdvertisementViewController
 
+#pragma mark - Lazy Load
 - (UIImageView *)adImageView {
     if (!_adImageView) {
         UIImageView *imageView = [[UIImageView alloc] init];
@@ -42,21 +46,22 @@
     return _adImageView;
 }
 
+#pragma mark - Life Cycle
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    //处理背景图片
     [self setUpLaunchImage];
     
+    //处理广告图片
     [self setUpAdView];
+    
+    //创建定时器管理界面存在时间
+    self.timer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(timeChange) userInfo:nil repeats:YES];
     
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
-
+#pragma mark - 设置
 - (void)setUpLaunchImage {
     UIImage *launchImage;
     if (iPhonePlus) {
@@ -90,6 +95,7 @@
     [self.adImageView sd_setImageWithURL:[NSURL URLWithString:_adItem.w_picurl]];
 }
 
+#pragma mark
 /**
  处理广告页面被点击
  */
@@ -99,6 +105,28 @@
     if ([app canOpenURL:ori_url]) {
         [app openURL:ori_url options:@{} completionHandler:nil];
     }
+}
+
+- (void)timeChange {
+    static int i = 3;
+    i--;
+    
+    //设置跳转按钮标题
+    [self.skipButton setTitle:[NSString stringWithFormat:@"跳过 (%d)",i] forState:UIControlStateNormal];
+    
+    if (i == 0) {
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            [self skipBtnClicked:nil];
+        });
+        
+    }
+}
+- (IBAction)skipBtnClicked:(UIButton *)sender {
+    //销毁广告界面
+    [UIApplication sharedApplication].keyWindow.rootViewController = [[BDJTabBarController alloc] init];
+    
+    //销毁定时器
+    [self.timer invalidate];
 }
 
 @end
