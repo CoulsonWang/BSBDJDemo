@@ -23,6 +23,7 @@
     [super awakeFromNib];
     self.iconView.layer.cornerRadius = self.iconView.YY_width * 0.5;
     self.iconView.layer.masksToBounds = YES;
+    self.separatorInset = UIEdgeInsetsZero;
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
