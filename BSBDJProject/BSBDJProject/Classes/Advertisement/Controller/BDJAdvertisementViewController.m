@@ -15,14 +15,32 @@
 
 #import "BDJAdvertisementViewController.h"
 #import <AFNetworking.h>
+#import <MJExtension.h>
+#import "BDJAdItem.h"
+#import <UIImageView+WebCache.h>
 
 @interface BDJAdvertisementViewController ()
 @property (weak, nonatomic) IBOutlet UIImageView *launchView;
 @property (weak, nonatomic) IBOutlet UIView *adView;
+@property (weak, nonatomic) UIImageView *adImageView;
+@property (strong, nonatomic) BDJAdItem *adItem;
 
 @end
 
 @implementation BDJAdvertisementViewController
+
+- (UIImageView *)adImageView {
+    if (!_adImageView) {
+        UIImageView *imageView = [[UIImageView alloc] init];
+        [self.adView addSubview:imageView];
+        UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(adImageTapped)];
+        [imageView addGestureRecognizer:tap];
+        imageView.userInteractionEnabled = YES;
+        
+        _adImageView = imageView;
+    }
+    return _adImageView;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -54,19 +72,33 @@
 }
 
 - (void)setUpAdView {
-    [self loadAdData];
-}
-
-- (void)loadAdData {
     AFHTTPSessionManager *mgr = [AFHTTPSessionManager manager];
     mgr.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"application/json", @"text/json", @"text/javascript", @"text/html", nil];
     
     NSDictionary *parameters = @{ adRequestKey : adRequestParam };
-    [mgr GET:urlPrefix parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-        NSLog(@"succeed");
+    [mgr GET:urlPrefix parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, NSDictionary * _Nullable responseObject) {
+        NSDictionary *dict = [responseObject[@"ad"] lastObject];
+        self.adItem = [BDJAdItem mj_objectWithKeyValues:dict];
+        [self setAdImage];
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         NSLog(@"%@",error);
     }];
+}
+
+- (void)setAdImage {
+    self.adImageView.frame = CGRectMake(0, 0, screenW, screenW / _adItem.w * _adItem.h);
+    [self.adImageView sd_setImageWithURL:[NSURL URLWithString:_adItem.w_picurl]];
+}
+
+/**
+ 处理广告页面被点击
+ */
+- (void)adImageTapped {
+    NSURL *ori_url = [NSURL URLWithString:_adItem.ori_curl];
+    UIApplication *app = [UIApplication sharedApplication];
+    if ([app canOpenURL:ori_url]) {
+        [app openURL:ori_url options:@{} completionHandler:nil];
+    }
 }
 
 @end

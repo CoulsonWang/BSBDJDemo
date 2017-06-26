@@ -4,3 +4,6 @@ platform :ios, '8.0'
 target 'BSBDJProject' do
 pod 'AFNetworking', '~> 3.0'
 end
+
+pod 'MJExtension', '~> 3.0.13'
+pod 'SDWebImage', '~> 4.0.0'
