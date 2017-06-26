@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		B903B05D1F00D56100255FEF /* BDJSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B903B05C1F00D56100255FEF /* BDJSettingViewController.m */; };
-		B903B0601F00DB6300255FEF /* BDJNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = B903B05F1F00DB6300255FEF /* BDJNavigationController.m */; };
+		B903B0601F00DB6300255FEF /* BDJNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = B903B05F1F00DB6300255FEF /* BDJNavigationController.m */; settings = {COMPILER_FLAGS = "-w"; }; };
 		B9DE8D281EFFC05000FF2F14 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B9DE8D271EFFC05000FF2F14 /* main.m */; };
 		B9DE8D331EFFC05000FF2F14 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B9DE8D321EFFC05000FF2F14 /* Assets.xcassets */; };
 		B9DE8D411EFFC05000FF2F14 /* BSBDJProjectUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = B9DE8D401EFFC05000FF2F14 /* BSBDJProjectUITests.m */; };
@@ -460,6 +460,7 @@
 				TargetAttributes = {
 					B9DE8D221EFFC04F00FF2F14 = {
 						CreatedOnToolsVersion = 8.3.3;
+						DevelopmentTeam = 76G5YKQF73;
 						ProvisioningStyle = Automatic;
 					};
 					B9DE8D3B1EFFC05000FF2F14 = {
@@ -642,6 +643,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				DEVELOPMENT_TEAM = 76G5YKQF73;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = BSBDJProject/Classes/Other/BSBDJProject_Prefix.pch;
 				INFOPLIST_FILE = BSBDJProject/Info.plist;
@@ -657,6 +659,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				DEVELOPMENT_TEAM = 76G5YKQF73;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = BSBDJProject/Classes/Other/BSBDJProject_Prefix.pch;
 				INFOPLIST_FILE = BSBDJProject/Info.plist;
