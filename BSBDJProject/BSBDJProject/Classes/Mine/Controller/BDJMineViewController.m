@@ -51,7 +51,6 @@
 
 - (void)settingBtnClick {
     BDJSettingViewController *settingVC = [[BDJSettingViewController alloc] init];
-    settingVC.hidesBottomBarWhenPushed = YES;
     [self.navigationController showViewController:settingVC sender:nil];
 }
 

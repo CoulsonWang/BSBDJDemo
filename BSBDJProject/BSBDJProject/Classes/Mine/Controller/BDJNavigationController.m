@@ -36,6 +36,8 @@
 - (void)pushViewController:(UIViewController *)viewController animated:(BOOL)animated {
     //如果不是根控制器，则设置左侧导航按钮为返回按钮
     if (self.childViewControllers.count) {
+        viewController.hidesBottomBarWhenPushed = YES;
+        
         viewController.navigationItem.leftBarButtonItem = [UIBarButtonItem backItemWithImage:[UIImage imageNamed:@"navigationButtonReturn"] highLightImage:[UIImage imageNamed:@"navigationButtonReturnClick"] target:self action:@selector(getBack) title:@"返回"];
     }
     [super pushViewController:viewController animated:animated];

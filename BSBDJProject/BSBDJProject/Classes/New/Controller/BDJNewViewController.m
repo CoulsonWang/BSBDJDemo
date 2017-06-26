@@ -8,6 +8,7 @@
 
 #import "BDJNewViewController.h"
 #import "UIBarButtonItem+CreateItem.h"
+#import "BDJSuggestTabController.h"
 
 @interface BDJNewViewController ()
 
@@ -41,7 +42,8 @@
  处理左侧导航条按钮点击事件
  */
 - (void)leftNavBtnClick {
-    
+    BDJSuggestTabController *suggestVC = [[BDJSuggestTabController alloc] init];
+    [self.navigationController pushViewController:suggestVC animated:YES];
 }
 
 @end

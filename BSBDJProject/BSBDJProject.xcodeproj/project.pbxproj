@@ -11,6 +11,8 @@
 		B903B05D1F00D56100255FEF /* BDJSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B903B05C1F00D56100255FEF /* BDJSettingViewController.m */; };
 		B903B0601F00DB6300255FEF /* BDJNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = B903B05F1F00DB6300255FEF /* BDJNavigationController.m */; settings = {COMPILER_FLAGS = "-w"; }; };
 		B9A684131F0116D900D350E3 /* BDJAdItem.m in Sources */ = {isa = PBXBuildFile; fileRef = B9A684121F0116D900D350E3 /* BDJAdItem.m */; };
+		B9A684161F012B2500D350E3 /* BDJSuggestTabController.m in Sources */ = {isa = PBXBuildFile; fileRef = B9A684151F012B2500D350E3 /* BDJSuggestTabController.m */; };
+		B9A684191F012DE100D350E3 /* BDJSuggestTapItem.m in Sources */ = {isa = PBXBuildFile; fileRef = B9A684181F012DE100D350E3 /* BDJSuggestTapItem.m */; };
 		B9BBED6B1F00FD76005945BE /* BDJAdvertisementViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B9BBED691F00FD76005945BE /* BDJAdvertisementViewController.m */; };
 		B9BBED6C1F00FD76005945BE /* BDJAdvertisementViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B9BBED6A1F00FD76005945BE /* BDJAdvertisementViewController.xib */; };
 		B9BBED751F01032C005945BE /* LaunchImage-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B9BBED6E1F01032C005945BE /* LaunchImage-568h@2x.png */; };
@@ -56,6 +58,10 @@
 		B903B05F1F00DB6300255FEF /* BDJNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BDJNavigationController.m; path = ../../Mine/Controller/BDJNavigationController.m; sourceTree = "<group>"; };
 		B9A684111F0116D900D350E3 /* BDJAdItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BDJAdItem.h; sourceTree = "<group>"; };
 		B9A684121F0116D900D350E3 /* BDJAdItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BDJAdItem.m; sourceTree = "<group>"; };
+		B9A684141F012B2500D350E3 /* BDJSuggestTabController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BDJSuggestTabController.h; sourceTree = "<group>"; };
+		B9A684151F012B2500D350E3 /* BDJSuggestTabController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BDJSuggestTabController.m; sourceTree = "<group>"; };
+		B9A684171F012DE100D350E3 /* BDJSuggestTapItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BDJSuggestTapItem.h; sourceTree = "<group>"; };
+		B9A684181F012DE100D350E3 /* BDJSuggestTapItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BDJSuggestTapItem.m; sourceTree = "<group>"; };
 		B9BBED681F00FD76005945BE /* BDJAdvertisementViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BDJAdvertisementViewController.h; sourceTree = "<group>"; };
 		B9BBED691F00FD76005945BE /* BDJAdvertisementViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BDJAdvertisementViewController.m; sourceTree = "<group>"; };
 		B9BBED6A1F00FD76005945BE /* BDJAdvertisementViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BDJAdvertisementViewController.xib; sourceTree = "<group>"; };
@@ -396,6 +402,8 @@
 			children = (
 				B9DE8D6D1EFFD60A00FF2F14 /* BDJNewViewController.h */,
 				B9DE8D6E1EFFD60A00FF2F14 /* BDJNewViewController.m */,
+				B9A684141F012B2500D350E3 /* BDJSuggestTabController.h */,
+				B9A684151F012B2500D350E3 /* BDJSuggestTabController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -403,6 +411,8 @@
 		B9DE8D5A1EFFD59000FF2F14 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				B9A684171F012DE100D350E3 /* BDJSuggestTapItem.h */,
+				B9A684181F012DE100D350E3 /* BDJSuggestTapItem.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -669,10 +679,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B9A684191F012DE100D350E3 /* BDJSuggestTapItem.m in Sources */,
 				B9DE8D791EFFDEA400FF2F14 /* BDJTabBarController.m in Sources */,
 				B9DE8D7D1EFFE34400FF2F14 /* UIImage+Render.m in Sources */,
 				B903B0601F00DB6300255FEF /* BDJNavigationController.m in Sources */,
 				B9DE8D631EFFD59100FF2F14 /* AppDelegate.m in Sources */,
+				B9A684161F012B2500D350E3 /* BDJSuggestTabController.m in Sources */,
 				B9DE8D691EFFD5D500FF2F14 /* BDJFriendTrendViewController.m in Sources */,
 				B9DE8D6C1EFFD5F900FF2F14 /* BDJMineViewController.m in Sources */,
 				B9BBED6B1F00FD76005945BE /* BDJAdvertisementViewController.m in Sources */,
