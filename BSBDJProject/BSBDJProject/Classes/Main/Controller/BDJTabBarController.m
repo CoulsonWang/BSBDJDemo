@@ -12,6 +12,7 @@
 #import "BDJEssenceViewController.h"
 #import "BDJPublishViewController.h"
 #import "BDJFriendTrendViewController.h"
+#import "BDJNavigationController.h"
 #import "BDJTaBbar.h"
 
 @interface BDJTabBarController ()
@@ -41,23 +42,23 @@
 - (void)setUpAllChildViewController {
     //精华
     BDJEssenceViewController *essenceVC = [[BDJEssenceViewController alloc] init];
-    UINavigationController *nav1 = [[UINavigationController alloc] initWithRootViewController:essenceVC];
+    BDJNavigationController *nav1 = [[BDJNavigationController alloc] initWithRootViewController:essenceVC];
     [self addChildViewController:nav1];
     
     //新帖
     BDJNewViewController *newVC = [[BDJNewViewController alloc] init];
-    UINavigationController *nav2 = [[UINavigationController alloc] initWithRootViewController:newVC];
+    BDJNavigationController *nav2 = [[BDJNavigationController alloc] initWithRootViewController:newVC];
     [self addChildViewController:nav2];
     
     
     //关注
     BDJFriendTrendViewController *friendTrendVC = [[BDJFriendTrendViewController alloc] init];
-    UINavigationController *nav4 = [[UINavigationController alloc] initWithRootViewController:friendTrendVC];
+    BDJNavigationController *nav4 = [[BDJNavigationController alloc] initWithRootViewController:friendTrendVC];
     [self addChildViewController:nav4];
     
     //我的
     BDJMineViewController *mineVC = [[BDJMineViewController alloc] init];
-    UINavigationController *nav5 = [[UINavigationController alloc] initWithRootViewController:mineVC];
+    BDJNavigationController *nav5 = [[BDJNavigationController alloc] initWithRootViewController:mineVC];
     [self addChildViewController:nav5];
 }
 

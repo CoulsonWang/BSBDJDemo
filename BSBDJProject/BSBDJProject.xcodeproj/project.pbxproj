@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B903B05D1F00D56100255FEF /* BDJSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B903B05C1F00D56100255FEF /* BDJSettingViewController.m */; };
+		B903B0601F00DB6300255FEF /* BDJNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = B903B05F1F00DB6300255FEF /* BDJNavigationController.m */; };
 		B9DE8D281EFFC05000FF2F14 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B9DE8D271EFFC05000FF2F14 /* main.m */; };
 		B9DE8D331EFFC05000FF2F14 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B9DE8D321EFFC05000FF2F14 /* Assets.xcassets */; };
 		B9DE8D411EFFC05000FF2F14 /* BSBDJProjectUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = B9DE8D401EFFC05000FF2F14 /* BSBDJProjectUITests.m */; };
@@ -34,6 +36,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		B903B05B1F00D56100255FEF /* BDJSettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BDJSettingViewController.h; sourceTree = "<group>"; };
+		B903B05C1F00D56100255FEF /* BDJSettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BDJSettingViewController.m; sourceTree = "<group>"; };
+		B903B05E1F00DB6300255FEF /* BDJNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BDJNavigationController.h; path = ../../Mine/Controller/BDJNavigationController.h; sourceTree = "<group>"; };
+		B903B05F1F00DB6300255FEF /* BDJNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BDJNavigationController.m; path = ../../Mine/Controller/BDJNavigationController.m; sourceTree = "<group>"; };
 		B9DE8D231EFFC05000FF2F14 /* BSBDJProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BSBDJProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B9DE8D271EFFC05000FF2F14 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		B9DE8D321EFFC05000FF2F14 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -84,6 +90,39 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B903B0571F00D53500255FEF /* Setting */ = {
+			isa = PBXGroup;
+			children = (
+				B903B0581F00D53500255FEF /* Controller */,
+				B903B0591F00D53500255FEF /* Model */,
+				B903B05A1F00D53500255FEF /* View */,
+			);
+			path = Setting;
+			sourceTree = "<group>";
+		};
+		B903B0581F00D53500255FEF /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				B903B05B1F00D56100255FEF /* BDJSettingViewController.h */,
+				B903B05C1F00D56100255FEF /* BDJSettingViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		B903B0591F00D53500255FEF /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		B903B05A1F00D53500255FEF /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		B9DE8D1A1EFFC04F00FF2F14 = {
 			isa = PBXGroup;
 			children = (
@@ -139,6 +178,7 @@
 				B9DE8D5F1EFFD59100FF2F14 /* Publish */,
 				B9DE8D501EFFD59000FF2F14 /* FriendTrend */,
 				B9DE8D541EFFD59000FF2F14 /* Mine */,
+				B903B0571F00D53500255FEF /* Setting */,
 				B9DE8D5C1EFFD59000FF2F14 /* Other */,
 			);
 			path = Classes;
@@ -335,6 +375,8 @@
 			children = (
 				B9DE8D771EFFDEA400FF2F14 /* BDJTabBarController.h */,
 				B9DE8D781EFFDEA400FF2F14 /* BDJTabBarController.m */,
+				B903B05E1F00DB6300255FEF /* BDJNavigationController.h */,
+				B903B05F1F00DB6300255FEF /* BDJNavigationController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -471,12 +513,14 @@
 			files = (
 				B9DE8D791EFFDEA400FF2F14 /* BDJTabBarController.m in Sources */,
 				B9DE8D7D1EFFE34400FF2F14 /* UIImage+Render.m in Sources */,
+				B903B0601F00DB6300255FEF /* BDJNavigationController.m in Sources */,
 				B9DE8D631EFFD59100FF2F14 /* AppDelegate.m in Sources */,
 				B9DE8D691EFFD5D500FF2F14 /* BDJFriendTrendViewController.m in Sources */,
 				B9DE8D6C1EFFD5F900FF2F14 /* BDJMineViewController.m in Sources */,
 				B9DE8D721EFFD61E00FF2F14 /* BDJPublishViewController.m in Sources */,
 				B9DE8D281EFFC05000FF2F14 /* main.m in Sources */,
 				B9DE8D871F000E8100FF2F14 /* UIBarButtonItem+CreateItem.m in Sources */,
+				B903B05D1F00D56100255FEF /* BDJSettingViewController.m in Sources */,
 				B9DE8D6F1EFFD60A00FF2F14 /* BDJNewViewController.m in Sources */,
 				B9DE8D801EFFF9CA00FF2F14 /* BDJTaBbar.m in Sources */,
 				B9DE8D661EFFD5C100FF2F14 /* BDJEssenceViewController.m in Sources */,
@@ -664,6 +708,7 @@
 				B9DE8D471EFFC05000FF2F14 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		B9DE8D481EFFC05000FF2F14 /* Build configuration list for PBXNativeTarget "BSBDJProjectUITests" */ = {
 			isa = XCConfigurationList;
@@ -672,6 +717,7 @@
 				B9DE8D4A1EFFC05000FF2F14 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

@@ -1,71 +1,40 @@
 //
-//  BDJMineViewController.m
+//  BDJSettingViewController.m
 //  BSBDJProject
 //
-//  Created by Coulson_Wang on 2017/6/25.
+//  Created by Coulson_Wang on 2017/6/26.
 //  Copyright © 2017年 Coulson_Wang. All rights reserved.
 //
 
-#import "BDJMineViewController.h"
-#import "UIBarButtonItem+CreateItem.h"
 #import "BDJSettingViewController.h"
+#import "UIBarButtonItem+CreateItem.h"
 
-@interface BDJMineViewController ()
+@interface BDJSettingViewController ()
 
 @end
 
-@implementation BDJMineViewController
+@implementation BDJSettingViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    [self setUpNavigationBar];
-}
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
-/**
- 设置导航条
- */
-- (void)setUpNavigationBar {
-    //通过调用分类中的类方法快速创建UIBarButtonItem
-    UIBarButtonItem *nightModeBtn = [UIBarButtonItem itemWithImage:[UIImage imageNamed:@"mine-moon-icon"] highLightImage:[UIImage imageNamed:@"mine-sun-icon-click"] selectedImage:[UIImage imageNamed:@"mine-sun-icon"] target:self action:@selector(nightModeBtnClick:)];
-    UIBarButtonItem *settingBtn = [UIBarButtonItem itemWithImage:[UIImage imageNamed:@"mine-setting-icon"] highLightImage:[UIImage imageNamed:@"mine-setting-icon-click"] target:self action:@selector(settingBtnClick)];
-    
-    self.navigationItem.rightBarButtonItems = @[settingBtn,nightModeBtn];
-    
-    self.navigationItem.title = @"我的";
+    [self setUpNavgationItem];
 }
 
 
 
 /**
- 处理夜间模式按钮点击
+ 设置导航条按钮
  */
-- (void)nightModeBtnClick:(UIButton *)btn {
-    btn.selected = !btn.isSelected;
+- (void)setUpNavgationItem {
+    self.navigationItem.leftBarButtonItem = [UIBarButtonItem backItemWithImage:[UIImage imageNamed:@"navigationButtonReturn"] highLightImage:[UIImage imageNamed:@"navigationButtonReturnClick"] target:self action:@selector(getBack) title:@"返回"];
 }
 
-- (void)settingBtnClick {
-    BDJSettingViewController *settingVC = [[BDJSettingViewController alloc] init];
-    settingVC.hidesBottomBarWhenPushed = YES;
-    [self.navigationController showViewController:settingVC sender:nil];
+- (void)getBack {
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 #pragma mark - Table view data source
-
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-
-    return 0;
-}
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-
-    return 0;
-}
 
 /*
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {

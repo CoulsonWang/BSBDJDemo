@@ -42,11 +42,7 @@
 - (void)setUpNavigationBar {
     //通过调用分类中的类方法快速创建UIBarButtonItem
     self.navigationItem.leftBarButtonItem = [UIBarButtonItem itemWithImage:[UIImage imageNamed:@"friendsRecommentIcon"] highLightImage:nil target:self action:@selector(leftNavBtnClick)];
-    UILabel *titleLable = [[UILabel alloc] init];
-    titleLable.text = @"我的关注";
-    titleLable.font = [UIFont boldSystemFontOfSize:20];
-    [titleLable sizeToFit];
-    self.navigationItem.titleView = titleLable;
+    self.navigationItem.title = @"我的关注";
 }
 
 
