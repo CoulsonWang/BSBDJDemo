@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		812AF978A7B7F97A9EB098F2 /* libPods-BSBDJProject.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B5C8284B75C6907FB091222C /* libPods-BSBDJProject.a */; };
 		B903B05D1F00D56100255FEF /* BDJSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B903B05C1F00D56100255FEF /* BDJSettingViewController.m */; };
 		B903B0601F00DB6300255FEF /* BDJNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = B903B05F1F00DB6300255FEF /* BDJNavigationController.m */; settings = {COMPILER_FLAGS = "-w"; }; };
 		B9BBED6B1F00FD76005945BE /* BDJAdvertisementViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B9BBED691F00FD76005945BE /* BDJAdvertisementViewController.m */; };
@@ -45,6 +46,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		7E262411B7E31B38C6EF1849 /* Pods-BSBDJProject.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BSBDJProject.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BSBDJProject/Pods-BSBDJProject.debug.xcconfig"; sourceTree = "<group>"; };
+		8B60B9430DAA968F690E3CF3 /* Pods-BSBDJProject.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BSBDJProject.release.xcconfig"; path = "Pods/Target Support Files/Pods-BSBDJProject/Pods-BSBDJProject.release.xcconfig"; sourceTree = "<group>"; };
+		B5C8284B75C6907FB091222C /* libPods-BSBDJProject.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-BSBDJProject.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B903B05B1F00D56100255FEF /* BDJSettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BDJSettingViewController.h; sourceTree = "<group>"; };
 		B903B05C1F00D56100255FEF /* BDJSettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BDJSettingViewController.m; sourceTree = "<group>"; };
 		B903B05E1F00DB6300255FEF /* BDJNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BDJNavigationController.h; path = ../../Mine/Controller/BDJNavigationController.h; sourceTree = "<group>"; };
@@ -96,6 +100,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				812AF978A7B7F97A9EB098F2 /* libPods-BSBDJProject.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -109,6 +114,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5EEBDE8FD4D6695A22781A32 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B5C8284B75C6907FB091222C /* libPods-BSBDJProject.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		8417A79102FCF58560B3C0A0 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				7E262411B7E31B38C6EF1849 /* Pods-BSBDJProject.debug.xcconfig */,
+				8B60B9430DAA968F690E3CF3 /* Pods-BSBDJProject.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		B903B0571F00D53500255FEF /* Setting */ = {
 			isa = PBXGroup;
 			children = (
@@ -196,6 +218,8 @@
 				B9DE8D251EFFC05000FF2F14 /* BSBDJProject */,
 				B9DE8D3F1EFFC05000FF2F14 /* BSBDJProjectUITests */,
 				B9DE8D241EFFC05000FF2F14 /* Products */,
+				8417A79102FCF58560B3C0A0 /* Pods */,
+				5EEBDE8FD4D6695A22781A32 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -486,9 +510,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = B9DE8D451EFFC05000FF2F14 /* Build configuration list for PBXNativeTarget "BSBDJProject" */;
 			buildPhases = (
+				A3D4DFAECEE20DFCC56E0360 /* [CP] Check Pods Manifest.lock */,
 				B9DE8D1F1EFFC04F00FF2F14 /* Sources */,
 				B9DE8D201EFFC04F00FF2F14 /* Frameworks */,
 				B9DE8D211EFFC04F00FF2F14 /* Resources */,
+				C2C4A797EDE2D181157EBAE3 /* [CP] Embed Pods Frameworks */,
+				E9BB0B2C7C8DA74A83146E68 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -583,6 +610,54 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		A3D4DFAECEE20DFCC56E0360 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		C2C4A797EDE2D181157EBAE3 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-BSBDJProject/Pods-BSBDJProject-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E9BB0B2C7C8DA74A83146E68 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-BSBDJProject/Pods-BSBDJProject-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		B9DE8D1F1EFFC04F00FF2F14 /* Sources */ = {
@@ -718,6 +793,7 @@
 		};
 		B9DE8D461EFFC05000FF2F14 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7E262411B7E31B38C6EF1849 /* Pods-BSBDJProject.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -734,6 +810,7 @@
 		};
 		B9DE8D471EFFC05000FF2F14 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8B60B9430DAA968F690E3CF3 /* Pods-BSBDJProject.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;

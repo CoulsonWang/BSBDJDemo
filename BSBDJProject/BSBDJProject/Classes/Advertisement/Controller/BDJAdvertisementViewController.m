@@ -45,4 +45,8 @@
     self.launchView.image = launchImage;
 }
 
+- (void)setUpAdView {
+    
+}
+
 @end
