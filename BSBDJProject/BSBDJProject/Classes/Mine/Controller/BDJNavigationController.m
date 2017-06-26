@@ -9,7 +9,7 @@
 #import "BDJNavigationController.h"
 #import "UIBarButtonItem+CreateItem.h"
 
-@interface BDJNavigationController ()
+@interface BDJNavigationController () <UIGestureRecognizerDelegate>
 
 @end
 
@@ -25,21 +25,28 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    
+    self.interactivePopGestureRecognizer.delegate = self;
 }
 
 - (void)pushViewController:(UIViewController *)viewController animated:(BOOL)animated {
+    //如果不是根控制器，则设置左侧导航按钮为返回按钮
     if (self.childViewControllers.count) {
         viewController.navigationItem.leftBarButtonItem = [UIBarButtonItem backItemWithImage:[UIImage imageNamed:@"navigationButtonReturn"] highLightImage:[UIImage imageNamed:@"navigationButtonReturnClick"] target:self action:@selector(getBack) title:@"返回"];
     }
     [super pushViewController:viewController animated:animated];
-    
 }
 
 - (void)getBack {
     [self popViewControllerAnimated:YES];
 }
 
+#pragma mark - UIGestureRecognizerDelegate
+//控制滑动返回操作什么时候触发
+-(BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldReceiveTouch:(UITouch *)touch {
+    //如果非根控制器则触发，根控制器则禁用
+    return self.childViewControllers.count > 1;
+}
 
 
 
