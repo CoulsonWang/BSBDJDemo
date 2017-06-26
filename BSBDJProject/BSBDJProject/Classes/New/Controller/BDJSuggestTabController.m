@@ -19,6 +19,7 @@
 
 #import "BDJSuggestTabController.h"
 #import "BDJSuggestTapItem.h"
+#import "BDJSuggestTagCell.h"
 #import <AFNetworking.h>
 #import <MJExtension.h>
 
@@ -35,7 +36,7 @@ static NSString *const cellID = @"cellID";
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self getData];
-    [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:cellID];
+    [self.tableView registerNib:[UINib nibWithNibName:NSStringFromClass([BDJSuggestTagCell class]) bundle:nil] forCellReuseIdentifier:cellID];
 }
 
 - (void)getData {
@@ -64,12 +65,16 @@ static NSString *const cellID = @"cellID";
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellID forIndexPath:indexPath];
+    BDJSuggestTagCell *cell = [tableView dequeueReusableCellWithIdentifier:cellID forIndexPath:indexPath];
     
     BDJSuggestTapItem *item = self.suggestTagItems[indexPath.row];
-    cell.textLabel.text = item.theme_name;
+    cell.item = item;
     
     return cell;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return 80;
 }
 
 
