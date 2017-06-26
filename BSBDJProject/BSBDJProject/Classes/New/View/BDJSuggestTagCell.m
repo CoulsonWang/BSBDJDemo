@@ -21,7 +21,7 @@
 
 - (void)awakeFromNib {
     [super awakeFromNib];
-    self.iconView.layer.cornerRadius = 30;
+    self.iconView.layer.cornerRadius = self.iconView.YY_width * 0.5;
     self.iconView.layer.masksToBounds = YES;
 }
 
@@ -39,6 +39,7 @@
     [self.iconView sd_setImageWithURL:[NSURL URLWithString:item.image_list] placeholderImage:[UIImage imageNamed:@"defaultUserIcon"]];
 }
 
+//处理“万人”数字
 - (NSString *)getNumberString:(NSString *)originalString {
     NSInteger num = [originalString integerValue];
     NSString *resultString;
@@ -46,6 +47,8 @@
         resultString = [NSString stringWithFormat:@"%@人订阅",originalString];
     } else {
         resultString = [NSString stringWithFormat:@"%.1f万人订阅",num / 10000.0];
+        //如果以.0结尾则删去.0
+        [resultString stringByReplacingOccurrencesOfString:@".0" withString:@""];
     }
     return resultString;
 }
