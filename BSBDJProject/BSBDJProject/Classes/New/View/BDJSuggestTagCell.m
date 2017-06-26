@@ -21,14 +21,16 @@
 
 - (void)awakeFromNib {
     [super awakeFromNib];
-    // Initialization code
+    self.iconView.layer.cornerRadius = 30;
+    self.iconView.layer.masksToBounds = YES;
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
 
-    // Configure the view for the selected state
 }
+
+
 
 - (void)setItem:(BDJSuggestTapItem *)item {
     _item = item;
@@ -46,7 +48,6 @@
         resultString = [NSString stringWithFormat:@"%.1f万人订阅",num / 10000.0];
     }
     return resultString;
-    
 }
 
 @end

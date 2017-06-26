@@ -35,6 +35,7 @@ static NSString *const cellID = @"cellID";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.title = @"推荐标签";
     [self getData];
     [self.tableView registerNib:[UINib nibWithNibName:NSStringFromClass([BDJSuggestTagCell class]) bundle:nil] forCellReuseIdentifier:cellID];
 }
