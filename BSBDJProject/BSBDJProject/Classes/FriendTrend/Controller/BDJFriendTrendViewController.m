@@ -8,6 +8,7 @@
 
 #import "BDJFriendTrendViewController.h"
 #import "UIBarButtonItem+CreateItem.h"
+#import "BDJLoginRegisterViewController.h"
 
 @interface BDJFriendTrendViewController ()
 
@@ -45,6 +46,8 @@
 }
 
 - (IBAction)loginButtonClick:(UIButton *)sender {
+    BDJLoginRegisterViewController *loginVC = [[BDJLoginRegisterViewController alloc] init];
+    [self presentViewController:loginVC animated:YES completion:nil];
 }
 
 

@@ -14,5 +14,7 @@
 @property CGFloat YY_height;
 @property CGFloat YY_x;
 @property CGFloat YY_y;
+@property CGFloat YY_centerX;
+@property CGFloat YY_centerY;
 
 @end
