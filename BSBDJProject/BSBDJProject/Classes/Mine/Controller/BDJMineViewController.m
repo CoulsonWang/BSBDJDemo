@@ -13,7 +13,8 @@
 #import "BDJSquareItem.h"
 #import <AFNetworking.h>
 #import <MJExtension.h>
-#import <SafariServices/SafariServices.h>
+#import "BDJWebViewController.h"
+
 
 static NSString *const cellID = @"cellID";
 static NSInteger const colums = 4;
@@ -136,10 +137,10 @@ static CGFloat const margin = 1;
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     BDJSquareItem *item = self.squareItems[indexPath.item];
     if (![item.url containsString:@"http"]) return;
-    NSURL *url = [NSURL URLWithString:item.url];
-    SFSafariViewController *sfVC = [[SFSafariViewController alloc] initWithURL:url];
     
-    [self presentViewController:sfVC animated:YES completion:nil];
+    BDJWebViewController *webVC = [[BDJWebViewController alloc] init];
+    webVC.url = [NSURL URLWithString:item.url];
+    [self.navigationController showViewController:webVC sender:nil];
 }
 
 

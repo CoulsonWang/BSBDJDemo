@@ -30,6 +30,8 @@
 		B9A684411F0272CF00D350E3 /* BDJSquareCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B9A6843F1F0272CF00D350E3 /* BDJSquareCollectionViewCell.m */; };
 		B9A684421F0272CF00D350E3 /* BDJSquareCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B9A684401F0272CF00D350E3 /* BDJSquareCollectionViewCell.xib */; };
 		B9A684451F0277C000D350E3 /* BDJSquareItem.m in Sources */ = {isa = PBXBuildFile; fileRef = B9A684441F0277C000D350E3 /* BDJSquareItem.m */; };
+		B9A6844C1F028E1300D350E3 /* BDJWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B9A6844A1F028E1300D350E3 /* BDJWebViewController.m */; };
+		B9A6844D1F028E1300D350E3 /* BDJWebViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B9A6844B1F028E1300D350E3 /* BDJWebViewController.xib */; };
 		B9BBED6B1F00FD76005945BE /* BDJAdvertisementViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B9BBED691F00FD76005945BE /* BDJAdvertisementViewController.m */; };
 		B9BBED6C1F00FD76005945BE /* BDJAdvertisementViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B9BBED6A1F00FD76005945BE /* BDJAdvertisementViewController.xib */; };
 		B9BBED751F01032C005945BE /* LaunchImage-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B9BBED6E1F01032C005945BE /* LaunchImage-568h@2x.png */; };
@@ -106,6 +108,9 @@
 		B9A684401F0272CF00D350E3 /* BDJSquareCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BDJSquareCollectionViewCell.xib; sourceTree = "<group>"; };
 		B9A684431F0277C000D350E3 /* BDJSquareItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BDJSquareItem.h; sourceTree = "<group>"; };
 		B9A684441F0277C000D350E3 /* BDJSquareItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BDJSquareItem.m; sourceTree = "<group>"; };
+		B9A684491F028E1300D350E3 /* BDJWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BDJWebViewController.h; sourceTree = "<group>"; };
+		B9A6844A1F028E1300D350E3 /* BDJWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BDJWebViewController.m; sourceTree = "<group>"; };
+		B9A6844B1F028E1300D350E3 /* BDJWebViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BDJWebViewController.xib; sourceTree = "<group>"; };
 		B9BBED681F00FD76005945BE /* BDJAdvertisementViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BDJAdvertisementViewController.h; sourceTree = "<group>"; };
 		B9BBED691F00FD76005945BE /* BDJAdvertisementViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BDJAdvertisementViewController.m; sourceTree = "<group>"; };
 		B9BBED6A1F00FD76005945BE /* BDJAdvertisementViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BDJAdvertisementViewController.xib; sourceTree = "<group>"; };
@@ -428,6 +433,9 @@
 				B9DE8D6A1EFFD5F900FF2F14 /* BDJMineViewController.h */,
 				B9DE8D6B1EFFD5F900FF2F14 /* BDJMineViewController.m */,
 				B9A6843C1F026DB900D350E3 /* BDJMineViewController.storyboard */,
+				B9A684491F028E1300D350E3 /* BDJWebViewController.h */,
+				B9A6844A1F028E1300D350E3 /* BDJWebViewController.m */,
+				B9A6844B1F028E1300D350E3 /* BDJWebViewController.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -677,6 +685,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B9A684281F0221C900D350E3 /* BDJLoginRegisterViewController.xib in Resources */,
+				B9A6844D1F028E1300D350E3 /* BDJWebViewController.xib in Resources */,
 				B9BBED7A1F01032C005945BE /* LaunchImage.png in Resources */,
 				B9BBED7B1F01032C005945BE /* LaunchImage@2x.png in Resources */,
 				B9A6842D1F022FFA00D350E3 /* BDJLogginRegistView.xib in Resources */,
@@ -762,6 +771,7 @@
 				B9A684351F024A3700D350E3 /* BDJQuickLoginButton.m in Sources */,
 				B9DE8D7D1EFFE34400FF2F14 /* UIImage+Render.m in Sources */,
 				B9A684211F01620D00D350E3 /* UIColor+RGB.m in Sources */,
+				B9A6844C1F028E1300D350E3 /* BDJWebViewController.m in Sources */,
 				B9A6843B1F0265BD00D350E3 /* UITextField+Placeholder.m in Sources */,
 				B9A684451F0277C000D350E3 /* BDJSquareItem.m in Sources */,
 				B903B0601F00DB6300255FEF /* BDJNavigationController.m in Sources */,
