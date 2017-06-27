@@ -57,7 +57,8 @@
     [self addChildViewController:nav4];
     
     //我的
-    BDJMineViewController *mineVC = [[BDJMineViewController alloc] init];
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:NSStringFromClass([BDJMineViewController class]) bundle:nil];
+    BDJMineViewController *mineVC = [storyboard instantiateInitialViewController];
     BDJNavigationController *nav5 = [[BDJNavigationController alloc] initWithRootViewController:mineVC];
     [self addChildViewController:nav5];
 }

@@ -9,8 +9,17 @@
 #import "BDJMineViewController.h"
 #import "UIBarButtonItem+CreateItem.h"
 #import "BDJSettingViewController.h"
+#import "BDJSquareCollectionViewCell.h"
+#import "BDJSquareItem.h"
+#import <AFNetworking.h>
+#import <MJExtension.h>
 
-@interface BDJMineViewController ()
+static NSString *const cellID = @"cellID";
+
+@interface BDJMineViewController () <UICollectionViewDataSource>
+
+@property (strong, nonatomic) NSArray *squareItems;
+@property (weak, nonatomic) UICollectionView *collectionView;
 
 @end
 
@@ -20,12 +29,13 @@
     [super viewDidLoad];
     
     [self setUpNavigationBar];
+    
+    [self setUpFootView];
+    
+    [self loadData];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
+
 
 /**
  设置导航条
@@ -40,7 +50,26 @@
     self.navigationItem.title = @"我的";
 }
 
-
+/**
+ 设置底部滑块
+ */
+- (void)setUpFootView {
+    UICollectionViewFlowLayout *flowLayout = [[UICollectionViewFlowLayout alloc] init];
+    NSInteger colums = 4;
+    CGFloat margin = 1;
+    CGFloat itemW = (screenW - (colums - 1)*margin) / colums;
+    CGFloat itemH = itemW * 1.0;
+    flowLayout.itemSize = CGSizeMake(itemW, itemH);
+    flowLayout.minimumLineSpacing = margin;
+    flowLayout.minimumInteritemSpacing = margin;
+    
+    UICollectionView *collectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(0, 0, 0, 1000) collectionViewLayout:flowLayout];
+    self.collectionView = collectionView;
+    collectionView.backgroundColor = self.tableView.backgroundColor;
+    collectionView.dataSource = self;
+    [collectionView registerNib:[UINib nibWithNibName:NSStringFromClass([BDJSquareCollectionViewCell class]) bundle:nil] forCellWithReuseIdentifier:cellID];
+    self.tableView.tableFooterView = collectionView;
+}
 
 /**
  处理夜间模式按钮点击
@@ -49,75 +78,63 @@
     btn.selected = !btn.isSelected;
 }
 
+/**
+ 处理设置按钮点击
+ */
 - (void)settingBtnClick {
     BDJSettingViewController *settingVC = [[BDJSettingViewController alloc] init];
     [self.navigationController showViewController:settingVC sender:nil];
 }
 
-#pragma mark - Table view data source
-
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-
-    return 0;
-}
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-
-    return 0;
-}
-
-/*
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
+/**
+ 发送网络请求
+ */
+- (void)loadData {
+    AFHTTPSessionManager *mgr = [AFHTTPSessionManager manager];
     
-    // Configure the cell...
+    NSDictionary *params = @{
+                             @"a" : @"square",
+                             @"c" : @"topic"
+                             };
+    
+    [mgr GET:@"http://api.budejie.com/api/api_open.php" parameters:params progress:nil success:^(NSURLSessionDataTask * _Nonnull task, NSDictionary *_Nullable responseObject) {
+        NSArray *dictArr = responseObject[@"square_list"];
+        self.squareItems= [BDJSquareItem mj_objectArrayWithKeyValuesArray:dictArr];
+        [self.collectionView reloadData];
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        NSLog(@"%@",error);
+    }];
+}
+
+#pragma mark - UICollectionViewDataSource
+
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
+    return self.squareItems.count;
+}
+
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
+    BDJSquareCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:cellID forIndexPath:indexPath];
+    
+    cell.item = self.squareItems[indexPath.item];
     
     return cell;
 }
-*/
 
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
+
+#pragma mark - UITableViewDelegate
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+    return 10;
 }
-*/
 
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
+- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
+    switch (section) {
+        case 0:
+            return 0.1;
+            break;
+        default:
+            return 10;
+            break;
+    }
 }
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end
