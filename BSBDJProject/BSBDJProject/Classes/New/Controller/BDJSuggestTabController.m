@@ -22,26 +22,42 @@
 #import "BDJSuggestTagCell.h"
 #import <AFNetworking.h>
 #import <MJExtension.h>
+#import <SVProgressHUD.h>
 
 static NSString *const cellID = @"cellID";
 
 @interface BDJSuggestTabController ()
 
 @property (nonatomic, strong) NSArray *suggestTagItems;
+@property (strong, nonatomic) AFHTTPSessionManager *mgr;
 
 @end
 
 @implementation BDJSuggestTabController
 
+#pragma mark - Life Cycle
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"推荐标签";
     [self getData];
     [self.tableView registerNib:[UINib nibWithNibName:NSStringFromClass([BDJSuggestTagCell class]) bundle:nil] forCellReuseIdentifier:cellID];
+    
+    [SVProgressHUD showWithStatus:@"正在加载..."];
 }
 
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    
+    [SVProgressHUD dismiss];
+    //取消掉所有正在进行的网络请求
+    [self.mgr.tasks makeObjectsPerformSelector:@selector(cancel)];
+    
+}
+
+#pragma mark - 请求数据
 - (void)getData {
     AFHTTPSessionManager *mgr = [AFHTTPSessionManager manager];
+    self.mgr = mgr;
     
     NSDictionary *params = @{
                              requestKey_1 : requestParameter_1,
@@ -50,10 +66,12 @@ static NSString *const cellID = @"cellID";
                              };
     
     [mgr GET:urlPrefix parameters:params progress:nil success:^(NSURLSessionDataTask * _Nonnull task, NSArray *_Nullable responseObject) {
+        [SVProgressHUD dismiss];
          self.suggestTagItems = [BDJSuggestTapItem mj_objectArrayWithKeyValuesArray:responseObject];
         [self.tableView reloadData];
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         NSLog(@"%@",error);
+        [SVProgressHUD dismiss];
     }];
 }
 

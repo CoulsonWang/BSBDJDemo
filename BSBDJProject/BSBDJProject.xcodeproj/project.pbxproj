@@ -16,6 +16,7 @@
 		B9A6841D1F0147B500D350E3 /* BDJSuggestTagCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B9A6841B1F0147B500D350E3 /* BDJSuggestTagCell.m */; };
 		B9A6841E1F0147B500D350E3 /* BDJSuggestTagCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B9A6841C1F0147B500D350E3 /* BDJSuggestTagCell.xib */; };
 		B9A684211F01620D00D350E3 /* UIColor+RGB.m in Sources */ = {isa = PBXBuildFile; fileRef = B9A684201F01620D00D350E3 /* UIColor+RGB.m */; };
+		B9A684231F021DBE00D350E3 /* BDJFriendTrendViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B9A684221F021DBE00D350E3 /* BDJFriendTrendViewController.xib */; };
 		B9BBED6B1F00FD76005945BE /* BDJAdvertisementViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B9BBED691F00FD76005945BE /* BDJAdvertisementViewController.m */; };
 		B9BBED6C1F00FD76005945BE /* BDJAdvertisementViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B9BBED6A1F00FD76005945BE /* BDJAdvertisementViewController.xib */; };
 		B9BBED751F01032C005945BE /* LaunchImage-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B9BBED6E1F01032C005945BE /* LaunchImage-568h@2x.png */; };
@@ -70,6 +71,7 @@
 		B9A6841C1F0147B500D350E3 /* BDJSuggestTagCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BDJSuggestTagCell.xib; sourceTree = "<group>"; };
 		B9A6841F1F01620D00D350E3 /* UIColor+RGB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+RGB.h"; sourceTree = "<group>"; };
 		B9A684201F01620D00D350E3 /* UIColor+RGB.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+RGB.m"; sourceTree = "<group>"; };
+		B9A684221F021DBE00D350E3 /* BDJFriendTrendViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BDJFriendTrendViewController.xib; sourceTree = "<group>"; };
 		B9BBED681F00FD76005945BE /* BDJAdvertisementViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BDJAdvertisementViewController.h; sourceTree = "<group>"; };
 		B9BBED691F00FD76005945BE /* BDJAdvertisementViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BDJAdvertisementViewController.m; sourceTree = "<group>"; };
 		B9BBED6A1F00FD76005945BE /* BDJAdvertisementViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BDJAdvertisementViewController.xib; sourceTree = "<group>"; };
@@ -344,6 +346,7 @@
 			children = (
 				B9DE8D671EFFD5D500FF2F14 /* BDJFriendTrendViewController.h */,
 				B9DE8D681EFFD5D500FF2F14 /* BDJFriendTrendViewController.m */,
+				B9A684221F021DBE00D350E3 /* BDJFriendTrendViewController.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -625,6 +628,7 @@
 				B9BBED751F01032C005945BE /* LaunchImage-568h@2x.png in Resources */,
 				B9BBED771F01032C005945BE /* LaunchImage-700@2x.png in Resources */,
 				B9BBED761F01032C005945BE /* LaunchImage-700-568h@2x.png in Resources */,
+				B9A684231F021DBE00D350E3 /* BDJFriendTrendViewController.xib in Resources */,
 				B9BBED6C1F00FD76005945BE /* BDJAdvertisementViewController.xib in Resources */,
 				B9A6841E1F0147B500D350E3 /* BDJSuggestTagCell.xib in Resources */,
 				B9BBED791F01032C005945BE /* LaunchImage-800-Portrait-736h@3x.png in Resources */,
