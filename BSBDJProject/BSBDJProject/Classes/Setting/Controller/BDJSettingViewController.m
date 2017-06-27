@@ -8,11 +8,14 @@
 
 #import "BDJSettingViewController.h"
 #import <SVProgressHUD.h>
+#import "CacheTool.h"
 
 static NSString *const cellID = @"cellID";
 #define cachePath [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) firstObject]
 
 @interface BDJSettingViewController ()
+
+@property (assign, nonatomic) NSInteger totalSize;
 
 @end
 
@@ -22,6 +25,14 @@ static NSString *const cellID = @"cellID";
     [super viewDidLoad];
     
     [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:cellID];
+    
+    [SVProgressHUD showWithStatus:@"正在计算缓存大小"];
+    [CacheTool getFileSize:cachePath completion:^(NSInteger totalSize) {
+        self.totalSize = totalSize;
+        [self.tableView reloadData];
+        [SVProgressHUD dismiss];
+    }];
+    
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
@@ -39,56 +50,22 @@ static NSString *const cellID = @"cellID";
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellID forIndexPath:indexPath];
     
-    NSInteger totalSize = [self getFileSize:cachePath];
-    cell.textLabel.text = [self getSizeString:totalSize];
-    
+    NSString *sizeString = [CacheTool getSizeString:self.totalSize];
+    cell.textLabel.text = [NSString stringWithFormat:@"清理缓存(%@)",sizeString];
     return cell;
 }
 
 //点击时清除缓存
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    NSFileManager *mgr = [NSFileManager defaultManager];
-    NSArray *filepathes = [mgr contentsOfDirectoryAtPath:cachePath error:nil];
-    for (NSString *filepath in filepathes) {
-        NSString *path = [cachePath stringByAppendingPathComponent:filepath];
-        [mgr removeItemAtPath:path error:nil];
-    }
+    
+    [CacheTool removeFileOfDirectory:cachePath];
+    self.totalSize = 0;
     SVProgressHUD.minimumDismissTimeInterval = 2.0;
-    [SVProgressHUD showSuccessWithStatus:@"缓存清理成功"];
+    [SVProgressHUD showSuccessWithStatus:@"缓存已清理"];
     [self.tableView reloadData];
 }
 
-//计算缓存大小
-- (NSInteger)getFileSize:(NSString *)directoryPath {
-    NSFileManager *mgr = [NSFileManager defaultManager];
-    
-    NSArray *pathArray = [mgr subpathsAtPath:directoryPath];
-    NSInteger totalSize = 0;
-    for (NSString *path in pathArray) {
-        NSString *filePath = [directoryPath stringByAppendingPathComponent:path];
-        if ([filePath containsString:@".DS"]) continue;
-        BOOL isDirectory;
-        BOOL isExist = [mgr fileExistsAtPath:filePath isDirectory:&isDirectory];
-        if (isDirectory || !isExist) continue;
-        NSDictionary *attr = [mgr attributesOfItemAtPath:filePath error:nil];
-        NSInteger fileSize = [attr fileSize];
-        totalSize += fileSize;
-    }
-    return totalSize;
-}
 
-//通过缓存Byte计算大小
--(NSString *)getSizeString:(NSInteger)totalSize {
-    NSString *sizeStr;
-    if (totalSize >= 1000 * 1000) {
-        sizeStr = [NSString stringWithFormat:@"%.1fMB",totalSize / 1000.0 / 1000.0];
-    } else if (totalSize >= 1000) {
-        sizeStr = [NSString stringWithFormat:@"%.1fKB",totalSize / 1000.0];
-    } else {
-        sizeStr = [NSString stringWithFormat:@"%ldB",totalSize];
-    }
-    NSString *sizeString = [NSString stringWithFormat:@"清楚缓存(%@)",sizeStr];
-    return sizeString;
-}
+
 
 @end
