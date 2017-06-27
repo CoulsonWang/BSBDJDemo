@@ -7,6 +7,10 @@
 //
 
 #import "BDJSettingViewController.h"
+#import <SVProgressHUD.h>
+
+static NSString *const cellID = @"cellID";
+#define cachePath [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) firstObject]
 
 @interface BDJSettingViewController ()
 
@@ -17,64 +21,74 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:cellID];
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+    [SVProgressHUD dismiss];
 }
 
 
 
 #pragma mark - Table view data source
 
-/*
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return 1;
+}
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellID forIndexPath:indexPath];
     
-    // Configure the cell...
+    NSInteger totalSize = [self getFileSize:cachePath];
+    cell.textLabel.text = [self getSizeString:totalSize];
     
     return cell;
 }
-*/
 
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
+//点击时清除缓存
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    NSFileManager *mgr = [NSFileManager defaultManager];
+    NSArray *filepathes = [mgr contentsOfDirectoryAtPath:cachePath error:nil];
+    for (NSString *filepath in filepathes) {
+        NSString *path = [cachePath stringByAppendingPathComponent:filepath];
+        [mgr removeItemAtPath:path error:nil];
+    }
+    SVProgressHUD.minimumDismissTimeInterval = 2.0;
+    [SVProgressHUD showSuccessWithStatus:@"缓存清理成功"];
+    [self.tableView reloadData];
 }
-*/
 
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
+//计算缓存大小
+- (NSInteger)getFileSize:(NSString *)directoryPath {
+    NSFileManager *mgr = [NSFileManager defaultManager];
+    
+    NSArray *pathArray = [mgr subpathsAtPath:directoryPath];
+    NSInteger totalSize = 0;
+    for (NSString *path in pathArray) {
+        NSString *filePath = [directoryPath stringByAppendingPathComponent:path];
+        if ([filePath containsString:@".DS"]) continue;
+        BOOL isDirectory;
+        BOOL isExist = [mgr fileExistsAtPath:filePath isDirectory:&isDirectory];
+        if (isDirectory || !isExist) continue;
+        NSDictionary *attr = [mgr attributesOfItemAtPath:filePath error:nil];
+        NSInteger fileSize = [attr fileSize];
+        totalSize += fileSize;
+    }
+    return totalSize;
 }
-*/
 
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
+//通过缓存Byte计算大小
+-(NSString *)getSizeString:(NSInteger)totalSize {
+    NSString *sizeStr;
+    if (totalSize >= 1000 * 1000) {
+        sizeStr = [NSString stringWithFormat:@"%.1fMB",totalSize / 1000.0 / 1000.0];
+    } else if (totalSize >= 1000) {
+        sizeStr = [NSString stringWithFormat:@"%.1fKB",totalSize / 1000.0];
+    } else {
+        sizeStr = [NSString stringWithFormat:@"%ldB",totalSize];
+    }
+    NSString *sizeString = [NSString stringWithFormat:@"清楚缓存(%@)",sizeStr];
+    return sizeString;
 }
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end
