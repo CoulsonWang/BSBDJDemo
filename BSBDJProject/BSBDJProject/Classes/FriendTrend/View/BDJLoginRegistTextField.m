@@ -7,6 +7,7 @@
 //
 
 #import "BDJLoginRegistTextField.h"
+#import "UITextField+Placeholder.h"
 
 @implementation BDJLoginRegistTextField
 
@@ -31,12 +32,6 @@
     self.placeholderColor = [UIColor lightGrayColor];
 }
 
-- (void)setPlaceholderColor:(UIColor *)placeholderColor {
-    NSDictionary *attrs = @{
-                            NSForegroundColorAttributeName:placeholderColor
-                            };
-    [self setAttributedPlaceholder:[[NSAttributedString alloc] initWithString:self.placeholder attributes:attrs]];
-}
 
 
 
