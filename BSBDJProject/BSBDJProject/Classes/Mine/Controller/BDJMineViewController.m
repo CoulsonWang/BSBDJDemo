@@ -13,13 +13,14 @@
 #import "BDJSquareItem.h"
 #import <AFNetworking.h>
 #import <MJExtension.h>
+#import <SafariServices/SafariServices.h>
 
 static NSString *const cellID = @"cellID";
 static NSInteger const colums = 4;
 static CGFloat const margin = 1;
 #define itemWH ((screenW - (colums - 1)* margin) / colums)
 
-@interface BDJMineViewController () <UICollectionViewDataSource>
+@interface BDJMineViewController () <UICollectionViewDataSource, UICollectionViewDelegate>
 
 @property (strong, nonatomic) NSArray *squareItems;
 @property (weak, nonatomic) UICollectionView *collectionView;
@@ -36,6 +37,10 @@ static CGFloat const margin = 1;
     [self setUpFootView];
     
     [self loadData];
+    
+    self.tableView.sectionFooterHeight = 10;
+    self.tableView.sectionHeaderHeight = 0;
+    self.tableView.contentInset = UIEdgeInsetsMake(-25, 0, 0, 0);
 }
 
 
@@ -67,6 +72,7 @@ static CGFloat const margin = 1;
     self.collectionView = collectionView;
     collectionView.backgroundColor = self.tableView.backgroundColor;
     collectionView.dataSource = self;
+    collectionView.delegate = self;
     collectionView.scrollEnabled = NO;
     [collectionView registerNib:[UINib nibWithNibName:NSStringFromClass([BDJSquareCollectionViewCell class]) bundle:nil] forCellWithReuseIdentifier:cellID];
     self.tableView.tableFooterView = collectionView;
@@ -125,20 +131,16 @@ static CGFloat const margin = 1;
 }
 
 
-#pragma mark - UITableViewDelegate
-- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
-    return 10;
+#pragma mark - UICollectionViewDelegate
+
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+    BDJSquareItem *item = self.squareItems[indexPath.item];
+    if (![item.url containsString:@"http"]) return;
+    NSURL *url = [NSURL URLWithString:item.url];
+    SFSafariViewController *sfVC = [[SFSafariViewController alloc] initWithURL:url];
+    
+    [self presentViewController:sfVC animated:YES completion:nil];
 }
 
-- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
-    switch (section) {
-        case 0:
-            return 0.1;
-            break;
-        default:
-            return 10;
-            break;
-    }
-}
 
 @end
