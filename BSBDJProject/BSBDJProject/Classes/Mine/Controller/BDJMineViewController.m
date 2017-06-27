@@ -15,6 +15,9 @@
 #import <MJExtension.h>
 
 static NSString *const cellID = @"cellID";
+static NSInteger const colums = 4;
+static CGFloat const margin = 1;
+#define itemWH ((screenW - (colums - 1)* margin) / colums)
 
 @interface BDJMineViewController () <UICollectionViewDataSource>
 
@@ -55,11 +58,8 @@ static NSString *const cellID = @"cellID";
  */
 - (void)setUpFootView {
     UICollectionViewFlowLayout *flowLayout = [[UICollectionViewFlowLayout alloc] init];
-    NSInteger colums = 4;
-    CGFloat margin = 1;
-    CGFloat itemW = (screenW - (colums - 1)*margin) / colums;
-    CGFloat itemH = itemW * 1.0;
-    flowLayout.itemSize = CGSizeMake(itemW, itemH);
+
+    flowLayout.itemSize = CGSizeMake(itemWH, itemWH);
     flowLayout.minimumLineSpacing = margin;
     flowLayout.minimumInteritemSpacing = margin;
     
@@ -67,6 +67,7 @@ static NSString *const cellID = @"cellID";
     self.collectionView = collectionView;
     collectionView.backgroundColor = self.tableView.backgroundColor;
     collectionView.dataSource = self;
+    collectionView.scrollEnabled = NO;
     [collectionView registerNib:[UINib nibWithNibName:NSStringFromClass([BDJSquareCollectionViewCell class]) bundle:nil] forCellWithReuseIdentifier:cellID];
     self.tableView.tableFooterView = collectionView;
 }
@@ -100,6 +101,9 @@ static NSString *const cellID = @"cellID";
     [mgr GET:@"http://api.budejie.com/api/api_open.php" parameters:params progress:nil success:^(NSURLSessionDataTask * _Nonnull task, NSDictionary *_Nullable responseObject) {
         NSArray *dictArr = responseObject[@"square_list"];
         self.squareItems= [BDJSquareItem mj_objectArrayWithKeyValuesArray:dictArr];
+        NSInteger rows = (self.squareItems.count - 1) / colums + 1;
+        self.collectionView.YY_height = rows * itemWH;
+        self.tableView.tableFooterView = self.collectionView;
         [self.collectionView reloadData];
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         NSLog(@"%@",error);
