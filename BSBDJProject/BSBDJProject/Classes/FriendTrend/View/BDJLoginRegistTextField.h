@@ -1,5 +1,5 @@
 //
-//  BDJLogginRegistView.h
+//  BDJLoginRegistTextField.h
 //  BSBDJProject
 //
 //  Created by Coulson_Wang on 2017/6/27.
@@ -8,10 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface BDJLogginRegistView : UIView
+@interface BDJLoginRegistTextField : UITextField
 
-+ (instancetype)loginView;
-
-+ (instancetype)registView;
+@property (strong, nonatomic) UIColor *placeholderColor;
 
 @end

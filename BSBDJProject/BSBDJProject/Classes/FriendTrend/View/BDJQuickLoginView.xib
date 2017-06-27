@@ -46,7 +46,6 @@
                     <rect key="frame" x="276" y="39.333333333333329" width="138" height="110.66666666666667"/>
                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                     <state key="normal" title="新浪微博" image="login_tecent_icon"/>
-                    <state key="highlighted" image="login_tecent_icon_click"/>
                 </button>
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -85,6 +84,5 @@
         <image name="login_sina_icon" width="70" height="70"/>
         <image name="login_sina_icon_click" width="70" height="70"/>
         <image name="login_tecent_icon" width="70" height="70"/>
-        <image name="login_tecent_icon_click" width="70" height="70"/>
     </resources>
 </document>

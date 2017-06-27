@@ -24,6 +24,7 @@
 		B9A684301F02425900D350E3 /* BDJQuickLoginView.m in Sources */ = {isa = PBXBuildFile; fileRef = B9A6842F1F02425900D350E3 /* BDJQuickLoginView.m */; };
 		B9A684321F02426900D350E3 /* BDJQuickLoginView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B9A684311F02426900D350E3 /* BDJQuickLoginView.xib */; };
 		B9A684351F024A3700D350E3 /* BDJQuickLoginButton.m in Sources */ = {isa = PBXBuildFile; fileRef = B9A684341F024A3700D350E3 /* BDJQuickLoginButton.m */; };
+		B9A684381F025DE200D350E3 /* BDJLoginRegistTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = B9A684371F025DE200D350E3 /* BDJLoginRegistTextField.m */; };
 		B9BBED6B1F00FD76005945BE /* BDJAdvertisementViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B9BBED691F00FD76005945BE /* BDJAdvertisementViewController.m */; };
 		B9BBED6C1F00FD76005945BE /* BDJAdvertisementViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B9BBED6A1F00FD76005945BE /* BDJAdvertisementViewController.xib */; };
 		B9BBED751F01032C005945BE /* LaunchImage-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B9BBED6E1F01032C005945BE /* LaunchImage-568h@2x.png */; };
@@ -90,6 +91,8 @@
 		B9A684311F02426900D350E3 /* BDJQuickLoginView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BDJQuickLoginView.xib; sourceTree = "<group>"; };
 		B9A684331F024A3700D350E3 /* BDJQuickLoginButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BDJQuickLoginButton.h; sourceTree = "<group>"; };
 		B9A684341F024A3700D350E3 /* BDJQuickLoginButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BDJQuickLoginButton.m; sourceTree = "<group>"; };
+		B9A684361F025DE200D350E3 /* BDJLoginRegistTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BDJLoginRegistTextField.h; sourceTree = "<group>"; };
+		B9A684371F025DE200D350E3 /* BDJLoginRegistTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BDJLoginRegistTextField.m; sourceTree = "<group>"; };
 		B9BBED681F00FD76005945BE /* BDJAdvertisementViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BDJAdvertisementViewController.h; sourceTree = "<group>"; };
 		B9BBED691F00FD76005945BE /* BDJAdvertisementViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BDJAdvertisementViewController.m; sourceTree = "<group>"; };
 		B9BBED6A1F00FD76005945BE /* BDJAdvertisementViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BDJAdvertisementViewController.xib; sourceTree = "<group>"; };
@@ -390,6 +393,8 @@
 				B9A684311F02426900D350E3 /* BDJQuickLoginView.xib */,
 				B9A684331F024A3700D350E3 /* BDJQuickLoginButton.h */,
 				B9A684341F024A3700D350E3 /* BDJQuickLoginButton.m */,
+				B9A684361F025DE200D350E3 /* BDJLoginRegistTextField.h */,
+				B9A684371F025DE200D350E3 /* BDJLoginRegistTextField.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -744,6 +749,7 @@
 				B9BBED6B1F00FD76005945BE /* BDJAdvertisementViewController.m in Sources */,
 				B9DE8D721EFFD61E00FF2F14 /* BDJPublishViewController.m in Sources */,
 				B9DE8D281EFFC05000FF2F14 /* main.m in Sources */,
+				B9A684381F025DE200D350E3 /* BDJLoginRegistTextField.m in Sources */,
 				B9DE8D871F000E8100FF2F14 /* UIBarButtonItem+CreateItem.m in Sources */,
 				B9A684271F0221C900D350E3 /* BDJLoginRegisterViewController.m in Sources */,
 				B9A684131F0116D900D350E3 /* BDJAdItem.m in Sources */,
