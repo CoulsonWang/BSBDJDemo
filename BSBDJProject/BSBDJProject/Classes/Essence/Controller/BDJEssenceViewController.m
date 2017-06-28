@@ -9,9 +9,16 @@
 #import "BDJEssenceViewController.h"
 #import "UIBarButtonItem+CreateItem.h"
 #import "BDJEssenceTitleButton.h"
+#import "BDJEssenceAllViewController.h"
+#import "BDJEssenceVideoViewController.h"
+#import "BDJEssenceSoundViewController.h"
+#import "BDJEssencePhotoViewController.h"
+#import "BDJEssenceCrossTalkViewController.h"
 
+#define titles @[@"全部",@"视频",@"声音",@"图片",@"段子"]
+#define titleCount titles.count
 
-@interface BDJEssenceViewController ()
+@interface BDJEssenceViewController () <UIScrollViewDelegate>
 
 @property (weak, nonatomic) UIView *titlesView;
 @property (weak, nonatomic) UIScrollView *scrollView;
@@ -25,6 +32,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    [self setUpAllChildViewController];
+    
     [self setUpNavigationBar];
     
     [self setUpScrollView];
@@ -33,7 +42,7 @@
     
 }
 
-
+#pragma mark - 初始化设置
 /**
  设置导航条
  */
@@ -44,7 +53,13 @@
     self.navigationItem.titleView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"MainTitle"]];
 }
 
-
+- (void)setUpAllChildViewController {
+    [self addChildViewController:[[BDJEssenceAllViewController alloc] init]];
+    [self addChildViewController:[[BDJEssenceVideoViewController alloc] init]];
+    [self addChildViewController:[[BDJEssenceSoundViewController alloc] init]];
+    [self addChildViewController:[[BDJEssencePhotoViewController alloc] init]];
+    [self addChildViewController:[[BDJEssenceCrossTalkViewController alloc] init]];
+}
 
 /**
  设置主滚动视图
@@ -54,6 +69,18 @@
     scrollView.backgroundColor = [UIColor whiteColor];
     [self.view addSubview:scrollView];
     self.scrollView = scrollView;
+    scrollView.delegate = self;
+    
+    for (int i = 0; i < self.childViewControllers.count; i++) {
+        UIViewController *childVC = self.childViewControllers[i];
+        UIView *childView = childVC.view;
+        childView.YY_x = i * scrollView.YY_width;
+        [scrollView addSubview:childView];
+    }
+    scrollView.contentSize = CGSizeMake(self.childViewControllers.count * scrollView.YY_width, 0);
+    scrollView.showsHorizontalScrollIndicator = NO;
+    scrollView.pagingEnabled = YES;
+    scrollView.bounces = NO;
 }
 
 /**
@@ -73,8 +100,6 @@
  设置标题按钮
  */
 - (void)setUpTitleButtons {
-    NSArray *titles = @[@"全部",@"视频",@"声音",@"图片",@"段子"];
-    NSUInteger titleCount = titles.count;
     
     CGFloat titleWidth = self.titlesView.YY_width / titleCount;
     CGFloat titleHeight = self.titlesView.YY_height;
@@ -87,24 +112,6 @@
         
         [titleButton addTarget:self action:@selector(titleButtonClick:) forControlEvents:UIControlEventTouchUpInside];
     }
-}
-
-/**
- 处理标题按钮点击
- */
-- (void)titleButtonClick:(BDJEssenceTitleButton *)btn {
-    self.selectedTitleButton.selected = NO;
-    btn.selected = YES;
-    self.selectedTitleButton = btn;
-    
-    //计算文字宽度
-    CGFloat titleWidth = btn.titleLabel.YY_width;
-    
-    //更新下划线的宽度，并移动下划线
-    [UIView animateWithDuration:0.2 animations:^{
-        self.titleUnderlineView.YY_width = titleWidth;
-        self.titleUnderlineView.YY_centerX = btn.YY_centerX;
-    }];
 }
 
 
@@ -128,10 +135,32 @@
     firstTitleBtn.selected = YES;
     self.selectedTitleButton = firstTitleBtn;
     [firstTitleBtn.titleLabel sizeToFit];
-    CGFloat titleWidth = firstTitleBtn.titleLabel.YY_width;
+    CGFloat titleWidth = firstTitleBtn.titleLabel.YY_width + 10;
     self.titleUnderlineView.YY_width = titleWidth;
     self.titleUnderlineView.YY_centerX = firstTitleBtn.YY_centerX;
 }
+
+
+#pragma mark - 响应事件
+/**
+ 处理标题按钮点击
+ */
+- (void)titleButtonClick:(BDJEssenceTitleButton *)btn {
+    self.selectedTitleButton.selected = NO;
+    btn.selected = YES;
+    self.selectedTitleButton = btn;
+    
+    //计算文字宽度
+    CGFloat titleWidth = btn.titleLabel.YY_width;
+    
+    //更新下划线的宽度，并移动下划线
+    [UIView animateWithDuration:0.2 animations:^{
+        self.titleUnderlineView.YY_width = titleWidth + 10;
+        self.titleUnderlineView.YY_centerX = btn.YY_centerX;
+    }];
+}
+
+
 
 /**
  处理左侧导航条按钮点击事件
@@ -145,5 +174,7 @@
 - (void)rightNavBtnClick {
 
 }
+
+#pragma mark - UIScrollViewDelegate
 
 @end

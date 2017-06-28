@@ -34,6 +34,12 @@
 		B9A6844D1F028E1300D350E3 /* BDJWebViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B9A6844B1F028E1300D350E3 /* BDJWebViewController.xib */; };
 		B9A684521F02A77D00D350E3 /* CacheTool.m in Sources */ = {isa = PBXBuildFile; fileRef = B9A684511F02A77D00D350E3 /* CacheTool.m */; };
 		B9A684551F037F7C00D350E3 /* BDJEssenceTitleButton.m in Sources */ = {isa = PBXBuildFile; fileRef = B9A684541F037F7C00D350E3 /* BDJEssenceTitleButton.m */; };
+		B9A684591F039C1D00D350E3 /* BDJEssenceBaseTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B9A684581F039C1D00D350E3 /* BDJEssenceBaseTableViewController.m */; };
+		B9A6845C1F039C3200D350E3 /* BDJEssenceAllViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B9A6845B1F039C3200D350E3 /* BDJEssenceAllViewController.m */; };
+		B9A6845F1F039C5B00D350E3 /* BDJEssenceVideoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B9A6845E1F039C5B00D350E3 /* BDJEssenceVideoViewController.m */; };
+		B9A684621F039C7200D350E3 /* BDJEssenceSoundViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B9A684611F039C7200D350E3 /* BDJEssenceSoundViewController.m */; };
+		B9A684651F039C7F00D350E3 /* BDJEssencePhotoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B9A684641F039C7F00D350E3 /* BDJEssencePhotoViewController.m */; };
+		B9A684681F039CC500D350E3 /* BDJEssenceCrossTalkViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B9A684671F039CC500D350E3 /* BDJEssenceCrossTalkViewController.m */; };
 		B9BBED6B1F00FD76005945BE /* BDJAdvertisementViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B9BBED691F00FD76005945BE /* BDJAdvertisementViewController.m */; };
 		B9BBED6C1F00FD76005945BE /* BDJAdvertisementViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B9BBED6A1F00FD76005945BE /* BDJAdvertisementViewController.xib */; };
 		B9BBED751F01032C005945BE /* LaunchImage-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B9BBED6E1F01032C005945BE /* LaunchImage-568h@2x.png */; };
@@ -117,6 +123,18 @@
 		B9A684511F02A77D00D350E3 /* CacheTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CacheTool.m; sourceTree = "<group>"; };
 		B9A684531F037F7C00D350E3 /* BDJEssenceTitleButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BDJEssenceTitleButton.h; sourceTree = "<group>"; };
 		B9A684541F037F7C00D350E3 /* BDJEssenceTitleButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BDJEssenceTitleButton.m; sourceTree = "<group>"; };
+		B9A684571F039C1D00D350E3 /* BDJEssenceBaseTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BDJEssenceBaseTableViewController.h; sourceTree = "<group>"; };
+		B9A684581F039C1D00D350E3 /* BDJEssenceBaseTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BDJEssenceBaseTableViewController.m; sourceTree = "<group>"; };
+		B9A6845A1F039C3200D350E3 /* BDJEssenceAllViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BDJEssenceAllViewController.h; sourceTree = "<group>"; };
+		B9A6845B1F039C3200D350E3 /* BDJEssenceAllViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BDJEssenceAllViewController.m; sourceTree = "<group>"; };
+		B9A6845D1F039C5B00D350E3 /* BDJEssenceVideoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BDJEssenceVideoViewController.h; sourceTree = "<group>"; };
+		B9A6845E1F039C5B00D350E3 /* BDJEssenceVideoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BDJEssenceVideoViewController.m; sourceTree = "<group>"; };
+		B9A684601F039C7200D350E3 /* BDJEssenceSoundViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BDJEssenceSoundViewController.h; sourceTree = "<group>"; };
+		B9A684611F039C7200D350E3 /* BDJEssenceSoundViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BDJEssenceSoundViewController.m; sourceTree = "<group>"; };
+		B9A684631F039C7F00D350E3 /* BDJEssencePhotoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BDJEssencePhotoViewController.h; sourceTree = "<group>"; };
+		B9A684641F039C7F00D350E3 /* BDJEssencePhotoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BDJEssencePhotoViewController.m; sourceTree = "<group>"; };
+		B9A684661F039CC500D350E3 /* BDJEssenceCrossTalkViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BDJEssenceCrossTalkViewController.h; sourceTree = "<group>"; };
+		B9A684671F039CC500D350E3 /* BDJEssenceCrossTalkViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BDJEssenceCrossTalkViewController.m; sourceTree = "<group>"; };
 		B9BBED681F00FD76005945BE /* BDJAdvertisementViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BDJAdvertisementViewController.h; sourceTree = "<group>"; };
 		B9BBED691F00FD76005945BE /* BDJAdvertisementViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BDJAdvertisementViewController.m; sourceTree = "<group>"; };
 		B9BBED6A1F00FD76005945BE /* BDJAdvertisementViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BDJAdvertisementViewController.xib; sourceTree = "<group>"; };
@@ -244,6 +262,25 @@
 				B9A684511F02A77D00D350E3 /* CacheTool.m */,
 			);
 			path = Cache;
+			sourceTree = "<group>";
+		};
+		B9A684561F039C0400D350E3 /* TableViews */ = {
+			isa = PBXGroup;
+			children = (
+				B9A684571F039C1D00D350E3 /* BDJEssenceBaseTableViewController.h */,
+				B9A684581F039C1D00D350E3 /* BDJEssenceBaseTableViewController.m */,
+				B9A6845A1F039C3200D350E3 /* BDJEssenceAllViewController.h */,
+				B9A6845B1F039C3200D350E3 /* BDJEssenceAllViewController.m */,
+				B9A6845D1F039C5B00D350E3 /* BDJEssenceVideoViewController.h */,
+				B9A6845E1F039C5B00D350E3 /* BDJEssenceVideoViewController.m */,
+				B9A684601F039C7200D350E3 /* BDJEssenceSoundViewController.h */,
+				B9A684611F039C7200D350E3 /* BDJEssenceSoundViewController.m */,
+				B9A684631F039C7F00D350E3 /* BDJEssencePhotoViewController.h */,
+				B9A684641F039C7F00D350E3 /* BDJEssencePhotoViewController.m */,
+				B9A684661F039CC500D350E3 /* BDJEssenceCrossTalkViewController.h */,
+				B9A684671F039CC500D350E3 /* BDJEssenceCrossTalkViewController.m */,
+			);
+			path = TableViews;
 			sourceTree = "<group>";
 		};
 		B9BBED641F00FD21005945BE /* Advertisement */ = {
@@ -374,6 +411,7 @@
 		B9DE8D4D1EFFD59000FF2F14 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				B9A684561F039C0400D350E3 /* TableViews */,
 				B9DE8D641EFFD5C100FF2F14 /* BDJEssenceViewController.h */,
 				B9DE8D651EFFD5C100FF2F14 /* BDJEssenceViewController.m */,
 			);
@@ -799,15 +837,19 @@
 				B9DE8D7D1EFFE34400FF2F14 /* UIImage+Render.m in Sources */,
 				B9A684211F01620D00D350E3 /* UIColor+RGB.m in Sources */,
 				B9A684551F037F7C00D350E3 /* BDJEssenceTitleButton.m in Sources */,
+				B9A684591F039C1D00D350E3 /* BDJEssenceBaseTableViewController.m in Sources */,
 				B9A6844C1F028E1300D350E3 /* BDJWebViewController.m in Sources */,
 				B9A6843B1F0265BD00D350E3 /* UITextField+Placeholder.m in Sources */,
+				B9A684651F039C7F00D350E3 /* BDJEssencePhotoViewController.m in Sources */,
 				B9A684451F0277C000D350E3 /* BDJSquareItem.m in Sources */,
+				B9A6845F1F039C5B00D350E3 /* BDJEssenceVideoViewController.m in Sources */,
 				B903B0601F00DB6300255FEF /* BDJNavigationController.m in Sources */,
 				B9DE8D631EFFD59100FF2F14 /* AppDelegate.m in Sources */,
 				B9A684521F02A77D00D350E3 /* CacheTool.m in Sources */,
 				B9A684301F02425900D350E3 /* BDJQuickLoginView.m in Sources */,
 				B9A6841D1F0147B500D350E3 /* BDJSuggestTagCell.m in Sources */,
 				B9A684161F012B2500D350E3 /* BDJSuggestTabController.m in Sources */,
+				B9A6845C1F039C3200D350E3 /* BDJEssenceAllViewController.m in Sources */,
 				B9DE8D691EFFD5D500FF2F14 /* BDJFriendTrendViewController.m in Sources */,
 				B9DE8D6C1EFFD5F900FF2F14 /* BDJMineViewController.m in Sources */,
 				B9BBED6B1F00FD76005945BE /* BDJAdvertisementViewController.m in Sources */,
@@ -821,8 +863,10 @@
 				B903B05D1F00D56100255FEF /* BDJSettingViewController.m in Sources */,
 				B9DE8D6F1EFFD60A00FF2F14 /* BDJNewViewController.m in Sources */,
 				B9DE8D801EFFF9CA00FF2F14 /* BDJTaBbar.m in Sources */,
+				B9A684681F039CC500D350E3 /* BDJEssenceCrossTalkViewController.m in Sources */,
 				B9DE8D661EFFD5C100FF2F14 /* BDJEssenceViewController.m in Sources */,
 				B9DE8D831F0005CD00FF2F14 /* UIView+Frame.m in Sources */,
+				B9A684621F039C7200D350E3 /* BDJEssenceSoundViewController.m in Sources */,
 				B9A6842B1F022FE900D350E3 /* BDJLogginRegistView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
