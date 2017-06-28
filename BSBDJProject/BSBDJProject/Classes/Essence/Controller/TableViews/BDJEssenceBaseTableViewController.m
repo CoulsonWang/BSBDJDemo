@@ -22,6 +22,8 @@
     self.tableView.contentInset = UIEdgeInsetsMake(topInset, 0, bottomInset, 0);
     
     self.tableView.scrollsToTop = NO;
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(tabBarButtonDidRepeatClick) name:BDJTabBarButtonDidRepeatClickNotification object:nil];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -37,6 +39,19 @@
     cell.textLabel.text = [NSString stringWithFormat:@"%@-%ld",NSStringFromClass([tableView class]),indexPath.row];
     
     return cell;
+}
+
+- (void)tabBarButtonDidRepeatClick {
+    //如果重复点击的不是精华按钮，则不处理
+    if (self.view.window == nil) return;
+    
+    //如果当前tableView不在视图上，则不处理
+    if (self.tableView.scrollsToTop == NO) return;
+    
+    [self refreshView];
+}
+- (void)refreshView {
+    //子类重写该方法来刷新界面
 }
 
 

@@ -10,4 +10,6 @@
 
 @interface BDJEssenceBaseTableViewController : UITableViewController
 
+- (void)refreshView;
+
 @end
