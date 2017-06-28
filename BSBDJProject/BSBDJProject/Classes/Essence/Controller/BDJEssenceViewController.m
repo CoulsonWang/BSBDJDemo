@@ -24,6 +24,7 @@
 @property (weak, nonatomic) UIScrollView *scrollView;
 @property (weak, nonatomic) BDJEssenceTitleButton *selectedTitleButton;
 @property (weak, nonatomic) UIView *titleUnderlineView;
+@property (weak, nonatomic) UITableView *onScreenTableView;
 
 @end
 
@@ -40,7 +41,7 @@
     
     [self setUpTitlesView];
     
-    [self addChildViewControllerView:0];
+    [self setUpFirstTableView];
 }
 
 #pragma mark - 初始化设置
@@ -79,12 +80,21 @@
     scrollView.pagingEnabled = YES;
     scrollView.bounces = NO;
     scrollView.delegate = self;
+    scrollView.scrollsToTop = NO;
     
     [self.view addSubview:scrollView];
     self.scrollView = scrollView;
+}
 
-
-
+/**
+ 初始化第一个tableView
+ */
+- (void)setUpFirstTableView {
+    [self addChildViewControllerView:0];
+    
+    UITableView *firstView = (UITableView *)self.childViewControllers[0].view;
+    firstView.scrollsToTop = YES;
+    self.onScreenTableView = firstView;
 }
 
 /**
@@ -167,14 +177,32 @@
         self.scrollView.contentOffset = CGPointMake(index * self.scrollView.YY_width, self.scrollView.contentOffset.y);
     } completion:^(BOOL finished) {
         [self addChildViewControllerView:index];
+        [self changeTableViewStatue:index];
     }];
 }
 
+/**
+ 添加子控制器视图
+
+ @param childControllerIndex 控制器索引
+ */
 - (void)addChildViewControllerView:(NSInteger)childControllerIndex {
     UITableView *childView = (UITableView *)self.childViewControllers[childControllerIndex].view;
     if (childView.superview) return;
     childView.frame = CGRectMake(childControllerIndex * self.scrollView.YY_width, 0, self.scrollView.YY_width, self.scrollView.YY_height);
     [self.scrollView addSubview:childView];
+}
+
+/**
+ 修改tableView是否可通过点击状态栏滚动到顶部
+
+ @param index 控制器索引
+ */
+- (void)changeTableViewStatue:(NSInteger)index {
+    UITableView *childView = (UITableView *)self.childViewControllers[index].view;
+    self.onScreenTableView.scrollsToTop = NO;
+    childView.scrollsToTop = YES;
+    self.onScreenTableView = childView;
 }
 
 /**

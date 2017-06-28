@@ -20,8 +20,24 @@
     CGFloat topInset = NavigationBarHeight + TitleHeight;
     CGFloat bottomInset = TabBarHeight;
     self.tableView.contentInset = UIEdgeInsetsMake(topInset, 0, bottomInset, 0);
+    
+    self.tableView.scrollsToTop = NO;
 }
 
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return 30;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cellID"];
+    if (!cell) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cellID"];
+    }
+    
+    cell.textLabel.text = [NSString stringWithFormat:@"%@-%ld",NSStringFromClass([tableView class]),indexPath.row];
+    
+    return cell;
+}
 
 
 @end
