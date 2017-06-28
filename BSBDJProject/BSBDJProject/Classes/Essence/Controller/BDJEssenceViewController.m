@@ -172,6 +172,7 @@
 
 - (void)addChildViewControllerView:(NSInteger)childControllerIndex {
     UITableView *childView = (UITableView *)self.childViewControllers[childControllerIndex].view;
+    if (childView.superview) return;
     childView.frame = CGRectMake(childControllerIndex * self.scrollView.YY_width, 0, self.scrollView.YY_width, self.scrollView.YY_height);
     [self.scrollView addSubview:childView];
 }
