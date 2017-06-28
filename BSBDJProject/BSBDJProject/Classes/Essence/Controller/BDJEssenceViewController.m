@@ -90,6 +90,7 @@
     for (int i = 0; i < self.childViewControllers.count; i++) {
         UITableView *childView = (UITableView *)self.childViewControllers[i].view;
         childView.frame = CGRectMake(i * scrollViewWidth, 0, scrollViewWidth, scrollViewHeight);
+        childView.backgroundColor = RandomColor;
         [scrollView addSubview:childView];
     }
 
@@ -120,6 +121,7 @@
         BDJEssenceTitleButton *titleButton = [BDJEssenceTitleButton buttonWithType:UIButtonTypeCustom];
         [self.titlesView addSubview:titleButton];
         titleButton.frame = CGRectMake(i * titleWidth, 0, titleWidth, titleHeight);
+        titleButton.tag = i;
         [titleButton setTitle:titles[i] forState:UIControlStateNormal];
         
         [titleButton addTarget:self action:@selector(titleButtonClick:) forControlEvents:UIControlEventTouchUpInside];
@@ -164,12 +166,16 @@
     
     //计算文字宽度
     CGFloat titleWidth = btn.titleLabel.YY_width;
-    
+    NSInteger index = btn.tag;
     //更新下划线的宽度，并移动下划线
     [UIView animateWithDuration:0.2 animations:^{
         self.titleUnderlineView.YY_width = titleWidth + 10;
         self.titleUnderlineView.YY_centerX = btn.YY_centerX;
+        
+        self.scrollView.contentOffset = CGPointMake(index * self.scrollView.YY_width, self.scrollView.contentOffset.y);
     }];
+    
+    
 }
 
 
@@ -188,5 +194,13 @@
 }
 
 #pragma mark - UIScrollViewDelegate
+
+- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
+    CGFloat x = scrollView.contentOffset.x;
+    NSInteger index = x / self.scrollView.YY_width;
+    BDJEssenceTitleButton *button = self.titlesView.subviews[index];
+    [self titleButtonClick:button];
+}
+
 
 @end

@@ -18,3 +18,7 @@
 #define iPhone5 screenH == 568
 #define iPhone4 screenH == 480
 
+#define RandomColor [UIColor colorWithRed:arc4random_uniform(256)/255.0 green:arc4random_uniform(256)/255.0 blue:arc4random_uniform(256)/255.0 alpha:1.0]
+
+
+
