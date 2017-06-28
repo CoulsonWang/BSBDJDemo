@@ -75,7 +75,7 @@
 - (void)tabBarButtonClick:(UIControl *)tabBarButton {
     if (self.lastClickTabBarButton == tabBarButton) {
         //发布通知
-        [[NSNotificationCenter defaultCenter] postNotificationName:BDJTabBarButtonDidRepeatClickNotification object:nil userInfo:@{}];
+        [[NSNotificationCenter defaultCenter] postNotificationName:BDJTabBarButtonDidRepeatClickNotification object:nil];
     }
     self.lastClickTabBarButton = tabBarButton;
 }

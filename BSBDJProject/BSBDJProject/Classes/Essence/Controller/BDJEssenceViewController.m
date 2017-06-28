@@ -161,6 +161,10 @@
  处理标题按钮点击
  */
 - (void)titleButtonClick:(BDJEssenceTitleButton *)btn {
+    if (self.selectedTitleButton == btn) {
+        [[NSNotificationCenter defaultCenter] postNotificationName:BDJTitleButtonDidRepeatClickNotification object:nil];
+    }
+    
     self.selectedTitleButton.selected = NO;
     btn.selected = YES;
     self.selectedTitleButton = btn;

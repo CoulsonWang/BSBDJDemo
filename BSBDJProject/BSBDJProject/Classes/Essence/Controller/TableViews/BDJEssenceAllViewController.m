@@ -19,9 +19,7 @@
     // Do any additional setup after loading the view.
 }
 
-- (void)refreshView {
-    NSLog(@"%s,%d",__func__,__LINE__);
-}
+
 
 
 @end

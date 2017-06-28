@@ -24,6 +24,11 @@
     self.tableView.scrollsToTop = NO;
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(tabBarButtonDidRepeatClick) name:BDJTabBarButtonDidRepeatClickNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(titleButtonDidRepeatClcik) name:BDJTitleButtonDidRepeatClickNotification object:nil];
+}
+
+- (void)dealloc {
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -41,6 +46,9 @@
     return cell;
 }
 
+/**
+ 处理tabBar按钮被重复点击
+ */
 - (void)tabBarButtonDidRepeatClick {
     //如果重复点击的不是精华按钮，则不处理
     if (self.view.window == nil) return;
@@ -50,8 +58,23 @@
     
     [self refreshView];
 }
+
+/**
+ 处理标题按钮被重复点击
+ */
+- (void)titleButtonDidRepeatClcik {
+    //如果当前tableView不在视图上，则不处理
+    if (self.tableView.scrollsToTop == NO) return;
+    
+    [self refreshView];
+}
+
+/**
+ 刷新界面
+ */
 - (void)refreshView {
     //子类重写该方法来刷新界面
+    NSLog(@"%s,%d",__func__,__LINE__);
 }
 
 

@@ -8,3 +8,5 @@ CGFloat const NavigationBarHeight = 64;
 CGFloat const TitleHeight = 44;
 
 NSNotificationName const BDJTabBarButtonDidRepeatClickNotification = @"BDJTabBarButtonDidRepeatClickNotification";
+
+NSNotificationName const BDJTitleButtonDidRepeatClickNotification = @"BDJTitleButtonDidRepeatClickNotification";
