@@ -231,7 +231,7 @@
 				B9A6844F1F02A75100D350E3 /* Cache */,
 			);
 			name = Tool;
-			path = Classes/Tool;
+			path = ../Tool;
 			sourceTree = "<group>";
 		};
 		B9A6844F1F02A75100D350E3 /* Cache */ = {
@@ -317,7 +317,6 @@
 			isa = PBXGroup;
 			children = (
 				B9DE8D4B1EFFD59000FF2F14 /* Classes */,
-				B9A6844E1F02A75100D350E3 /* Tool */,
 				B9DE8D321EFFC05000FF2F14 /* Assets.xcassets */,
 				B9DE8D371EFFC05000FF2F14 /* Info.plist */,
 				B9DE8D261EFFC05000FF2F14 /* Supporting Files */,
@@ -524,6 +523,7 @@
 		B9DE8D5C1EFFD59000FF2F14 /* Other */ = {
 			isa = PBXGroup;
 			children = (
+				B9A6844E1F02A75100D350E3 /* Tool */,
 				B9DE8D7A1EFFE2D700FF2F14 /* Category */,
 				B9DE8D5D1EFFD59000FF2F14 /* AppDelegate.h */,
 				B9DE8D5E1EFFD59100FF2F14 /* AppDelegate.m */,

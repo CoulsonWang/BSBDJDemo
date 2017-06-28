@@ -20,12 +20,11 @@
     
     [self setUpNavigationBar];
     
+    [self setUpScrollView];
+    
+    [self setUpTitlesView];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
 
 
 /**
@@ -40,13 +39,27 @@
 
 
 
+- (void)setUpScrollView {
+    UIScrollView *scrollView = [[UIScrollView alloc] initWithFrame:self.view.bounds];
+    scrollView.backgroundColor = [UIColor redColor];
+    [self.view addSubview:scrollView];
+}
+
+- (void)setUpTitlesView {
+    UIView *titlesView = [[UIView alloc] initWithFrame:CGRectMake(0, 64, self.view.YY_width, 44)];
+    titlesView.backgroundColor = [[UIColor whiteColor] colorWithAlphaComponent:0.5];
+    [self.view addSubview:titlesView];
+}
+
 /**
  处理左侧导航条按钮点击事件
  */
 - (void)leftNavBtnClick {
 
 }
-
+/**
+ 处理右侧导航条按钮点击事件
+ */
 - (void)rightNavBtnClick {
 
 }
