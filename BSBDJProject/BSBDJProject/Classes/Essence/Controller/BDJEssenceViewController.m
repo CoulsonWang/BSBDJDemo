@@ -65,29 +65,41 @@
  设置主滚动视图
  */
 - (void)setUpScrollView {
-    UIScrollView *scrollView = [[UIScrollView alloc] initWithFrame:self.view.bounds];
-    scrollView.backgroundColor = [UIColor whiteColor];
-    [self.view addSubview:scrollView];
-    self.scrollView = scrollView;
-    scrollView.delegate = self;
+    self.automaticallyAdjustsScrollViewInsets = NO;
     
-    for (int i = 0; i < self.childViewControllers.count; i++) {
-        UIViewController *childVC = self.childViewControllers[i];
-        UIView *childView = childVC.view;
-        childView.YY_x = i * scrollView.YY_width;
-        [scrollView addSubview:childView];
-    }
-    scrollView.contentSize = CGSizeMake(self.childViewControllers.count * scrollView.YY_width, 0);
+    UIScrollView *scrollView = [[UIScrollView alloc] initWithFrame:self.view.bounds];
+    
+    CGFloat scrollViewWidth = scrollView.YY_width;
+    CGFloat scrollViewHeight = scrollView.YY_height;
+    
+    scrollView.backgroundColor = [UIColor whiteColor];
+    scrollView.contentSize = CGSizeMake(self.childViewControllers.count * scrollViewWidth, 0);
     scrollView.showsHorizontalScrollIndicator = NO;
+    scrollView.showsVerticalScrollIndicator = NO;
     scrollView.pagingEnabled = YES;
     scrollView.bounces = NO;
+    scrollView.delegate = self;
+    
+    [self.view addSubview:scrollView];
+    self.scrollView = scrollView;
+
+    //添加子视图tableview
+//    CGFloat topInset = self.navigationController.navigationBar.YY_height + self.titlesView.YY_height;
+//    CGFloat bottomInset = self.tabBarController.tabBar.YY_height;
+
+    for (int i = 0; i < self.childViewControllers.count; i++) {
+        UITableView *childView = (UITableView *)self.childViewControllers[i].view;
+        childView.frame = CGRectMake(i * scrollViewWidth, 0, scrollViewWidth, scrollViewHeight);
+        [scrollView addSubview:childView];
+    }
+
 }
 
 /**
  设置标题视图
  */
 - (void)setUpTitlesView {
-    UIView *titlesView = [[UIView alloc] initWithFrame:CGRectMake(0, 64, self.view.YY_width, 44)];
+    UIView *titlesView = [[UIView alloc] initWithFrame:CGRectMake(0, 64, self.view.YY_width, TitleHeight)];
     titlesView.backgroundColor = [[UIColor whiteColor] colorWithAlphaComponent:0.5];
     [self.view addSubview:titlesView];
     self.titlesView = titlesView;

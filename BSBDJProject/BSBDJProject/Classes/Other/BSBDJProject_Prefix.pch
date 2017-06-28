@@ -8,6 +8,7 @@
 
 #import "UIView+Frame.h"
 #import "UIImage+Render.h"
+#import "BDJConst.h"
 
 #define screenW [UIScreen mainScreen].bounds.size.width
 #define screenH [UIScreen mainScreen].bounds.size.height

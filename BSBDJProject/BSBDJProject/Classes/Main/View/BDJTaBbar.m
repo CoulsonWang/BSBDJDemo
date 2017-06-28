@@ -16,6 +16,15 @@
 
 @implementation BDJTaBbar
 
+- (instancetype)initWithFrame:(CGRect)frame
+{
+    self = [super initWithFrame:frame];
+    if (self) {
+        self.backgroundImage = [UIImage imageNamed:@"tabbar-light"];
+    }
+    return self;
+}
+
 /**
  懒加载按钮，确保按钮只会被添加一次
  */
