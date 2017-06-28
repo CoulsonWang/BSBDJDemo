@@ -33,6 +33,7 @@
 		B9A6844C1F028E1300D350E3 /* BDJWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B9A6844A1F028E1300D350E3 /* BDJWebViewController.m */; };
 		B9A6844D1F028E1300D350E3 /* BDJWebViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B9A6844B1F028E1300D350E3 /* BDJWebViewController.xib */; };
 		B9A684521F02A77D00D350E3 /* CacheTool.m in Sources */ = {isa = PBXBuildFile; fileRef = B9A684511F02A77D00D350E3 /* CacheTool.m */; };
+		B9A684551F037F7C00D350E3 /* BDJEssenceTitleButton.m in Sources */ = {isa = PBXBuildFile; fileRef = B9A684541F037F7C00D350E3 /* BDJEssenceTitleButton.m */; };
 		B9BBED6B1F00FD76005945BE /* BDJAdvertisementViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B9BBED691F00FD76005945BE /* BDJAdvertisementViewController.m */; };
 		B9BBED6C1F00FD76005945BE /* BDJAdvertisementViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B9BBED6A1F00FD76005945BE /* BDJAdvertisementViewController.xib */; };
 		B9BBED751F01032C005945BE /* LaunchImage-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B9BBED6E1F01032C005945BE /* LaunchImage-568h@2x.png */; };
@@ -114,6 +115,8 @@
 		B9A6844B1F028E1300D350E3 /* BDJWebViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BDJWebViewController.xib; sourceTree = "<group>"; };
 		B9A684501F02A77D00D350E3 /* CacheTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CacheTool.h; sourceTree = "<group>"; };
 		B9A684511F02A77D00D350E3 /* CacheTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CacheTool.m; sourceTree = "<group>"; };
+		B9A684531F037F7C00D350E3 /* BDJEssenceTitleButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BDJEssenceTitleButton.h; sourceTree = "<group>"; };
+		B9A684541F037F7C00D350E3 /* BDJEssenceTitleButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BDJEssenceTitleButton.m; sourceTree = "<group>"; };
 		B9BBED681F00FD76005945BE /* BDJAdvertisementViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BDJAdvertisementViewController.h; sourceTree = "<group>"; };
 		B9BBED691F00FD76005945BE /* BDJAdvertisementViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BDJAdvertisementViewController.m; sourceTree = "<group>"; };
 		B9BBED6A1F00FD76005945BE /* BDJAdvertisementViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BDJAdvertisementViewController.xib; sourceTree = "<group>"; };
@@ -387,6 +390,8 @@
 		B9DE8D4F1EFFD59000FF2F14 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				B9A684531F037F7C00D350E3 /* BDJEssenceTitleButton.h */,
+				B9A684541F037F7C00D350E3 /* BDJEssenceTitleButton.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -793,6 +798,7 @@
 				B9A684351F024A3700D350E3 /* BDJQuickLoginButton.m in Sources */,
 				B9DE8D7D1EFFE34400FF2F14 /* UIImage+Render.m in Sources */,
 				B9A684211F01620D00D350E3 /* UIColor+RGB.m in Sources */,
+				B9A684551F037F7C00D350E3 /* BDJEssenceTitleButton.m in Sources */,
 				B9A6844C1F028E1300D350E3 /* BDJWebViewController.m in Sources */,
 				B9A6843B1F0265BD00D350E3 /* UITextField+Placeholder.m in Sources */,
 				B9A684451F0277C000D350E3 /* BDJSquareItem.m in Sources */,
