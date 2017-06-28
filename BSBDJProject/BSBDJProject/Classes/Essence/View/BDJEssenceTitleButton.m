@@ -14,4 +14,15 @@
     //覆盖掉原有的set方法，禁用高亮状态
 }
 
+- (instancetype)initWithFrame:(CGRect)frame
+{
+    self = [super initWithFrame:frame];
+    if (self) {
+        self.titleLabel.font = [UIFont systemFontOfSize:16];
+        [self setTitleColor:[UIColor darkGrayColor] forState:UIControlStateNormal];
+        [self setTitleColor:[UIColor redColor] forState:UIControlStateSelected];
+    }
+    return self;
+}
+
 @end

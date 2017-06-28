@@ -16,6 +16,7 @@
 @property (weak, nonatomic) UIView *titlesView;
 @property (weak, nonatomic) UIScrollView *scrollView;
 @property (weak, nonatomic) BDJEssenceTitleButton *selectedTitleButton;
+@property (weak, nonatomic) UIView *titleUnderlineView;
 
 @end
 
@@ -29,8 +30,8 @@
     [self setUpScrollView];
     
     [self setUpTitlesView];
+    
 }
-
 
 
 /**
@@ -45,6 +46,9 @@
 
 
 
+/**
+ 设置主滚动视图
+ */
 - (void)setUpScrollView {
     UIScrollView *scrollView = [[UIScrollView alloc] initWithFrame:self.view.bounds];
     scrollView.backgroundColor = [UIColor whiteColor];
@@ -52,6 +56,9 @@
     self.scrollView = scrollView;
 }
 
+/**
+ 设置标题视图
+ */
 - (void)setUpTitlesView {
     UIView *titlesView = [[UIView alloc] initWithFrame:CGRectMake(0, 64, self.view.YY_width, 44)];
     titlesView.backgroundColor = [[UIColor whiteColor] colorWithAlphaComponent:0.5];
@@ -62,6 +69,9 @@
     [self setUpTitleUnderline];
 }
 
+/**
+ 设置标题按钮
+ */
 - (void)setUpTitleButtons {
     NSArray *titles = @[@"全部",@"视频",@"声音",@"图片",@"段子"];
     NSUInteger titleCount = titles.count;
@@ -74,21 +84,53 @@
         [self.titlesView addSubview:titleButton];
         titleButton.frame = CGRectMake(i * titleWidth, 0, titleWidth, titleHeight);
         [titleButton setTitle:titles[i] forState:UIControlStateNormal];
-        [titleButton setTitleColor:[UIColor darkGrayColor] forState:UIControlStateNormal];
-        [titleButton setTitleColor:[UIColor redColor] forState:UIControlStateSelected];
         
         [titleButton addTarget:self action:@selector(titleButtonClick:) forControlEvents:UIControlEventTouchUpInside];
     }
 }
 
+/**
+ 处理标题按钮点击
+ */
 - (void)titleButtonClick:(BDJEssenceTitleButton *)btn {
     self.selectedTitleButton.selected = NO;
     btn.selected = YES;
     self.selectedTitleButton = btn;
+    
+    //计算文字宽度
+    CGFloat titleWidth = btn.titleLabel.YY_width;
+    
+    //更新下划线的宽度，并移动下划线
+    [UIView animateWithDuration:0.2 animations:^{
+        self.titleUnderlineView.YY_width = titleWidth;
+        self.titleUnderlineView.YY_centerX = btn.YY_centerX;
+    }];
 }
 
+
+/**
+ 设置标题中的下划线
+ */
 - (void)setUpTitleUnderline {
+    UIView *titleUnderlineView = [[UIView alloc] init];
+    self.titleUnderlineView = titleUnderlineView;
+    CGFloat underlineHeight = 2;
+    CGFloat underlineY = self.titlesView.YY_height - underlineHeight;
+    CGFloat underlineWidth = 70;
+    CGFloat underlineX = 0;
+    BDJEssenceTitleButton *firstTitleBtn = self.titlesView.subviews.firstObject;
+    titleUnderlineView.backgroundColor = [firstTitleBtn titleColorForState:UIControlStateSelected];
     
+    titleUnderlineView.frame = CGRectMake(underlineX, underlineY, underlineWidth, underlineHeight);
+    [self.titlesView addSubview:titleUnderlineView];
+    
+    //一开始就选中首个标题
+    firstTitleBtn.selected = YES;
+    self.selectedTitleButton = firstTitleBtn;
+    [firstTitleBtn.titleLabel sizeToFit];
+    CGFloat titleWidth = firstTitleBtn.titleLabel.YY_width;
+    self.titleUnderlineView.YY_width = titleWidth;
+    self.titleUnderlineView.YY_centerX = firstTitleBtn.YY_centerX;
 }
 
 /**
