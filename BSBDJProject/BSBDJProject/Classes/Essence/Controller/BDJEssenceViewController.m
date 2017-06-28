@@ -40,6 +40,7 @@
     
     [self setUpTitlesView];
     
+    [self addChildViewControllerView:0];
 }
 
 #pragma mark - 初始化设置
@@ -70,7 +71,6 @@
     UIScrollView *scrollView = [[UIScrollView alloc] initWithFrame:self.view.bounds];
     
     CGFloat scrollViewWidth = scrollView.YY_width;
-    CGFloat scrollViewHeight = scrollView.YY_height;
     
     scrollView.backgroundColor = [UIColor whiteColor];
     scrollView.contentSize = CGSizeMake(self.childViewControllers.count * scrollViewWidth, 0);
@@ -83,16 +83,7 @@
     [self.view addSubview:scrollView];
     self.scrollView = scrollView;
 
-    //添加子视图tableview
-//    CGFloat topInset = self.navigationController.navigationBar.YY_height + self.titlesView.YY_height;
-//    CGFloat bottomInset = self.tabBarController.tabBar.YY_height;
 
-    for (int i = 0; i < self.childViewControllers.count; i++) {
-        UITableView *childView = (UITableView *)self.childViewControllers[i].view;
-        childView.frame = CGRectMake(i * scrollViewWidth, 0, scrollViewWidth, scrollViewHeight);
-        childView.backgroundColor = RandomColor;
-        [scrollView addSubview:childView];
-    }
 
 }
 
@@ -172,13 +163,18 @@
         self.titleUnderlineView.YY_width = titleWidth + 10;
         self.titleUnderlineView.YY_centerX = btn.YY_centerX;
         
+        //滚动scrollView
         self.scrollView.contentOffset = CGPointMake(index * self.scrollView.YY_width, self.scrollView.contentOffset.y);
+    } completion:^(BOOL finished) {
+        [self addChildViewControllerView:index];
     }];
-    
-    
 }
 
-
+- (void)addChildViewControllerView:(NSInteger)childControllerIndex {
+    UITableView *childView = (UITableView *)self.childViewControllers[childControllerIndex].view;
+    childView.frame = CGRectMake(childControllerIndex * self.scrollView.YY_width, 0, self.scrollView.YY_width, self.scrollView.YY_height);
+    [self.scrollView addSubview:childView];
+}
 
 /**
  处理左侧导航条按钮点击事件
@@ -195,6 +191,9 @@
 
 #pragma mark - UIScrollViewDelegate
 
+/**
+ 监听滚动，停止滚动后点击按钮
+ */
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
     CGFloat x = scrollView.contentOffset.x;
     NSInteger index = x / self.scrollView.YY_width;
