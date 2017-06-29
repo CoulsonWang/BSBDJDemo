@@ -12,4 +12,8 @@
 
 + (instancetype)imageWithOriginalRenderMode:(NSString *)imageName;
 
+- (instancetype)circleImage;
+
++ (instancetype)circleImageWithName:(NSString *)imageName;
+
 @end
