@@ -28,6 +28,9 @@
 - (void)awakeFromNib {
     [super awakeFromNib];
     self.backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"mainCellBackground"]];
+    self.profileImageView.layer.cornerRadius = self.profileImageView.YY_width * 0.5;
+    self.profileImageView.layer.masksToBounds = YES;
+    
 }
 
 - (void)setItem:(BDJEssenceTopicItem *)item {
