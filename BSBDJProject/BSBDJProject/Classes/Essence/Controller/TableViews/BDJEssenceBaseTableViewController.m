@@ -7,13 +7,18 @@
 //
 
 #import "BDJEssenceBaseTableViewController.h"
+#import "BDJEssenceRefreshHeaderView.h"
 
 @interface BDJEssenceBaseTableViewController ()
 
 @property (weak, nonatomic) UIView *footer;
 @property (weak, nonatomic) UILabel *footerLabel;
-/** 是否正在刷新 */
-@property (assign, nonatomic, getter=isRefreshing) BOOL footerRefreshing;
+@property (weak, nonatomic) BDJEssenceRefreshHeaderView *header;
+@property (weak, nonatomic) UILabel *headerLabel;
+
+/** 是否正在加载 */
+@property (assign, nonatomic, getter=isLoading) BOOL footerLoading;
+@property (assign, nonatomic, getter=isRefreshing) BOOL headerRefreshing;
 
 @end
 
@@ -30,7 +35,15 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(titleButtonDidRepeatClcik) name:BDJTitleButtonDidRepeatClickNotification object:nil];
     
     [self setUpFooter];
+    
+    [self setUpHeader];
 }
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    self.header.YY_height = 44;
+}
+
 
 - (void)dealloc {
     [[NSNotificationCenter defaultCenter] removeObserver:self];
@@ -38,6 +51,9 @@
 
 #pragma mark - 初始化设置
 
+/**
+ 设置上拉加载数据视图
+ */
 - (void)setUpFooter {
     UIView *footer = [[UIView alloc] init];
     footer.frame = CGRectMake(0, 0, self.tableView.YY_width, 35);
@@ -54,6 +70,22 @@
     
     self.tableView.tableFooterView = footer;
 }
+
+/**
+ 设置下拉刷新视图
+ */
+- (void)setUpHeader {
+    
+    BDJEssenceRefreshHeaderView *header = [BDJEssenceRefreshHeaderView refreshHeader];
+    header.frame = CGRectMake(0, -RefreshHeaderHeight, self.tableView.YY_width, RefreshHeaderHeight);
+    header.backgroundColor = [UIColor darkGrayColor];
+    header.titleLabel.text = @"下拉刷新";
+    self.header = header;
+    
+    [self.tableView addSubview:header];
+}
+
+
 
 #pragma mark - UITableViewDataSource
 
@@ -110,14 +142,24 @@
  处理上拉加载数据
  */
 - (void)loadMoreData {
-    //处理界面表现
-    
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        self.footerLoading = NO;
+    });
 }
 
-- (void)setFooterRefreshing:(BOOL)footerRefreshing {
-    _footerRefreshing = footerRefreshing;
+/**
+ 处理下拉刷新数据
+ */
+- (void)refreshData {
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+    self.headerRefreshing = NO;
+    });
+}
+
+- (void)setFooterLoading:(BOOL)footerLoading {
+    _footerLoading = footerLoading;
     //处理footer控件页面表现
-    if (footerRefreshing) {
+    if (footerLoading) {
         //处理正在加载数据时的表现
         self.footerLabel.text = @"正在加载更多数据...";
     } else {
@@ -126,18 +168,57 @@
     }
 }
 
+- (void)setHeaderRefreshing:(BOOL)headerRefreshing {
+    _headerRefreshing = headerRefreshing;
+    if (headerRefreshing) {
+        self.header.titleLabel.text = @"正在刷新...";
+        self.tableView.contentInset = UIEdgeInsetsMake(NavigationBarHeight+TitleHeight+RefreshHeaderHeight, 0, self.tableView.contentInset.bottom, 0);
+    } else {
+        self.header.titleLabel.text = @"下拉刷新";
+        [UIView animateWithDuration:0.35 animations:^{
+            self.tableView.contentInset = UIEdgeInsetsMake(NavigationBarHeight+TitleHeight, 0, self.tableView.contentInset.bottom, 0);
+        }];
+    }
+}
+
 #pragma mark - UITableViewDelegate
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
-    if (self.isRefreshing) return;
+    //处理上拉加载
+    [self dealWithFooter];
+    
+    //处理下拉刷新
+    [self dealWithHeader];
+}
+
+- (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate {
+    CGFloat offsetY = - (NavigationBarHeight + TitleHeight + RefreshHeaderHeight);
+    if (scrollView.contentOffset.y <= offsetY) {
+        self.headerRefreshing = YES;
+        [self refreshData];
+    }
+}
+
+- (void)dealWithFooter {
+    if (self.isLoading) return;
     
     CGFloat offsetY = self.tableView.contentSize.height + self.tableView.contentInset.bottom - self.tableView.YY_height;
-    if (self.tableView.contentSize.height != 0 && scrollView.contentOffset.y >= offsetY) {
-        self.footerRefreshing = YES;
+    if (self.tableView.contentSize.height != 0 && self.tableView.contentOffset.y >= offsetY) {
+        self.footerLoading = YES;
         [self loadMoreData];
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-            self.footerRefreshing = NO;
-        });
+        
+    }
+}
+
+- (void)dealWithHeader {
+    if (self.isRefreshing) return;
+    
+    CGFloat offsetY = - (NavigationBarHeight + TitleHeight + RefreshHeaderHeight);
+    
+    if (self.tableView.contentOffset.y <= offsetY) {
+        self.header.titleLabel.text = @"松开立即刷新";
+    } else {
+        self.header.titleLabel.text = @"下拉刷新";
     }
 }
 
