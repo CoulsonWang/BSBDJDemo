@@ -12,3 +12,5 @@ UIKIT_EXTERN CGFloat const RefreshHeaderHeight;
 UIKIT_EXTERN NSNotificationName const BDJTabBarButtonDidRepeatClickNotification;
 
 UIKIT_EXTERN NSNotificationName const BDJTitleButtonDidRepeatClickNotification;
+
+UIKIT_EXTERN NSString *const CommonURL;

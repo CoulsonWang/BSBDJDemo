@@ -7,6 +7,8 @@
 //
 
 #import "BDJEssenceAllViewController.h"
+#import <AFNetworking.h>
+#import <MJExtension.h>
 
 @interface BDJEssenceAllViewController ()
 
@@ -17,6 +19,23 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+}
+
+
+- (void)refreshData {
+    AFHTTPSessionManager *mgr = [AFHTTPSessionManager manager];
+    
+    NSDictionary *params = @{
+                             @"a" : @"list",
+                             @"c" : @"data",
+                             @"type" : @1
+                             };
+    
+    [mgr GET:CommonURL parameters:params progress:nil success:^(NSURLSessionDataTask * _Nonnull task, NSDictionary *_Nullable responseObject) {
+        AFNWriteToPlist(all)
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        NSLog(@"%@",error);
+    }];
 }
 
 
