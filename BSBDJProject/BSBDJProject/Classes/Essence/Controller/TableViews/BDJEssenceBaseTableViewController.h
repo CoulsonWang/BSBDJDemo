@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
+
+
 @interface BDJEssenceBaseTableViewController : UITableViewController
 
 /** 是否正在加载 */

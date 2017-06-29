@@ -7,7 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-
+@class BDJEssenceTopicItem;
 @interface BDJEssenceTopicCell : UITableViewCell
+
+@property (strong, nonatomic) BDJEssenceTopicItem *item;
 
 @end

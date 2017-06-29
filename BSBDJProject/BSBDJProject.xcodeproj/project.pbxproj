@@ -14,8 +14,8 @@
 		B9A156E11F04CF390011CFA5 /* BDJEssenceRefreshHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B9A156E01F04CF390011CFA5 /* BDJEssenceRefreshHeaderView.xib */; };
 		B9A156E41F04F62C0011CFA5 /* BDJEssenceTopicItem.m in Sources */ = {isa = PBXBuildFile; fileRef = B9A156E31F04F62C0011CFA5 /* BDJEssenceTopicItem.m */; };
 		B9A156E81F04FC990011CFA5 /* BDJEssenceTopicCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B9A156E61F04FC990011CFA5 /* BDJEssenceTopicCell.m */; };
-		B9A156E91F04FC990011CFA5 /* BDJEssenceTopicCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B9A156E71F04FC990011CFA5 /* BDJEssenceTopicCell.xib */; };
 		B9A156EC1F0502A20011CFA5 /* BDJTopicUserInfoItem.m in Sources */ = {isa = PBXBuildFile; fileRef = B9A156EB1F0502A20011CFA5 /* BDJTopicUserInfoItem.m */; };
+		B9A156FB1F053E350011CFA5 /* BDJEssenceTopicCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B9A156FA1F053E350011CFA5 /* BDJEssenceTopicCell.xib */; };
 		B9A684131F0116D900D350E3 /* BDJAdItem.m in Sources */ = {isa = PBXBuildFile; fileRef = B9A684121F0116D900D350E3 /* BDJAdItem.m */; };
 		B9A684161F012B2500D350E3 /* BDJSuggestTabController.m in Sources */ = {isa = PBXBuildFile; fileRef = B9A684151F012B2500D350E3 /* BDJSuggestTabController.m */; };
 		B9A684191F012DE100D350E3 /* BDJSuggestTapItem.m in Sources */ = {isa = PBXBuildFile; fileRef = B9A684181F012DE100D350E3 /* BDJSuggestTapItem.m */; };
@@ -97,9 +97,9 @@
 		B9A156E31F04F62C0011CFA5 /* BDJEssenceTopicItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BDJEssenceTopicItem.m; sourceTree = "<group>"; };
 		B9A156E51F04FC990011CFA5 /* BDJEssenceTopicCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BDJEssenceTopicCell.h; sourceTree = "<group>"; };
 		B9A156E61F04FC990011CFA5 /* BDJEssenceTopicCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BDJEssenceTopicCell.m; sourceTree = "<group>"; };
-		B9A156E71F04FC990011CFA5 /* BDJEssenceTopicCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BDJEssenceTopicCell.xib; sourceTree = "<group>"; };
 		B9A156EA1F0502A20011CFA5 /* BDJTopicUserInfoItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BDJTopicUserInfoItem.h; sourceTree = "<group>"; };
 		B9A156EB1F0502A20011CFA5 /* BDJTopicUserInfoItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BDJTopicUserInfoItem.m; sourceTree = "<group>"; };
+		B9A156FA1F053E350011CFA5 /* BDJEssenceTopicCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BDJEssenceTopicCell.xib; sourceTree = "<group>"; };
 		B9A684111F0116D900D350E3 /* BDJAdItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BDJAdItem.h; sourceTree = "<group>"; };
 		B9A684121F0116D900D350E3 /* BDJAdItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BDJAdItem.m; sourceTree = "<group>"; };
 		B9A684141F012B2500D350E3 /* BDJSuggestTabController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BDJSuggestTabController.h; sourceTree = "<group>"; };
@@ -451,14 +451,14 @@
 		B9DE8D4F1EFFD59000FF2F14 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				B9A156E51F04FC990011CFA5 /* BDJEssenceTopicCell.h */,
+				B9A156E61F04FC990011CFA5 /* BDJEssenceTopicCell.m */,
+				B9A156FA1F053E350011CFA5 /* BDJEssenceTopicCell.xib */,
 				B9A684531F037F7C00D350E3 /* BDJEssenceTitleButton.h */,
 				B9A684541F037F7C00D350E3 /* BDJEssenceTitleButton.m */,
 				B9A156DD1F04CF2B0011CFA5 /* BDJEssenceRefreshHeaderView.h */,
 				B9A156DE1F04CF2B0011CFA5 /* BDJEssenceRefreshHeaderView.m */,
 				B9A156E01F04CF390011CFA5 /* BDJEssenceRefreshHeaderView.xib */,
-				B9A156E51F04FC990011CFA5 /* BDJEssenceTopicCell.h */,
-				B9A156E61F04FC990011CFA5 /* BDJEssenceTopicCell.m */,
-				B9A156E71F04FC990011CFA5 /* BDJEssenceTopicCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -787,7 +787,7 @@
 				B9A6842D1F022FFA00D350E3 /* BDJLogginRegistView.xib in Resources */,
 				B9DE8D331EFFC05000FF2F14 /* Assets.xcassets in Resources */,
 				B9BBED781F01032C005945BE /* LaunchImage-800-667h@2x.png in Resources */,
-				B9A156E91F04FC990011CFA5 /* BDJEssenceTopicCell.xib in Resources */,
+				B9A156FB1F053E350011CFA5 /* BDJEssenceTopicCell.xib in Resources */,
 				B9BBED751F01032C005945BE /* LaunchImage-568h@2x.png in Resources */,
 				B9BBED771F01032C005945BE /* LaunchImage-700@2x.png in Resources */,
 				B9A684421F0272CF00D350E3 /* BDJSquareCollectionViewCell.xib in Resources */,

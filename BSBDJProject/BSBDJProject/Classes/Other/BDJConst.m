@@ -1,5 +1,6 @@
 
 #import "BDJConst.h"
+#import "UIColor+RGB.h"
 
 CGFloat const TabBarHeight = 49;
 
@@ -14,3 +15,4 @@ NSNotificationName const BDJTabBarButtonDidRepeatClickNotification = @"BDJTabBar
 NSNotificationName const BDJTitleButtonDidRepeatClickNotification = @"BDJTitleButtonDidRepeatClickNotification";
 
 NSString *const CommonURL = @"http://api.budejie.com/api/api_open.php";
+

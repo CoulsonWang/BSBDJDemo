@@ -7,18 +7,51 @@
 //
 
 #import "BDJEssenceTopicCell.h"
+#import "BDJEssenceTopicItem.h"
+#import <UIImageView+WebCache.h>
+
+@interface BDJEssenceTopicCell ()
+
+@property (weak, nonatomic) IBOutlet UIImageView *profileImageView;
+@property (weak, nonatomic) IBOutlet UILabel *nameLabel;
+@property (weak, nonatomic) IBOutlet UILabel *passtimeLabel;
+@property (weak, nonatomic) IBOutlet UILabel *text_label;
+@property (weak, nonatomic) IBOutlet UIButton *dingButton;
+@property (weak, nonatomic) IBOutlet UIButton *caiButton;
+@property (weak, nonatomic) IBOutlet UIButton *repostButton;
+@property (weak, nonatomic) IBOutlet UIButton *conmentButton;
+
+@end
 
 @implementation BDJEssenceTopicCell
 
 - (void)awakeFromNib {
     [super awakeFromNib];
-    // Initialization code
+    self.backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"mainCellBackground"]];
 }
 
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
-    [super setSelected:selected animated:animated];
+- (void)setItem:(BDJEssenceTopicItem *)item {
+    _item = item;
+    [self.profileImageView sd_setImageWithURL:[NSURL URLWithString:item.profile_image] placeholderImage:[UIImage imageNamed:@"defaultUserIcon"]];
+    self.nameLabel.text = item.name;
+    self.passtimeLabel.text = item.passtime;
+    self.text_label.text = item.text;
 
-    // Configure the view for the selected state
+    [self setUpButtonTitle:self.dingButton number:item.ding placeholder:@"顶"];
+    [self setUpButtonTitle:self.caiButton number:item.cai placeholder:@"踩"];
+    [self setUpButtonTitle:self.repostButton number:item.repost placeholder:@"分享"];
+    [self setUpButtonTitle:self.conmentButton number:item.comment placeholder:@"评论"];
+}
+
+- (void)setUpButtonTitle:(UIButton *)button number:(NSString *)Titlenumber placeholder:(NSString *)placeholder {
+    NSUInteger number = [Titlenumber integerValue];
+    if (number >= 10000) {
+        [button setTitle:[NSString stringWithFormat:@"%f万",number / 10000.0] forState:UIControlStateNormal];
+    } else if (number > 0) {
+        [button setTitle:[NSString stringWithFormat:@"%ld",number] forState:UIControlStateNormal];
+    } else {
+        [button setTitle:placeholder forState:UIControlStateNormal];
+    }
 }
 
 @end

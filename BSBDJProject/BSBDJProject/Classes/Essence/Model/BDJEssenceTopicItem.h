@@ -8,6 +8,14 @@
 
 #import <Foundation/Foundation.h>
 
+typedef NS_ENUM(NSUInteger, BDJTopicType) {
+    BDJTopicTypeAll = 1,
+    BDJTopicTypePhoto = 10,
+    BDJTopicTypeCrossTalk = 29,
+    BDJTopicTypeSound = 31,
+    BDJTopicTypeVideo = 41
+};
+
 @interface BDJEssenceTopicItem : NSObject
 
 @property (strong, nonatomic) NSString *name;
@@ -26,5 +34,6 @@
 
 @property (strong, nonatomic) NSString *comment;
 
+@property (assign, nonatomic) NSInteger type;
 
 @end

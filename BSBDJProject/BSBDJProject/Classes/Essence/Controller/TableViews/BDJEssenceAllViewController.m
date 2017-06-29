@@ -12,6 +12,9 @@
 #import <SVProgressHUD.h>
 #import "BDJEssenceTopicItem.h"
 #import "BDJTopicUserInfoItem.h"
+#import "BDJEssenceTopicCell.h"
+
+static NSString *const topicCellID = @"topicCellID";
 
 @interface BDJEssenceAllViewController ()
 
@@ -39,7 +42,10 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    
+    [self.tableView registerNib:[UINib nibWithNibName:NSStringFromClass([BDJEssenceTopicCell class]) bundle:nil] forCellReuseIdentifier:topicCellID];
+    
+    self.tableView.rowHeight = 200;
 }
 
 /**
@@ -52,7 +58,7 @@
     NSDictionary *params = @{
                              @"a" : @"list",
                              @"c" : @"data",
-                             @"type" : @1
+                             @"type" : [NSNumber numberWithUnsignedInteger:BDJTopicTypeAll]
                              };
     
     [self.manager GET:CommonURL parameters:params progress:nil success:^(NSURLSessionDataTask * _Nonnull task, NSDictionary *_Nullable responseObject) {
@@ -110,13 +116,10 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cellID"];
-    if (!cell) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"cellID"];
-    }
+    BDJEssenceTopicCell *cell = [tableView dequeueReusableCellWithIdentifier:topicCellID];
+    
     BDJEssenceTopicItem *item = self.topicItems[indexPath.row];
-    cell.textLabel.text = item.name;
-    cell.detailTextLabel.text = item.text;
+    cell.item = item;
     
     return cell;
 }

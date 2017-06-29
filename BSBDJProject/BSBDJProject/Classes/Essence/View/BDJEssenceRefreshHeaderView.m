@@ -7,11 +7,13 @@
 //
 
 #import "BDJEssenceRefreshHeaderView.h"
+#import "UIColor+RGB.h"
 
 @implementation BDJEssenceRefreshHeaderView
 
 - (void)awakeFromNib {
     [super awakeFromNib];
+    self.backgroundColor = [UIColor colorWithR:206 G:206 B:206];
 }
 
 + (instancetype)refreshHeader {

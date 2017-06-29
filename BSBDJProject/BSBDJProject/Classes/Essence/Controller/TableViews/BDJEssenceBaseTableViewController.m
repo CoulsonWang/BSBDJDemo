@@ -8,6 +8,7 @@
 
 #import "BDJEssenceBaseTableViewController.h"
 #import "BDJEssenceRefreshHeaderView.h"
+#import "UIColor+RGB.h"
 
 @interface BDJEssenceBaseTableViewController ()
 
@@ -27,6 +28,7 @@
     self.tableView.contentInset = UIEdgeInsetsMake(NavigationBarHeight + TitleHeight, 0, TabBarHeight, 0);
     self.tableView.scrollsToTop = NO;
     self.tableView.scrollIndicatorInsets = self.tableView.contentInset;
+    self.tableView.backgroundColor = [UIColor colorWithR:206 G:206 B:206];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(tabBarButtonDidRepeatClick) name:BDJTabBarButtonDidRepeatClickNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(titleButtonDidRepeatClcik) name:BDJTitleButtonDidRepeatClickNotification object:nil];
@@ -35,13 +37,12 @@
     
     [self setUpHeader];
     
-    
+    [self headerRefreshBegin];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     self.header.YY_height = 44;
-    [self headerRefreshBegin];
 }
 
 
@@ -57,7 +58,7 @@
 - (void)setUpFooter {
     UIView *footer = [[UIView alloc] init];
     footer.frame = CGRectMake(0, 0, self.tableView.YY_width, 35);
-    footer.backgroundColor = [UIColor lightGrayColor];
+    footer.backgroundColor = [UIColor colorWithR:206 G:206 B:206];
     self.footer = footer;
     
     UILabel *footerLabel = [[UILabel alloc] init];
