@@ -14,5 +14,6 @@
 @property (assign, nonatomic, getter=isLoading) BOOL footerLoading;
 @property (assign, nonatomic, getter=isRefreshing) BOOL headerRefreshing;
 
+@property (weak, nonatomic) UIView *footer;
 
 @end

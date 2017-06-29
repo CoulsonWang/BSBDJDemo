@@ -105,6 +105,7 @@
 #pragma mark - UITableViewDataSource
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    self.footer.hidden = (self.topicItems.count == 0);
     return self.topicItems.count;
 }
 

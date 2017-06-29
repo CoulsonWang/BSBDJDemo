@@ -231,7 +231,10 @@
     CGFloat x = scrollView.contentOffset.x;
     NSInteger index = x / self.scrollView.YY_width;
     BDJEssenceTitleButton *button = self.titlesView.subviews[index];
-    [self titleButtonClick:button];
+    
+    if (button != self.selectedTitleButton) {
+        [self titleButtonClick:button];
+    }
 }
 
 

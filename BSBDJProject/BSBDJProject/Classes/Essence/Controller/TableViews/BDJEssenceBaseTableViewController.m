@@ -11,7 +11,6 @@
 
 @interface BDJEssenceBaseTableViewController ()
 
-@property (weak, nonatomic) UIView *footer;
 @property (weak, nonatomic) UILabel *footerLabel;
 @property (weak, nonatomic) BDJEssenceRefreshHeaderView *header;
 @property (weak, nonatomic) UILabel *headerLabel;
