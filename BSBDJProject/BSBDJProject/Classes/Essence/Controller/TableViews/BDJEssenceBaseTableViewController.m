@@ -37,11 +37,14 @@
     [self setUpFooter];
     
     [self setUpHeader];
+    
+    
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     self.header.YY_height = 44;
+    [self headerRefreshBegin];
 }
 
 
@@ -57,7 +60,7 @@
 - (void)setUpFooter {
     UIView *footer = [[UIView alloc] init];
     footer.frame = CGRectMake(0, 0, self.tableView.YY_width, 35);
-    footer.backgroundColor = [UIColor darkGrayColor];
+    footer.backgroundColor = [UIColor lightGrayColor];
     self.footer = footer;
     
     UILabel *footerLabel = [[UILabel alloc] init];
@@ -78,7 +81,6 @@
     
     BDJEssenceRefreshHeaderView *header = [BDJEssenceRefreshHeaderView refreshHeader];
     header.frame = CGRectMake(0, -RefreshHeaderHeight, self.tableView.YY_width, RefreshHeaderHeight);
-    header.backgroundColor = [UIColor darkGrayColor];
     header.titleLabel.text = @"下拉刷新";
     self.header = header;
     
@@ -134,10 +136,12 @@
  */
 - (void)refreshView {
     //子类重写该方法来刷新界面
-    NSLog(@"%s,%d",__func__,__LINE__);
+    [self headerRefreshBegin];
 }
 
 
+
+#pragma mark - 处理下拉刷新和上拉加载
 /**
  处理上拉加载数据
  */
@@ -156,6 +160,9 @@
     });
 }
 
+/**
+ 加载状态发生变化时更新UI界面
+ */
 - (void)setFooterLoading:(BOOL)footerLoading {
     _footerLoading = footerLoading;
     //处理footer控件页面表现
@@ -168,11 +175,22 @@
     }
 }
 
+/**
+ 刷新状态发生变化时更新UI界面
+ */
 - (void)setHeaderRefreshing:(BOOL)headerRefreshing {
     _headerRefreshing = headerRefreshing;
     if (headerRefreshing) {
         self.header.titleLabel.text = @"正在刷新...";
         self.tableView.contentInset = UIEdgeInsetsMake(NavigationBarHeight+TitleHeight+RefreshHeaderHeight, 0, self.tableView.contentInset.bottom, 0);
+        
+        CGPoint offset = self.tableView.contentOffset;
+        offset.y = -(self.tableView.contentInset.top);
+        [UIView animateWithDuration:0.2 animations:^{
+            self.tableView.contentOffset = offset;
+        }];
+        
+        
     } else {
         self.header.titleLabel.text = @"下拉刷新";
         [UIView animateWithDuration:0.35 animations:^{
@@ -181,7 +199,6 @@
     }
 }
 
-#pragma mark - UITableViewDelegate
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
     //处理上拉加载
@@ -192,10 +209,11 @@
 }
 
 - (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate {
+    if (self.isRefreshing) return;
+    
     CGFloat offsetY = - (NavigationBarHeight + TitleHeight + RefreshHeaderHeight);
     if (scrollView.contentOffset.y <= offsetY) {
-        self.headerRefreshing = YES;
-        [self refreshData];
+        [self headerRefreshBegin];
     }
 }
 
@@ -221,5 +239,11 @@
         self.header.titleLabel.text = @"下拉刷新";
     }
 }
+
+- (void)headerRefreshBegin {
+    self.headerRefreshing = YES;
+    [self refreshData];
+}
+
 
 @end
