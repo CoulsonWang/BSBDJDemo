@@ -17,6 +17,7 @@
 
 @property (strong, nonatomic) NSMutableArray *topicItems;
 @property (strong, nonatomic) BDJTopicUserInfoItem *userInfoItem;
+@property (strong, nonatomic) AFHTTPSessionManager *manager;
 
 @end
 
@@ -29,6 +30,13 @@
     return _userInfoItem;
 }
 
+- (AFHTTPSessionManager *)manager {
+    if (!_manager) {
+        _manager = [AFHTTPSessionManager manager];
+    }
+    return _manager;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
@@ -38,7 +46,8 @@
  处理下拉刷新数据
  */
 - (void)refreshData {
-    AFHTTPSessionManager *mgr = [AFHTTPSessionManager manager];
+    //先取消进行中的任务并重置视图
+    [self.manager.tasks makeObjectsPerformSelector:@selector(cancel)];
     
     NSDictionary *params = @{
                              @"a" : @"list",
@@ -46,7 +55,7 @@
                              @"type" : @1
                              };
     
-    [mgr GET:CommonURL parameters:params progress:nil success:^(NSURLSessionDataTask * _Nonnull task, NSDictionary *_Nullable responseObject) {
+    [self.manager GET:CommonURL parameters:params progress:nil success:^(NSURLSessionDataTask * _Nonnull task, NSDictionary *_Nullable responseObject) {
         self.topicItems = [BDJEssenceTopicItem mj_objectArrayWithKeyValuesArray:responseObject[@"list"]];
         self.userInfoItem = [BDJTopicUserInfoItem mj_objectWithKeyValues:responseObject[@"info"]];
         
@@ -55,7 +64,9 @@
         
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         SVProgressHUD.minimumDismissTimeInterval = 2;
-        [SVProgressHUD showErrorWithStatus:@"数据获取失败!请稍后重试"];
+        if (error.code != -999) {
+            [SVProgressHUD showErrorWithStatus:@"数据加载失败!请稍后重试"];
+        }
         self.headerRefreshing = NO;
     }];
 }
@@ -64,7 +75,8 @@
  处理上拉加载数据
  */
 - (void)loadMoreData {
-    AFHTTPSessionManager *mgr = [AFHTTPSessionManager manager];
+    //先取消进行中的任务并重置视图
+    [self.manager.tasks makeObjectsPerformSelector:@selector(cancel)];
     
     NSDictionary *params = @{
                              @"a" : @"list",
@@ -73,7 +85,7 @@
                              @"maxtime" : self.userInfoItem.maxtime
                              };
     
-    [mgr GET:CommonURL parameters:params progress:nil success:^(NSURLSessionDataTask * _Nonnull task, NSDictionary *_Nullable responseObject) {
+    [self.manager GET:CommonURL parameters:params progress:nil success:^(NSURLSessionDataTask * _Nonnull task, NSDictionary *_Nullable responseObject) {
         AFNWriteToPlist(test)
         self.userInfoItem = [BDJTopicUserInfoItem mj_objectWithKeyValues:responseObject[@"info"]];
         NSArray *moreTopics = [BDJEssenceTopicItem mj_objectArrayWithKeyValuesArray:responseObject[@"list"]];
@@ -83,7 +95,9 @@
         self.footerLoading = NO;
         
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-        [SVProgressHUD showErrorWithStatus:@"数据加载失败!请稍后重试"];
+        if (error.code != -999) {
+            [SVProgressHUD showErrorWithStatus:@"数据加载失败!请稍后重试"];
+        }
         self.footerLoading = NO;
     }];
 }
