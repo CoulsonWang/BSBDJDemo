@@ -29,6 +29,7 @@
     self.tableView.scrollsToTop = NO;
     self.tableView.scrollIndicatorInsets = self.tableView.contentInset;
     self.tableView.backgroundColor = [UIColor colorWithR:206 G:206 B:206];
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(tabBarButtonDidRepeatClick) name:BDJTabBarButtonDidRepeatClickNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(titleButtonDidRepeatClcik) name:BDJTitleButtonDidRepeatClickNotification object:nil];

@@ -28,6 +28,7 @@
 - (void)awakeFromNib {
     [super awakeFromNib];
     self.backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"mainCellBackground"]];
+    self.selectionStyle = UITableViewCellSelectionStyleNone;
     self.profileImageView.layer.cornerRadius = self.profileImageView.YY_width * 0.5;
     self.profileImageView.layer.masksToBounds = YES;
     
@@ -55,6 +56,11 @@
     } else {
         [button setTitle:placeholder forState:UIControlStateNormal];
     }
+}
+
+- (void)setFrame:(CGRect)frame {
+    frame.size.height -= 10;
+    [super setFrame:frame];
 }
 
 @end
