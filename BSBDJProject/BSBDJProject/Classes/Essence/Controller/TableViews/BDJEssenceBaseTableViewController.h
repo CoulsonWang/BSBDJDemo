@@ -10,6 +10,9 @@
 
 @interface BDJEssenceBaseTableViewController : UITableViewController
 
-- (void)refreshView;
+/** 是否正在加载 */
+@property (assign, nonatomic, getter=isLoading) BOOL footerLoading;
+@property (assign, nonatomic, getter=isRefreshing) BOOL headerRefreshing;
+
 
 @end

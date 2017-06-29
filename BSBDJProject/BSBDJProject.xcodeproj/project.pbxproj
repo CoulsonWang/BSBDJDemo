@@ -12,6 +12,10 @@
 		B903B0601F00DB6300255FEF /* BDJNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = B903B05F1F00DB6300255FEF /* BDJNavigationController.m */; settings = {COMPILER_FLAGS = "-w"; }; };
 		B9A156DF1F04CF2B0011CFA5 /* BDJEssenceRefreshHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = B9A156DE1F04CF2B0011CFA5 /* BDJEssenceRefreshHeaderView.m */; };
 		B9A156E11F04CF390011CFA5 /* BDJEssenceRefreshHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B9A156E01F04CF390011CFA5 /* BDJEssenceRefreshHeaderView.xib */; };
+		B9A156E41F04F62C0011CFA5 /* BDJEssenceTopicItem.m in Sources */ = {isa = PBXBuildFile; fileRef = B9A156E31F04F62C0011CFA5 /* BDJEssenceTopicItem.m */; };
+		B9A156E81F04FC990011CFA5 /* BDJEssenceTopicCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B9A156E61F04FC990011CFA5 /* BDJEssenceTopicCell.m */; };
+		B9A156E91F04FC990011CFA5 /* BDJEssenceTopicCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B9A156E71F04FC990011CFA5 /* BDJEssenceTopicCell.xib */; };
+		B9A156EC1F0502A20011CFA5 /* BDJTopicUserInfoItem.m in Sources */ = {isa = PBXBuildFile; fileRef = B9A156EB1F0502A20011CFA5 /* BDJTopicUserInfoItem.m */; };
 		B9A684131F0116D900D350E3 /* BDJAdItem.m in Sources */ = {isa = PBXBuildFile; fileRef = B9A684121F0116D900D350E3 /* BDJAdItem.m */; };
 		B9A684161F012B2500D350E3 /* BDJSuggestTabController.m in Sources */ = {isa = PBXBuildFile; fileRef = B9A684151F012B2500D350E3 /* BDJSuggestTabController.m */; };
 		B9A684191F012DE100D350E3 /* BDJSuggestTapItem.m in Sources */ = {isa = PBXBuildFile; fileRef = B9A684181F012DE100D350E3 /* BDJSuggestTapItem.m */; };
@@ -89,6 +93,13 @@
 		B9A156DD1F04CF2B0011CFA5 /* BDJEssenceRefreshHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BDJEssenceRefreshHeaderView.h; sourceTree = "<group>"; };
 		B9A156DE1F04CF2B0011CFA5 /* BDJEssenceRefreshHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BDJEssenceRefreshHeaderView.m; sourceTree = "<group>"; };
 		B9A156E01F04CF390011CFA5 /* BDJEssenceRefreshHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BDJEssenceRefreshHeaderView.xib; sourceTree = "<group>"; };
+		B9A156E21F04F62C0011CFA5 /* BDJEssenceTopicItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BDJEssenceTopicItem.h; sourceTree = "<group>"; };
+		B9A156E31F04F62C0011CFA5 /* BDJEssenceTopicItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BDJEssenceTopicItem.m; sourceTree = "<group>"; };
+		B9A156E51F04FC990011CFA5 /* BDJEssenceTopicCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BDJEssenceTopicCell.h; sourceTree = "<group>"; };
+		B9A156E61F04FC990011CFA5 /* BDJEssenceTopicCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BDJEssenceTopicCell.m; sourceTree = "<group>"; };
+		B9A156E71F04FC990011CFA5 /* BDJEssenceTopicCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BDJEssenceTopicCell.xib; sourceTree = "<group>"; };
+		B9A156EA1F0502A20011CFA5 /* BDJTopicUserInfoItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BDJTopicUserInfoItem.h; sourceTree = "<group>"; };
+		B9A156EB1F0502A20011CFA5 /* BDJTopicUserInfoItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BDJTopicUserInfoItem.m; sourceTree = "<group>"; };
 		B9A684111F0116D900D350E3 /* BDJAdItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BDJAdItem.h; sourceTree = "<group>"; };
 		B9A684121F0116D900D350E3 /* BDJAdItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BDJAdItem.m; sourceTree = "<group>"; };
 		B9A684141F012B2500D350E3 /* BDJSuggestTabController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BDJSuggestTabController.h; sourceTree = "<group>"; };
@@ -429,6 +440,10 @@
 		B9DE8D4E1EFFD59000FF2F14 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				B9A156E21F04F62C0011CFA5 /* BDJEssenceTopicItem.h */,
+				B9A156E31F04F62C0011CFA5 /* BDJEssenceTopicItem.m */,
+				B9A156EA1F0502A20011CFA5 /* BDJTopicUserInfoItem.h */,
+				B9A156EB1F0502A20011CFA5 /* BDJTopicUserInfoItem.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -441,6 +456,9 @@
 				B9A156DD1F04CF2B0011CFA5 /* BDJEssenceRefreshHeaderView.h */,
 				B9A156DE1F04CF2B0011CFA5 /* BDJEssenceRefreshHeaderView.m */,
 				B9A156E01F04CF390011CFA5 /* BDJEssenceRefreshHeaderView.xib */,
+				B9A156E51F04FC990011CFA5 /* BDJEssenceTopicCell.h */,
+				B9A156E61F04FC990011CFA5 /* BDJEssenceTopicCell.m */,
+				B9A156E71F04FC990011CFA5 /* BDJEssenceTopicCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -769,6 +787,7 @@
 				B9A6842D1F022FFA00D350E3 /* BDJLogginRegistView.xib in Resources */,
 				B9DE8D331EFFC05000FF2F14 /* Assets.xcassets in Resources */,
 				B9BBED781F01032C005945BE /* LaunchImage-800-667h@2x.png in Resources */,
+				B9A156E91F04FC990011CFA5 /* BDJEssenceTopicCell.xib in Resources */,
 				B9BBED751F01032C005945BE /* LaunchImage-568h@2x.png in Resources */,
 				B9BBED771F01032C005945BE /* LaunchImage-700@2x.png in Resources */,
 				B9A684421F0272CF00D350E3 /* BDJSquareCollectionViewCell.xib in Resources */,
@@ -849,11 +868,13 @@
 				B9A156DF1F04CF2B0011CFA5 /* BDJEssenceRefreshHeaderView.m in Sources */,
 				B9DE8D791EFFDEA400FF2F14 /* BDJTabBarController.m in Sources */,
 				B9A684351F024A3700D350E3 /* BDJQuickLoginButton.m in Sources */,
+				B9A156E41F04F62C0011CFA5 /* BDJEssenceTopicItem.m in Sources */,
 				B9DE8D7D1EFFE34400FF2F14 /* UIImage+Render.m in Sources */,
 				B9A684211F01620D00D350E3 /* UIColor+RGB.m in Sources */,
 				B9A684551F037F7C00D350E3 /* BDJEssenceTitleButton.m in Sources */,
 				B9A684591F039C1D00D350E3 /* BDJEssenceBaseTableViewController.m in Sources */,
 				B9A6844C1F028E1300D350E3 /* BDJWebViewController.m in Sources */,
+				B9A156EC1F0502A20011CFA5 /* BDJTopicUserInfoItem.m in Sources */,
 				B9A6843B1F0265BD00D350E3 /* UITextField+Placeholder.m in Sources */,
 				B9A684651F039C7F00D350E3 /* BDJEssencePhotoViewController.m in Sources */,
 				B9A684451F0277C000D350E3 /* BDJSquareItem.m in Sources */,
@@ -879,6 +900,7 @@
 				B903B05D1F00D56100255FEF /* BDJSettingViewController.m in Sources */,
 				B9DE8D6F1EFFD60A00FF2F14 /* BDJNewViewController.m in Sources */,
 				B9DE8D801EFFF9CA00FF2F14 /* BDJTaBbar.m in Sources */,
+				B9A156E81F04FC990011CFA5 /* BDJEssenceTopicCell.m in Sources */,
 				B9A684681F039CC500D350E3 /* BDJEssenceCrossTalkViewController.m in Sources */,
 				B9DE8D661EFFD5C100FF2F14 /* BDJEssenceViewController.m in Sources */,
 				B9DE8D831F0005CD00FF2F14 /* UIView+Frame.m in Sources */,

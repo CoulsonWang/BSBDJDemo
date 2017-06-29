@@ -16,9 +16,7 @@
 @property (weak, nonatomic) BDJEssenceRefreshHeaderView *header;
 @property (weak, nonatomic) UILabel *headerLabel;
 
-/** 是否正在加载 */
-@property (assign, nonatomic, getter=isLoading) BOOL footerLoading;
-@property (assign, nonatomic, getter=isRefreshing) BOOL headerRefreshing;
+
 
 @end
 
@@ -135,7 +133,6 @@
  刷新界面
  */
 - (void)refreshView {
-    //子类重写该方法来刷新界面
     [self headerRefreshBegin];
 }
 
