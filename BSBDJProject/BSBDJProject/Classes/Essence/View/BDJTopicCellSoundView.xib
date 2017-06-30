@@ -36,6 +36,9 @@
                     <rect key="frame" x="155.5" y="108.5" width="63" height="63"/>
                     <state key="normal" image="playButtonPlay" backgroundImage="playButton"/>
                     <state key="highlighted" backgroundImage="playButtonClick"/>
+                    <connections>
+                        <action selector="playButtonClick:" destination="iN0-l3-epB" eventType="touchUpInside" id="tGQ-G2-fRr"/>
+                    </connections>
                 </button>
             </subviews>
             <color key="backgroundColor" red="0.0" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -55,8 +58,8 @@
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
                 <outlet property="imageView" destination="h1Y-6r-Vlu" id="7Zt-dd-WZQ"/>
+                <outlet property="playButton" destination="CGu-su-JMB" id="Mo4-ei-heD"/>
                 <outlet property="playcountLabel" destination="V7h-co-bTx" id="Q82-TF-sGt"/>
-                <outlet property="statusButton" destination="CGu-su-JMB" id="lky-Sy-zU4"/>
                 <outlet property="voiceTimeLabel" destination="9Cr-iC-siM" id="8QL-QI-8t9"/>
             </connections>
             <point key="canvasLocation" x="42.5" y="252.5"/>

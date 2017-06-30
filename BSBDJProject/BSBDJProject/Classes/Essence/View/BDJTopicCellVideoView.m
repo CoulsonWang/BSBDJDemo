@@ -9,6 +9,7 @@
 #import "BDJTopicCellVideoView.h"
 #import "BDJEssenceTopicItem.h"
 #import "UIImageView+Download.h"
+#import <AVFoundation/AVFoundation.h>
 
 @interface BDJTopicCellVideoView ()
 
@@ -16,9 +17,11 @@
 @property (weak, nonatomic) IBOutlet UILabel *videotimeLabel;
 @property (weak, nonatomic) IBOutlet UILabel *playcountLabel;
 
+
 @end
 
 @implementation BDJTopicCellVideoView
+
 
 - (void)awakeFromNib {
     [super awakeFromNib];
@@ -41,5 +44,8 @@
     self.videotimeLabel.text = [NSString stringWithFormat:@"%02ld:%02ld",item.videotime / 60,item.videotime % 60];
 }
 
+- (IBAction)playButtonClick:(UIButton *)sender {
+    
+}
 
 @end

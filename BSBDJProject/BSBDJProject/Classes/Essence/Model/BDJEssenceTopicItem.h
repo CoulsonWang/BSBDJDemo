@@ -54,6 +54,10 @@ typedef NS_ENUM(NSUInteger, BDJTopicType) {
 
 @property (assign, nonatomic) NSInteger playcount;
 
+@property (strong, nonatomic) NSString *voiceuri;
+
+@property (strong, nonatomic) NSString *videouri;
+
 //额外属性，并非服务器返回的属性
 /** 根据当前模型计算出的cell的高度 */
 @property (assign, nonatomic) CGFloat cellHeight;
