@@ -204,7 +204,6 @@
                 <constraint firstItem="FNX-dA-KE4" firstAttribute="leading" secondItem="xuA-7v-zXj" secondAttribute="leading" constant="10" id="54N-ZZ-Kd6"/>
             </constraints>
             <connections>
-                <outlet property="bottomViewHeightConstraint" destination="DDk-YS-aeL" id="dj8-kh-CSy"/>
                 <outlet property="caiButton" destination="Rt4-VW-OAW" id="eAY-W9-g4E"/>
                 <outlet property="conmentButton" destination="4Nf-a9-2uZ" id="pHv-Nz-Tz3"/>
                 <outlet property="dingButton" destination="gwK-mc-jAB" id="gz5-s3-fgS"/>
@@ -215,7 +214,6 @@
                 <outlet property="text_label" destination="FNX-dA-KE4" id="dbN-fP-IaG"/>
                 <outlet property="topCommentLabel" destination="VWp-Yt-Zee" id="Kj2-V7-aWT"/>
                 <outlet property="topCommentView" destination="oce-cd-OFG" id="ZfJ-d3-Ak2"/>
-                <outlet property="topViewHeightConstraint" destination="lZA-SL-z5p" id="0F5-JE-UHS"/>
             </connections>
             <point key="canvasLocation" x="-163" y="-177.5"/>
         </tableViewCell>

@@ -9,9 +9,11 @@
 #import "BDJEssenceTopicCell.h"
 #import "BDJEssenceTopicItem.h"
 #import <UIImageView+WebCache.h>
+#import "BDJTopicCellPhotoView.h"
+#import "BDJTopicCellSoundView.h"
+#import "BDJTopicCellVideoView.h"
 
 static CGFloat const SpaceBetweenCells = 10.0;
-static CGFloat const SpaceBetweenViews = 10.0;
 
 @interface BDJEssenceTopicCell ()
 
@@ -26,8 +28,7 @@ static CGFloat const SpaceBetweenViews = 10.0;
 @property (weak, nonatomic) IBOutlet UIView *topCommentView;
 @property (weak, nonatomic) IBOutlet UILabel *topCommentLabel;
 
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *topViewHeightConstraint;
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *bottomViewHeightConstraint;
+
 
 @end
 
@@ -82,6 +83,22 @@ static CGFloat const SpaceBetweenViews = 10.0;
     } else {
         self.topCommentView.hidden = YES;
     }
+    
+    //判断帖子类型，添加相应的中间控件
+    if (item.type == BDJTopicTypePhoto) {
+        BDJTopicCellPhotoView *photoView = [BDJTopicCellPhotoView YY_viewFromNib];
+        
+        [self.contentView addSubview:photoView];
+    } else if (item.type == BDJTopicTypeSound) {
+        BDJTopicCellSoundView *soundView = [BDJTopicCellSoundView YY_viewFromNib];
+        
+        [self.contentView addSubview:soundView];
+    } else if (item.type == BDJTopicTypeVideo) {
+        BDJTopicCellVideoView *videoView = [BDJTopicCellVideoView YY_viewFromNib];
+        
+        [self.contentView addSubview:videoView];
+    }
+    
 }
 
 - (void)setUpButtonTitle:(UIButton *)button number:(NSString *)Titlenumber placeholder:(NSString *)placeholder {
@@ -103,30 +120,7 @@ static CGFloat const SpaceBetweenViews = 10.0;
     [super setFrame:frame];
 }
 
-/**
- 计算并返回cell的高度
 
- @return cell的高度值
- */
-- (CGFloat)cellHeight {
-    CGFloat cellHeight = 0;
-    //加上顶部视图高度
-    cellHeight +=_topViewHeightConstraint.constant;
-    //计算文本高度
-    CGFloat textWidth = self.YY_width - 2 * SpaceBetweenViews;
-    UIFont *textFont = self.text_label.font;
-    CGFloat textHeight = [self.item.text boundingRectWithSize:CGSizeMake(textWidth, MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:textFont} context:nil].size.height;
-    //加上文本高度
-    cellHeight += textHeight;
-    //加上文本高度和底部工具条的间距
-    cellHeight += SpaceBetweenViews;
-    //加上底部工具条高度
-    cellHeight += _bottomViewHeightConstraint.constant;
-    //加上cell之间的间距
-    cellHeight += SpaceBetweenCells;
-    
-    return cellHeight;
-}
 
 
 

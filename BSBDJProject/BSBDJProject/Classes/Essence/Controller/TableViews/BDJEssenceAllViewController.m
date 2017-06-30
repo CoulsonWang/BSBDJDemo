@@ -60,7 +60,7 @@ static NSString *const topicCellID = @"topicCellID";
     NSDictionary *params = @{
                              @"a" : @"list",
                              @"c" : @"data",
-                             @"type" : [NSNumber numberWithUnsignedInteger:BDJTopicTypeAll]
+                             @"type" : [NSNumber numberWithUnsignedInteger:BDJTopicTypeSound]
                              };
     
     [self.manager GET:CommonURL parameters:params progress:nil success:^(NSURLSessionDataTask * _Nonnull task, NSDictionary *_Nullable responseObject) {
@@ -89,7 +89,7 @@ static NSString *const topicCellID = @"topicCellID";
     NSDictionary *params = @{
                              @"a" : @"list",
                              @"c" : @"data",
-                             @"type" : @1,
+                             @"type" : [NSNumber numberWithUnsignedInteger:BDJTopicTypeSound],
                              @"maxtime" : self.userInfoItem.maxtime
                              };
     

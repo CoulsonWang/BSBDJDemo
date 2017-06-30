@@ -47,6 +47,12 @@
 		B9A684651F039C7F00D350E3 /* BDJEssencePhotoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B9A684641F039C7F00D350E3 /* BDJEssencePhotoViewController.m */; };
 		B9A684681F039CC500D350E3 /* BDJEssenceCrossTalkViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B9A684671F039CC500D350E3 /* BDJEssenceCrossTalkViewController.m */; };
 		B9A6846B1F03AB5F00D350E3 /* BDJConst.m in Sources */ = {isa = PBXBuildFile; fileRef = B9A6846A1F03AB5F00D350E3 /* BDJConst.m */; };
+		B9B2A8C71F0649FE00C47089 /* BDJTopicCellVideoView.m in Sources */ = {isa = PBXBuildFile; fileRef = B9B2A8C61F0649FE00C47089 /* BDJTopicCellVideoView.m */; };
+		B9B2A8C91F064A1700C47089 /* BDJTopicCellVideoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B9B2A8C81F064A1700C47089 /* BDJTopicCellVideoView.xib */; };
+		B9B2A8CC1F064CC100C47089 /* BDJTopicCellSoundView.m in Sources */ = {isa = PBXBuildFile; fileRef = B9B2A8CB1F064CC100C47089 /* BDJTopicCellSoundView.m */; };
+		B9B2A8CE1F064CD100C47089 /* BDJTopicCellSoundView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B9B2A8CD1F064CD100C47089 /* BDJTopicCellSoundView.xib */; };
+		B9B2A8D11F064CF600C47089 /* BDJTopicCellPhotoView.m in Sources */ = {isa = PBXBuildFile; fileRef = B9B2A8D01F064CF600C47089 /* BDJTopicCellPhotoView.m */; };
+		B9B2A8D31F064D0000C47089 /* BDJTopicCellPhotoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B9B2A8D21F064D0000C47089 /* BDJTopicCellPhotoView.xib */; };
 		B9BBED6B1F00FD76005945BE /* BDJAdvertisementViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B9BBED691F00FD76005945BE /* BDJAdvertisementViewController.m */; };
 		B9BBED6C1F00FD76005945BE /* BDJAdvertisementViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B9BBED6A1F00FD76005945BE /* BDJAdvertisementViewController.xib */; };
 		B9BBED751F01032C005945BE /* LaunchImage-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B9BBED6E1F01032C005945BE /* LaunchImage-568h@2x.png */; };
@@ -154,6 +160,15 @@
 		B9A684671F039CC500D350E3 /* BDJEssenceCrossTalkViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BDJEssenceCrossTalkViewController.m; sourceTree = "<group>"; };
 		B9A684691F03AB5F00D350E3 /* BDJConst.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BDJConst.h; sourceTree = "<group>"; };
 		B9A6846A1F03AB5F00D350E3 /* BDJConst.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BDJConst.m; sourceTree = "<group>"; };
+		B9B2A8C51F0649FE00C47089 /* BDJTopicCellVideoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BDJTopicCellVideoView.h; sourceTree = "<group>"; };
+		B9B2A8C61F0649FE00C47089 /* BDJTopicCellVideoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BDJTopicCellVideoView.m; sourceTree = "<group>"; };
+		B9B2A8C81F064A1700C47089 /* BDJTopicCellVideoView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BDJTopicCellVideoView.xib; sourceTree = "<group>"; };
+		B9B2A8CA1F064CC100C47089 /* BDJTopicCellSoundView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BDJTopicCellSoundView.h; sourceTree = "<group>"; };
+		B9B2A8CB1F064CC100C47089 /* BDJTopicCellSoundView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BDJTopicCellSoundView.m; sourceTree = "<group>"; };
+		B9B2A8CD1F064CD100C47089 /* BDJTopicCellSoundView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BDJTopicCellSoundView.xib; sourceTree = "<group>"; };
+		B9B2A8CF1F064CF600C47089 /* BDJTopicCellPhotoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BDJTopicCellPhotoView.h; sourceTree = "<group>"; };
+		B9B2A8D01F064CF600C47089 /* BDJTopicCellPhotoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BDJTopicCellPhotoView.m; sourceTree = "<group>"; };
+		B9B2A8D21F064D0000C47089 /* BDJTopicCellPhotoView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BDJTopicCellPhotoView.xib; sourceTree = "<group>"; };
 		B9BBED681F00FD76005945BE /* BDJAdvertisementViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BDJAdvertisementViewController.h; sourceTree = "<group>"; };
 		B9BBED691F00FD76005945BE /* BDJAdvertisementViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BDJAdvertisementViewController.m; sourceTree = "<group>"; };
 		B9BBED6A1F00FD76005945BE /* BDJAdvertisementViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BDJAdvertisementViewController.xib; sourceTree = "<group>"; };
@@ -459,6 +474,15 @@
 				B9A156DD1F04CF2B0011CFA5 /* BDJEssenceRefreshHeaderView.h */,
 				B9A156DE1F04CF2B0011CFA5 /* BDJEssenceRefreshHeaderView.m */,
 				B9A156E01F04CF390011CFA5 /* BDJEssenceRefreshHeaderView.xib */,
+				B9B2A8C51F0649FE00C47089 /* BDJTopicCellVideoView.h */,
+				B9B2A8C61F0649FE00C47089 /* BDJTopicCellVideoView.m */,
+				B9B2A8C81F064A1700C47089 /* BDJTopicCellVideoView.xib */,
+				B9B2A8CA1F064CC100C47089 /* BDJTopicCellSoundView.h */,
+				B9B2A8CB1F064CC100C47089 /* BDJTopicCellSoundView.m */,
+				B9B2A8CD1F064CD100C47089 /* BDJTopicCellSoundView.xib */,
+				B9B2A8CF1F064CF600C47089 /* BDJTopicCellPhotoView.h */,
+				B9B2A8D01F064CF600C47089 /* BDJTopicCellPhotoView.m */,
+				B9B2A8D21F064D0000C47089 /* BDJTopicCellPhotoView.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -780,9 +804,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B9B2A8C91F064A1700C47089 /* BDJTopicCellVideoView.xib in Resources */,
 				B9A684281F0221C900D350E3 /* BDJLoginRegisterViewController.xib in Resources */,
 				B9A6844D1F028E1300D350E3 /* BDJWebViewController.xib in Resources */,
 				B9BBED7A1F01032C005945BE /* LaunchImage.png in Resources */,
+				B9B2A8CE1F064CD100C47089 /* BDJTopicCellSoundView.xib in Resources */,
 				B9BBED7B1F01032C005945BE /* LaunchImage@2x.png in Resources */,
 				B9A6842D1F022FFA00D350E3 /* BDJLogginRegistView.xib in Resources */,
 				B9DE8D331EFFC05000FF2F14 /* Assets.xcassets in Resources */,
@@ -794,6 +820,7 @@
 				B9A6843D1F026DB900D350E3 /* BDJMineViewController.storyboard in Resources */,
 				B9BBED761F01032C005945BE /* LaunchImage-700-568h@2x.png in Resources */,
 				B9A684231F021DBE00D350E3 /* BDJFriendTrendViewController.xib in Resources */,
+				B9B2A8D31F064D0000C47089 /* BDJTopicCellPhotoView.xib in Resources */,
 				B9BBED6C1F00FD76005945BE /* BDJAdvertisementViewController.xib in Resources */,
 				B9A6841E1F0147B500D350E3 /* BDJSuggestTagCell.xib in Resources */,
 				B9A156E11F04CF390011CFA5 /* BDJEssenceRefreshHeaderView.xib in Resources */,
@@ -875,6 +902,7 @@
 				B9A684591F039C1D00D350E3 /* BDJEssenceBaseTableViewController.m in Sources */,
 				B9A6844C1F028E1300D350E3 /* BDJWebViewController.m in Sources */,
 				B9A156EC1F0502A20011CFA5 /* BDJTopicUserInfoItem.m in Sources */,
+				B9B2A8C71F0649FE00C47089 /* BDJTopicCellVideoView.m in Sources */,
 				B9A6843B1F0265BD00D350E3 /* UITextField+Placeholder.m in Sources */,
 				B9A684651F039C7F00D350E3 /* BDJEssencePhotoViewController.m in Sources */,
 				B9A684451F0277C000D350E3 /* BDJSquareItem.m in Sources */,
@@ -882,6 +910,7 @@
 				B903B0601F00DB6300255FEF /* BDJNavigationController.m in Sources */,
 				B9DE8D631EFFD59100FF2F14 /* AppDelegate.m in Sources */,
 				B9A684521F02A77D00D350E3 /* CacheTool.m in Sources */,
+				B9B2A8D11F064CF600C47089 /* BDJTopicCellPhotoView.m in Sources */,
 				B9A684301F02425900D350E3 /* BDJQuickLoginView.m in Sources */,
 				B9A6841D1F0147B500D350E3 /* BDJSuggestTagCell.m in Sources */,
 				B9A684161F012B2500D350E3 /* BDJSuggestTabController.m in Sources */,
@@ -900,6 +929,7 @@
 				B903B05D1F00D56100255FEF /* BDJSettingViewController.m in Sources */,
 				B9DE8D6F1EFFD60A00FF2F14 /* BDJNewViewController.m in Sources */,
 				B9DE8D801EFFF9CA00FF2F14 /* BDJTaBbar.m in Sources */,
+				B9B2A8CC1F064CC100C47089 /* BDJTopicCellSoundView.m in Sources */,
 				B9A156E81F04FC990011CFA5 /* BDJEssenceTopicCell.m in Sources */,
 				B9A684681F039CC500D350E3 /* BDJEssenceCrossTalkViewController.m in Sources */,
 				B9DE8D661EFFD5C100FF2F14 /* BDJEssenceViewController.m in Sources */,

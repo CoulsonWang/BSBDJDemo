@@ -17,4 +17,6 @@
 @property CGFloat YY_centerX;
 @property CGFloat YY_centerY;
 
++ (instancetype)YY_viewFromNib;
+
 @end

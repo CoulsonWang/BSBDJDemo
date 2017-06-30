@@ -12,6 +12,5 @@
 
 @property (strong, nonatomic) BDJEssenceTopicItem *item;
 
-@property (assign, nonatomic, readonly) CGFloat cellHeight;
 
 @end
