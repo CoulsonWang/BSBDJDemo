@@ -28,7 +28,7 @@ static CGFloat const SpaceBetweenCells = 10.0;
 @property (weak, nonatomic) IBOutlet UIView *topCommentView;
 @property (weak, nonatomic) IBOutlet UILabel *topCommentLabel;
 
-
+@property (weak, nonatomic) UIImageView *topCommentBackgroundView;
 
 @end
 
@@ -40,20 +40,16 @@ static CGFloat const SpaceBetweenCells = 10.0;
     self.selectionStyle = UITableViewCellSelectionStyleNone;
     self.profileImageView.layer.cornerRadius = self.profileImageView.YY_width * 0.5;
     self.profileImageView.layer.masksToBounds = YES;
+    
+    UIImageView *topCommentBackgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"mainCellBackground"]];
+    [self.topCommentView insertSubview:topCommentBackgroundView atIndex:0];
+    self.topCommentBackgroundView = topCommentBackgroundView;
 }
 
 - (void)layoutSubviews {
     [super layoutSubviews];
-    //设置最热评论的背景图片
-    UIImageView *backgroundView = [[UIImageView alloc] initWithFrame:self.topCommentView.bounds];
-    backgroundView.image = [UIImage imageNamed:@"mainCellBackground"];
-    backgroundView.tag = 100;
-    for (UIView *view in self.topCommentView.subviews) {
-        if (view.tag == 100) {
-            [view removeFromSuperview];
-        }
-    }
-    [self.topCommentView insertSubview:backgroundView atIndex:0];
+
+    self.topCommentBackgroundView.frame = self.topCommentView.bounds;
 }
 
 - (void)setItem:(BDJEssenceTopicItem *)item {
@@ -85,19 +81,19 @@ static CGFloat const SpaceBetweenCells = 10.0;
     }
     
     //判断帖子类型，添加相应的中间控件
-    if (item.type == BDJTopicTypePhoto) {
-        BDJTopicCellPhotoView *photoView = [BDJTopicCellPhotoView YY_viewFromNib];
-        
-        [self.contentView addSubview:photoView];
-    } else if (item.type == BDJTopicTypeSound) {
-        BDJTopicCellSoundView *soundView = [BDJTopicCellSoundView YY_viewFromNib];
-        
-        [self.contentView addSubview:soundView];
-    } else if (item.type == BDJTopicTypeVideo) {
-        BDJTopicCellVideoView *videoView = [BDJTopicCellVideoView YY_viewFromNib];
-        
-        [self.contentView addSubview:videoView];
-    }
+//    if (item.type == BDJTopicTypePhoto) {
+//        BDJTopicCellPhotoView *photoView = [BDJTopicCellPhotoView YY_viewFromNib];
+//        
+//        [self.contentView addSubview:photoView];
+//    } else if (item.type == BDJTopicTypeSound) {
+//        BDJTopicCellSoundView *soundView = [BDJTopicCellSoundView YY_viewFromNib];
+//        
+//        [self.contentView addSubview:soundView];
+//    } else if (item.type == BDJTopicTypeVideo) {
+//        BDJTopicCellVideoView *videoView = [BDJTopicCellVideoView YY_viewFromNib];
+//        
+//        [self.contentView addSubview:videoView];
+//    }
     
 }
 
