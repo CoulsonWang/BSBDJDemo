@@ -10,6 +10,9 @@
 #import "BDJEssenceTopicItem.h"
 #import <UIImageView+WebCache.h>
 
+static CGFloat const SpaceBetweenCells = 10.0;
+static CGFloat const SpaceBetweenViews = 10.0;
+
 @interface BDJEssenceTopicCell ()
 
 @property (weak, nonatomic) IBOutlet UIImageView *profileImageView;
@@ -20,6 +23,9 @@
 @property (weak, nonatomic) IBOutlet UIButton *caiButton;
 @property (weak, nonatomic) IBOutlet UIButton *repostButton;
 @property (weak, nonatomic) IBOutlet UIButton *conmentButton;
+
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *topViewHeightConstraint;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *bottomViewHeightConstraint;
 
 @end
 
@@ -58,9 +64,40 @@
     }
 }
 
+/**
+ 重写setFrame方法来实现cell之间有间距
+ */
 - (void)setFrame:(CGRect)frame {
-    frame.size.height -= 10;
+    frame.size.height -= SpaceBetweenCells;
     [super setFrame:frame];
 }
+
+/**
+ 计算并返回cell的高度
+
+ @return cell的高度值
+ */
+- (CGFloat)cellHeight {
+    CGFloat cellHeight = 0;
+    //加上顶部视图高度
+    cellHeight +=_topViewHeightConstraint.constant;
+    //计算文本高度
+    CGFloat textWidth = self.YY_width - 2 * SpaceBetweenViews;
+    UIFont *textFont = self.text_label.font;
+    CGFloat textHeight = [self.item.text boundingRectWithSize:CGSizeMake(textWidth, MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:textFont} context:nil].size.height;
+    //加上文本高度
+    cellHeight += textHeight;
+    //加上文本高度和底部工具条的间距
+    cellHeight += SpaceBetweenViews;
+    //加上底部工具条高度
+    cellHeight += _bottomViewHeightConstraint.constant;
+    //加上cell之间的间距
+    cellHeight += SpaceBetweenCells;
+    
+    return cellHeight;
+}
+
+
+
 
 @end

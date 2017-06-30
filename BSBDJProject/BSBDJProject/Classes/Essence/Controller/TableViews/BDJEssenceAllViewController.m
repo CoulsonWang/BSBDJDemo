@@ -18,7 +18,7 @@ static NSString *const topicCellID = @"topicCellID";
 
 @interface BDJEssenceAllViewController ()
 
-@property (strong, nonatomic) NSMutableArray *topicItems;
+@property (strong, nonatomic) NSMutableArray<BDJEssenceTopicItem *> *topicItems;
 @property (strong, nonatomic) BDJTopicUserInfoItem *userInfoItem;
 @property (strong, nonatomic) AFHTTPSessionManager *manager;
 
@@ -40,12 +40,13 @@ static NSString *const topicCellID = @"topicCellID";
     return _manager;
 }
 
+
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
     [self.tableView registerNib:[UINib nibWithNibName:NSStringFromClass([BDJEssenceTopicCell class]) bundle:nil] forCellReuseIdentifier:topicCellID];
     
-    self.tableView.rowHeight = 200;
 }
 
 /**
@@ -122,6 +123,15 @@ static NSString *const topicCellID = @"topicCellID";
     cell.item = item;
     
     return cell;
+}
+
+#pragma mark - UITableViewDelegate
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    BDJEssenceTopicItem *item = self.topicItems[indexPath.row];
+    
+    
+    return item.cellHeight;
 }
 
 
