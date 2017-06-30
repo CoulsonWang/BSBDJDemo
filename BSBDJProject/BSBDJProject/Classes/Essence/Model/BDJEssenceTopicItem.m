@@ -17,14 +17,26 @@
     //如果没计算过，则初始为0
     _cellHeight += 60;
     //计算文本高度
-    CGFloat textWidth = screenW - 2 * 10;
+    CGFloat contentWidth = screenW - 2 * SpaceOfMargin;
     UIFont *textFont = [UIFont systemFontOfSize:15];
-    CGFloat textHeight = [self.text boundingRectWithSize:CGSizeMake(textWidth, MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:textFont} context:nil].size.height;
+    CGFloat textHeight = [self.text boundingRectWithSize:CGSizeMake(contentWidth, MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:textFont} context:nil].size.height;
     //加上文本高度
     _cellHeight += textHeight;
     //加上文本和下方控件的间距
-    _cellHeight += 10;
-    //加上最热评论的高度
+    _cellHeight += SpaceOfMargin;
+    
+    //中间内容的高度
+    if (self.type != BDJTopicTypeCrossTalk) {
+        //需要显示的图片的高度
+        CGFloat imageHeight = contentWidth / self.width * self.height;
+        self.middelFrame = CGRectMake(SpaceOfMargin, _cellHeight, contentWidth, imageHeight);
+        //加上图片高度
+        _cellHeight += imageHeight;
+        //加上中间内容与下方控件的间距
+        _cellHeight += SpaceOfMargin;
+    }
+    
+    //最热评论的高度
     if (self.top_cmt.count) {
         //评论头的高度
         _cellHeight += 18;
@@ -37,16 +49,16 @@
         NSString *username = cmt[@"user"][@"username"];
         NSString *comment = [NSString stringWithFormat:@"%@:%@",username,content];
         UIFont *commentFont = [UIFont systemFontOfSize:14];
-        CGFloat commentHeigth = [comment boundingRectWithSize:CGSizeMake(textWidth, MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:commentFont} context:nil].size.height;
+        CGFloat commentHeigth = [comment boundingRectWithSize:CGSizeMake(contentWidth, MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:commentFont} context:nil].size.height;
         //加上评论正文的高度
         _cellHeight += commentHeigth;
         //加上最热评论与下方控件的间距
-        _cellHeight += 10;
+        _cellHeight += SpaceOfMargin;
     }
     //加上底部工具条高度
     _cellHeight += 30;
     //加上cell之间的间距
-    _cellHeight += 10;
+    _cellHeight += SpaceOfMargin;
     
     return _cellHeight;
 }

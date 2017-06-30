@@ -38,11 +38,26 @@ typedef NS_ENUM(NSUInteger, BDJTopicType) {
 
 @property (strong, nonatomic) NSArray *top_cmt;
 
-//额外属性，并非服务器返回的属性
+@property (assign, nonatomic) NSInteger width;
 
-/**
- 根据当前模型计算出的cell的高度
- */
+@property (assign, nonatomic) NSInteger height;
+
+@property (strong, nonatomic) NSString *image0;
+
+@property (strong, nonatomic) NSString *image2;
+
+@property (strong, nonatomic) NSString *image1;
+
+@property (assign, nonatomic) NSInteger voicetime;
+
+@property (assign, nonatomic) NSInteger videotime;
+
+@property (assign, nonatomic) NSInteger playcount;
+
+//额外属性，并非服务器返回的属性
+/** 根据当前模型计算出的cell的高度 */
 @property (assign, nonatomic) CGFloat cellHeight;
+
+@property (assign, nonatomic) CGRect middelFrame;
 
 @end

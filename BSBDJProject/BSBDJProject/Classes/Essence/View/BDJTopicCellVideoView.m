@@ -8,14 +8,20 @@
 
 #import "BDJTopicCellVideoView.h"
 
+@interface BDJTopicCellVideoView ()
+
+@property (weak, nonatomic) IBOutlet UIImageView *imageView;
+@property (weak, nonatomic) IBOutlet UILabel *videotimeLabel;
+@property (weak, nonatomic) IBOutlet UILabel *playcountLabel;
+
+@end
+
 @implementation BDJTopicCellVideoView
 
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect {
-    // Drawing code
+- (void)awakeFromNib {
+    [super awakeFromNib];
+    self.autoresizingMask = UIViewAutoresizingNone;
 }
-*/
+
 
 @end

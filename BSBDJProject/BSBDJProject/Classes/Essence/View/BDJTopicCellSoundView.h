@@ -8,6 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
+@class BDJEssenceTopicItem;
+
 @interface BDJTopicCellSoundView : UIView
+
+@property (strong, nonatomic) BDJEssenceTopicItem *item;
 
 @end

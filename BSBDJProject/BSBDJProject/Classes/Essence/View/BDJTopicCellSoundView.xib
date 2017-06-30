@@ -12,11 +12,59 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="BDJTopicCellSoundView">
-            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <rect key="frame" x="0.0" y="0.0" width="375" height="281"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="h1Y-6r-Vlu" userLabel="图片">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="281"/>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Cr-iC-siM">
+                    <rect key="frame" x="333" y="260" width="42" height="21"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.74623753834355833" colorSpace="calibratedWhite"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V7h-co-bTx">
+                    <rect key="frame" x="333" y="0.0" width="42" height="21"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.72192532592024539" colorSpace="calibratedWhite"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CGu-su-JMB">
+                    <rect key="frame" x="155.5" y="108.5" width="63" height="63"/>
+                    <state key="normal" image="playButtonPlay" backgroundImage="playButton"/>
+                    <state key="highlighted" backgroundImage="playButtonClick"/>
+                </button>
+            </subviews>
+            <color key="backgroundColor" red="0.0" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+            <constraints>
+                <constraint firstItem="V7h-co-bTx" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="Hwx-rP-2Tr"/>
+                <constraint firstItem="CGu-su-JMB" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="M3q-SU-f2J"/>
+                <constraint firstAttribute="trailing" secondItem="V7h-co-bTx" secondAttribute="trailing" id="T6A-sw-PuE"/>
+                <constraint firstItem="h1Y-6r-Vlu" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="UU2-Va-M2A"/>
+                <constraint firstAttribute="trailing" secondItem="h1Y-6r-Vlu" secondAttribute="trailing" id="Wl5-cO-CTL"/>
+                <constraint firstAttribute="trailing" secondItem="9Cr-iC-siM" secondAttribute="trailing" id="Zdd-yM-xbB"/>
+                <constraint firstItem="CGu-su-JMB" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="bxy-YR-VLS"/>
+                <constraint firstItem="h1Y-6r-Vlu" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="nnN-XE-sgw"/>
+                <constraint firstAttribute="bottom" secondItem="h1Y-6r-Vlu" secondAttribute="bottom" id="yBd-eo-ls7"/>
+                <constraint firstAttribute="bottom" secondItem="9Cr-iC-siM" secondAttribute="bottom" id="ysb-p1-f2B"/>
+            </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="imageView" destination="h1Y-6r-Vlu" id="7Zt-dd-WZQ"/>
+                <outlet property="playcountLabel" destination="V7h-co-bTx" id="Q82-TF-sGt"/>
+                <outlet property="statusButton" destination="CGu-su-JMB" id="lky-Sy-zU4"/>
+                <outlet property="voiceTimeLabel" destination="9Cr-iC-siM" id="8QL-QI-8t9"/>
+            </connections>
+            <point key="canvasLocation" x="42.5" y="252.5"/>
         </view>
     </objects>
+    <resources>
+        <image name="playButton" width="63" height="63"/>
+        <image name="playButtonClick" width="63" height="63"/>
+        <image name="playButtonPlay" width="30" height="30"/>
+    </resources>
 </document>

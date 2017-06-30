@@ -23,3 +23,6 @@
 #define AFNWriteToPlist(filename) [responseObject writeToFile:[NSString stringWithFormat:@"/Users/Tidehunter/Desktop/%@.plist",@#filename] atomically:YES];
 
 
+#define SpaceOfMargin 10.0
+
+#define SpaceBetweenCells 10.0

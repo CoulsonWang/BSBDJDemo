@@ -13,7 +13,7 @@
 #import "BDJTopicCellSoundView.h"
 #import "BDJTopicCellVideoView.h"
 
-static CGFloat const SpaceBetweenCells = 10.0;
+
 
 @interface BDJEssenceTopicCell ()
 
@@ -29,11 +29,41 @@ static CGFloat const SpaceBetweenCells = 10.0;
 @property (weak, nonatomic) IBOutlet UILabel *topCommentLabel;
 
 @property (weak, nonatomic) UIImageView *topCommentBackgroundView;
+@property (weak, nonatomic) BDJTopicCellPhotoView *photoView;
+@property (weak, nonatomic) BDJTopicCellSoundView *soundView;
+@property (weak, nonatomic) BDJTopicCellVideoView *videoView;
 
 @end
 
 @implementation BDJEssenceTopicCell
 
+#pragma mark - Lazy Load
+
+- (BDJTopicCellPhotoView *)photoView {
+    if (!_photoView) {
+        _photoView = [BDJTopicCellPhotoView YY_viewFromNib];
+        [self.contentView addSubview:_photoView];
+    }
+    return _photoView;
+}
+
+- (BDJTopicCellSoundView *)soundView {
+    if (!_soundView) {
+        _soundView = [BDJTopicCellSoundView YY_viewFromNib];
+        [self.contentView addSubview:_soundView];
+    }
+    return _soundView;
+}
+
+- (BDJTopicCellVideoView *)videoView {
+    if (!_videoView) {
+        _videoView = [BDJTopicCellVideoView YY_viewFromNib];
+        [self.contentView addSubview:_videoView];
+    }
+    return _videoView;
+}
+
+#pragma mark - Life Cycle
 - (void)awakeFromNib {
     [super awakeFromNib];
     self.backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"mainCellBackground"]];
@@ -50,6 +80,14 @@ static CGFloat const SpaceBetweenCells = 10.0;
     [super layoutSubviews];
 
     self.topCommentBackgroundView.frame = self.topCommentView.bounds;
+    
+    if (self.item.type == BDJTopicTypePhoto) {
+        self.photoView.frame = self.item.middelFrame;
+    } else if (self.item.type == BDJTopicTypeSound) {
+        self.soundView.frame = self.item.middelFrame;
+    } else if (self.item.type == BDJTopicTypeVideo) {
+        self.videoView.frame = self.item.middelFrame;
+    }
 }
 
 - (void)setItem:(BDJEssenceTopicItem *)item {
@@ -81,26 +119,32 @@ static CGFloat const SpaceBetweenCells = 10.0;
     }
     
     //判断帖子类型，添加相应的中间控件
-//    if (item.type == BDJTopicTypePhoto) {
-//        BDJTopicCellPhotoView *photoView = [BDJTopicCellPhotoView YY_viewFromNib];
-//        
-//        [self.contentView addSubview:photoView];
-//    } else if (item.type == BDJTopicTypeSound) {
-//        BDJTopicCellSoundView *soundView = [BDJTopicCellSoundView YY_viewFromNib];
-//        
-//        [self.contentView addSubview:soundView];
-//    } else if (item.type == BDJTopicTypeVideo) {
-//        BDJTopicCellVideoView *videoView = [BDJTopicCellVideoView YY_viewFromNib];
-//        
-//        [self.contentView addSubview:videoView];
-//    }
+    if (item.type == BDJTopicTypePhoto) {
+        self.photoView.hidden = NO;
+        self.soundView.hidden = YES;
+        self.videoView.hidden = YES;
+    } else if (item.type == BDJTopicTypeSound) {
+        self.photoView.hidden = YES;
+        self.soundView.hidden = NO;
+        self.videoView.hidden = YES;
+        self.soundView.item = item;
+    } else if (item.type == BDJTopicTypeVideo) {
+        self.photoView.hidden = YES;
+        self.soundView.hidden = YES;
+        self.videoView.hidden = NO;
+        
+    } else if (item.type == BDJTopicTypeCrossTalk) {
+        self.photoView.hidden = YES;
+        self.soundView.hidden = YES;
+        self.videoView.hidden = YES;
+    }
     
 }
 
 - (void)setUpButtonTitle:(UIButton *)button number:(NSString *)Titlenumber placeholder:(NSString *)placeholder {
     NSUInteger number = [Titlenumber integerValue];
     if (number >= 10000) {
-        [button setTitle:[NSString stringWithFormat:@"%f万",number / 10000.0] forState:UIControlStateNormal];
+        [button setTitle:[NSString stringWithFormat:@"%.1f万",number / 10000.0] forState:UIControlStateNormal];
     } else if (number > 0) {
         [button setTitle:[NSString stringWithFormat:@"%ld",number] forState:UIControlStateNormal];
     } else {

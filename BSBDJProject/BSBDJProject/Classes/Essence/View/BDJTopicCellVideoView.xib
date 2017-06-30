@@ -14,10 +14,51 @@
         <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="BDJTopicCellVideoView">
             <rect key="frame" x="0.0" y="0.0" width="414" height="360"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="fZ0-1J-VHG" userLabel="图片">
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="360"/>
+                </imageView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="inI-gf-1L1" userLabel="视频按钮">
+                    <rect key="frame" x="172" y="145" width="71" height="71"/>
+                    <state key="normal" image="video-play"/>
+                </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XIP-Am-yWJ" userLabel="视频时长">
+                    <rect key="frame" x="372" y="339" width="42" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yVm-y8-JQ5" userLabel="播放次数">
+                    <rect key="frame" x="372" y="0.0" width="42" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="inI-gf-1L1" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="DTf-3T-kLO"/>
+                <constraint firstItem="fZ0-1J-VHG" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="E2r-5j-UEZ"/>
+                <constraint firstItem="fZ0-1J-VHG" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="Gvq-EV-gLE"/>
+                <constraint firstAttribute="bottom" secondItem="XIP-Am-yWJ" secondAttribute="bottom" id="XSr-pe-Abn"/>
+                <constraint firstItem="yVm-y8-JQ5" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="XTf-HG-Q5v"/>
+                <constraint firstAttribute="trailing" secondItem="fZ0-1J-VHG" secondAttribute="trailing" id="ZVU-Ml-ffg"/>
+                <constraint firstAttribute="trailing" secondItem="XIP-Am-yWJ" secondAttribute="trailing" id="k7Y-W6-cFm"/>
+                <constraint firstAttribute="trailing" secondItem="yVm-y8-JQ5" secondAttribute="trailing" id="qjN-Tf-z1V"/>
+                <constraint firstItem="inI-gf-1L1" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="rsB-gx-zKo"/>
+                <constraint firstAttribute="bottom" secondItem="fZ0-1J-VHG" secondAttribute="bottom" id="zq7-gM-Mhc"/>
+            </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="imageView" destination="fZ0-1J-VHG" id="BeM-Jw-soI"/>
+                <outlet property="playcountLabel" destination="yVm-y8-JQ5" id="VNv-61-2Uf"/>
+                <outlet property="videotimeLabel" destination="XIP-Am-yWJ" id="sQS-Tj-ssj"/>
+            </connections>
             <point key="canvasLocation" x="31" y="333"/>
         </view>
     </objects>
+    <resources>
+        <image name="video-play" width="71" height="71"/>
+    </resources>
 </document>
