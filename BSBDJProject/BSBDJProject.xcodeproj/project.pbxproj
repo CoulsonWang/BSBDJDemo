@@ -16,6 +16,7 @@
 		B9A156E81F04FC990011CFA5 /* BDJEssenceTopicCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B9A156E61F04FC990011CFA5 /* BDJEssenceTopicCell.m */; };
 		B9A156EC1F0502A20011CFA5 /* BDJTopicUserInfoItem.m in Sources */ = {isa = PBXBuildFile; fileRef = B9A156EB1F0502A20011CFA5 /* BDJTopicUserInfoItem.m */; };
 		B9A156FB1F053E350011CFA5 /* BDJEssenceTopicCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B9A156FA1F053E350011CFA5 /* BDJEssenceTopicCell.xib */; };
+		B9A5697D1F069821009E8E5F /* UIImageView+Download.m in Sources */ = {isa = PBXBuildFile; fileRef = B9A5697C1F069821009E8E5F /* UIImageView+Download.m */; };
 		B9A684131F0116D900D350E3 /* BDJAdItem.m in Sources */ = {isa = PBXBuildFile; fileRef = B9A684121F0116D900D350E3 /* BDJAdItem.m */; };
 		B9A684161F012B2500D350E3 /* BDJSuggestTabController.m in Sources */ = {isa = PBXBuildFile; fileRef = B9A684151F012B2500D350E3 /* BDJSuggestTabController.m */; };
 		B9A684191F012DE100D350E3 /* BDJSuggestTapItem.m in Sources */ = {isa = PBXBuildFile; fileRef = B9A684181F012DE100D350E3 /* BDJSuggestTapItem.m */; };
@@ -106,6 +107,8 @@
 		B9A156EA1F0502A20011CFA5 /* BDJTopicUserInfoItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BDJTopicUserInfoItem.h; sourceTree = "<group>"; };
 		B9A156EB1F0502A20011CFA5 /* BDJTopicUserInfoItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BDJTopicUserInfoItem.m; sourceTree = "<group>"; };
 		B9A156FA1F053E350011CFA5 /* BDJEssenceTopicCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BDJEssenceTopicCell.xib; sourceTree = "<group>"; };
+		B9A5697B1F069821009E8E5F /* UIImageView+Download.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+Download.h"; sourceTree = "<group>"; };
+		B9A5697C1F069821009E8E5F /* UIImageView+Download.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+Download.m"; sourceTree = "<group>"; };
 		B9A684111F0116D900D350E3 /* BDJAdItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BDJAdItem.h; sourceTree = "<group>"; };
 		B9A684121F0116D900D350E3 /* BDJAdItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BDJAdItem.m; sourceTree = "<group>"; };
 		B9A684141F012B2500D350E3 /* BDJSuggestTabController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BDJSuggestTabController.h; sourceTree = "<group>"; };
@@ -713,6 +716,8 @@
 				B9A684201F01620D00D350E3 /* UIColor+RGB.m */,
 				B9A684391F0265BD00D350E3 /* UITextField+Placeholder.h */,
 				B9A6843A1F0265BD00D350E3 /* UITextField+Placeholder.m */,
+				B9A5697B1F069821009E8E5F /* UIImageView+Download.h */,
+				B9A5697C1F069821009E8E5F /* UIImageView+Download.m */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -907,6 +912,7 @@
 				B9A684651F039C7F00D350E3 /* BDJEssencePhotoViewController.m in Sources */,
 				B9A684451F0277C000D350E3 /* BDJSquareItem.m in Sources */,
 				B9A6845F1F039C5B00D350E3 /* BDJEssenceVideoViewController.m in Sources */,
+				B9A5697D1F069821009E8E5F /* UIImageView+Download.m in Sources */,
 				B903B0601F00DB6300255FEF /* BDJNavigationController.m in Sources */,
 				B9DE8D631EFFD59100FF2F14 /* AppDelegate.m in Sources */,
 				B9A684521F02A77D00D350E3 /* CacheTool.m in Sources */,

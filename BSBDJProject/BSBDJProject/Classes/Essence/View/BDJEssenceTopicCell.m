@@ -132,7 +132,7 @@
         self.photoView.hidden = YES;
         self.soundView.hidden = YES;
         self.videoView.hidden = NO;
-        
+        self.videoView.item = item;
     } else if (item.type == BDJTopicTypeCrossTalk) {
         self.photoView.hidden = YES;
         self.soundView.hidden = YES;
