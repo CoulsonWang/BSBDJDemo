@@ -18,7 +18,7 @@
 }
 
 + (instancetype)refreshHeader {
-    BDJEssenceRefreshHeaderView *refreshHeader = [[[NSBundle mainBundle] loadNibNamed:NSStringFromClass(self) owner:nil options:nil] lastObject];
+    BDJEssenceRefreshHeaderView *refreshHeader = [self YY_viewFromNib];
     return refreshHeader;
 }
 
