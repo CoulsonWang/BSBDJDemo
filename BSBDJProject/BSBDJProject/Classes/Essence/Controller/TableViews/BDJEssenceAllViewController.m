@@ -47,6 +47,7 @@ static NSString *const topicCellID = @"topicCellID";
     
     [self.tableView registerNib:[UINib nibWithNibName:NSStringFromClass([BDJEssenceTopicCell class]) bundle:nil] forCellReuseIdentifier:topicCellID];
     
+    self.tableView.estimatedRowHeight = 100;
 }
 
 /**
@@ -129,10 +130,9 @@ static NSString *const topicCellID = @"topicCellID";
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     BDJEssenceTopicItem *item = self.topicItems[indexPath.row];
-    
-    
     return item.cellHeight;
 }
+
 
 
 
