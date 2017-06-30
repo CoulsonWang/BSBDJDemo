@@ -8,6 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
+@class BDJEssenceTopicItem;
+
 @interface BDJTopicCellPhotoView : UIView
+
+@property (strong, nonatomic) BDJEssenceTopicItem *item;
 
 @end

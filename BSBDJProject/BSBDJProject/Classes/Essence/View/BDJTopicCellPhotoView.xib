@@ -14,10 +14,33 @@
         <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="BDJTopicCellPhotoView">
             <rect key="frame" x="0.0" y="0.0" width="375" height="294"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-            <color key="backgroundColor" red="1" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="nlP-CT-iGJ">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="294"/>
+                </imageView>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="common-gif" translatesAutoresizingMaskIntoConstraints="NO" id="voC-qo-cdd">
+                    <rect key="frame" x="0.0" y="0.0" width="31" height="31"/>
+                </imageView>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="voC-qo-cdd" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="7yj-dG-fXN"/>
+                <constraint firstAttribute="bottom" secondItem="nlP-CT-iGJ" secondAttribute="bottom" id="t9m-Ta-EbD"/>
+                <constraint firstItem="voC-qo-cdd" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="ugH-Uj-hKT"/>
+                <constraint firstItem="nlP-CT-iGJ" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="wIo-iQ-XkR"/>
+                <constraint firstAttribute="trailing" secondItem="nlP-CT-iGJ" secondAttribute="trailing" id="x7q-F2-klx"/>
+                <constraint firstItem="nlP-CT-iGJ" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="zX1-OC-Jav"/>
+            </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="gifView" destination="voC-qo-cdd" id="lmB-pW-Ttn"/>
+                <outlet property="imageView" destination="nlP-CT-iGJ" id="57X-QR-AXz"/>
+            </connections>
             <point key="canvasLocation" x="42.5" y="246"/>
         </view>
     </objects>
+    <resources>
+        <image name="common-gif" width="31" height="31"/>
+    </resources>
 </document>
