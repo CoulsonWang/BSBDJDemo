@@ -32,7 +32,7 @@
     
     //播放数量
     if (item.playcount >= 10000) {
-        self.playcountLabel.text = [NSString stringWithFormat:@"%.1f次播放",item.playcount / 10000.0];
+        self.playcountLabel.text = [NSString stringWithFormat:@"%.1f万次播放",item.playcount / 10000.0];
     } else {
         self.playcountLabel.text = [NSString stringWithFormat:@"%ld次播放",item.playcount];
     }
