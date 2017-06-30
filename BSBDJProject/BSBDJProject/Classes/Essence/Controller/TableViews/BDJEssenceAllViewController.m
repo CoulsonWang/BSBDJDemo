@@ -7,47 +7,21 @@
 //
 
 #import "BDJEssenceAllViewController.h"
-#import <AFNetworking.h>
-#import <MJExtension.h>
-#import <SVProgressHUD.h>
+#import "BDJEssenceTopicCell.h"
 #import "BDJEssenceTopicItem.h"
 #import "BDJTopicUserInfoItem.h"
-#import "BDJEssenceTopicCell.h"
-
-static NSString *const topicCellID = @"topicCellID";
+#import <MJExtension.h>
+#import <SVProgressHUD.h>
+#import <AFNetworking.h>
 
 @interface BDJEssenceAllViewController ()
-
-@property (strong, nonatomic) NSMutableArray<BDJEssenceTopicItem *> *topicItems;
-@property (strong, nonatomic) BDJTopicUserInfoItem *userInfoItem;
-@property (strong, nonatomic) AFHTTPSessionManager *manager;
 
 @end
 
 @implementation BDJEssenceAllViewController
 
-- (BDJTopicUserInfoItem *)userInfoItem {
-    if (!_userInfoItem) {
-        _userInfoItem = [[BDJTopicUserInfoItem alloc] init];
-    }
-    return _userInfoItem;
-}
-
-- (AFHTTPSessionManager *)manager {
-    if (!_manager) {
-        _manager = [AFHTTPSessionManager manager];
-    }
-    return _manager;
-}
-
-
-
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    [self.tableView registerNib:[UINib nibWithNibName:NSStringFromClass([BDJEssenceTopicCell class]) bundle:nil] forCellReuseIdentifier:topicCellID];
-    
-    self.tableView.estimatedRowHeight = 100;
 }
 
 /**
@@ -60,7 +34,7 @@ static NSString *const topicCellID = @"topicCellID";
     NSDictionary *params = @{
                              @"a" : @"list",
                              @"c" : @"data",
-                             @"type" : [NSNumber numberWithUnsignedInteger:BDJTopicTypeSound]
+                             @"type" : [NSNumber numberWithUnsignedInteger:BDJTopicTypeAll]
                              };
     
     [self.manager GET:CommonURL parameters:params progress:nil success:^(NSURLSessionDataTask * _Nonnull task, NSDictionary *_Nullable responseObject) {
@@ -89,7 +63,7 @@ static NSString *const topicCellID = @"topicCellID";
     NSDictionary *params = @{
                              @"a" : @"list",
                              @"c" : @"data",
-                             @"type" : [NSNumber numberWithUnsignedInteger:BDJTopicTypeSound],
+                             @"type" : [NSNumber numberWithUnsignedInteger:BDJTopicTypeAll],
                              @"maxtime" : self.userInfoItem.maxtime
                              };
     
@@ -108,29 +82,6 @@ static NSString *const topicCellID = @"topicCellID";
         }
         self.footerLoading = NO;
     }];
-}
-
-#pragma mark - UITableViewDataSource
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    self.footer.hidden = (self.topicItems.count == 0);
-    return self.topicItems.count;
-}
-
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    BDJEssenceTopicCell *cell = [tableView dequeueReusableCellWithIdentifier:topicCellID];
-    
-    BDJEssenceTopicItem *item = self.topicItems[indexPath.row];
-    cell.item = item;
-    
-    return cell;
-}
-
-#pragma mark - UITableViewDelegate
-
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    BDJEssenceTopicItem *item = self.topicItems[indexPath.row];
-    return item.cellHeight;
 }
 
 
