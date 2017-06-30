@@ -5,14 +5,14 @@
         "mode" : "9-part",
         "center" : {
           "mode" : "tile",
-          "width" : 1,
+          "width" : 41,
           "height" : 1
         },
         "cap-insets" : {
-          "bottom" : 27,
-          "top" : 22,
-          "right" : 22,
-          "left" : 27
+          "bottom" : 4,
+          "top" : 5,
+          "right" : 4,
+          "left" : 5
         }
       },
       "idiom" : "universal",
@@ -24,14 +24,14 @@
         "mode" : "9-part",
         "center" : {
           "mode" : "tile",
-          "width" : 1,
-          "height" : 1
+          "width" : 82,
+          "height" : 87
         },
         "cap-insets" : {
-          "bottom" : 51,
-          "top" : 48,
-          "right" : 51,
-          "left" : 48
+          "bottom" : 6,
+          "top" : 7,
+          "right" : 8,
+          "left" : 10
         }
       },
       "idiom" : "universal",

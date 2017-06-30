@@ -23,6 +23,8 @@ static CGFloat const SpaceBetweenViews = 10.0;
 @property (weak, nonatomic) IBOutlet UIButton *caiButton;
 @property (weak, nonatomic) IBOutlet UIButton *repostButton;
 @property (weak, nonatomic) IBOutlet UIButton *conmentButton;
+@property (weak, nonatomic) IBOutlet UIView *topCommentView;
+@property (weak, nonatomic) IBOutlet UILabel *topCommentLabel;
 
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *topViewHeightConstraint;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *bottomViewHeightConstraint;
@@ -37,7 +39,20 @@ static CGFloat const SpaceBetweenViews = 10.0;
     self.selectionStyle = UITableViewCellSelectionStyleNone;
     self.profileImageView.layer.cornerRadius = self.profileImageView.YY_width * 0.5;
     self.profileImageView.layer.masksToBounds = YES;
-    
+}
+
+- (void)layoutSubviews {
+    [super layoutSubviews];
+    //设置最热评论的背景图片
+    UIImageView *backgroundView = [[UIImageView alloc] initWithFrame:self.topCommentView.bounds];
+    backgroundView.image = [UIImage imageNamed:@"mainCellBackground"];
+    backgroundView.tag = 100;
+    for (UIView *view in self.topCommentView.subviews) {
+        if (view.tag == 100) {
+            [view removeFromSuperview];
+        }
+    }
+    [self.topCommentView insertSubview:backgroundView atIndex:0];
 }
 
 - (void)setItem:(BDJEssenceTopicItem *)item {
@@ -51,6 +66,22 @@ static CGFloat const SpaceBetweenViews = 10.0;
     [self setUpButtonTitle:self.caiButton number:item.cai placeholder:@"踩"];
     [self setUpButtonTitle:self.repostButton number:item.repost placeholder:@"分享"];
     [self setUpButtonTitle:self.conmentButton number:item.comment placeholder:@"评论"];
+    
+    //处理最热评论是否隐藏以及显示的内容
+    if (item.top_cmt.count) {
+        self.topCommentView.hidden = NO;
+        NSDictionary *cmt = item.top_cmt.firstObject;
+        NSString *content = cmt[@"content"];
+        if (content.length == 0) {
+            content = @"[语音评论]";
+        }
+        NSString *username = cmt[@"user"][@"username"];
+        NSString *comment = [NSString stringWithFormat:@"%@:%@",username,content];
+        self.topCommentLabel.text = comment;
+        
+    } else {
+        self.topCommentView.hidden = YES;
+    }
 }
 
 - (void)setUpButtonTitle:(UIButton *)button number:(NSString *)Titlenumber placeholder:(NSString *)placeholder {

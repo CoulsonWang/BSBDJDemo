@@ -34,7 +34,9 @@ typedef NS_ENUM(NSUInteger, BDJTopicType) {
 
 @property (strong, nonatomic) NSString *comment;
 
-@property (assign, nonatomic) NSInteger type;
+@property (assign, nonatomic) BDJTopicType type;
+
+@property (strong, nonatomic) NSArray *top_cmt;
 
 //额外属性，并非服务器返回的属性
 
