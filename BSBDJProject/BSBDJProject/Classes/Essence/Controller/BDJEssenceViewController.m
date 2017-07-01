@@ -29,11 +29,24 @@
 @property (weak, nonatomic) UIView *titleUnderlineView;
 @property (weak, nonatomic) UITableView *onScreenTableView;
 
+@property (strong, nonatomic) AVPlayer *soundPlayer;
+@property (assign, nonatomic, getter=isPlaying) BOOL playing;
+@property (strong, nonatomic) NSString *soundURL;
 
 @end
 
 @implementation BDJEssenceViewController
 
+#pragma mark - Lazy Load
+
+- (AVPlayer *)soundPlayer {
+    if (!_soundPlayer) {
+        _soundPlayer = [[AVPlayer alloc] init];
+    }
+    return _soundPlayer;
+}
+
+#pragma mark - Life Cycle
 - (void)viewDidLoad {
     [super viewDidLoad];
     
@@ -47,7 +60,12 @@
     
     [self setUpFirstTableView];
     
+    //监听视频播放按钮被点击
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(playVideo:) name:BDJVideoButtonDidClickNotification object:nil];
+    //监听音频播放按钮被点击
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(dealWithSoundPlay:) name:BDJSoundButtonDidClickNotification object:nil];
+    //监听音频播放完毕
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(soundPlayEnd:) name:AVPlayerItemDidPlayToEndTimeNotification object:nil];
 }
 
 - (void)dealloc {
@@ -256,6 +274,49 @@
     [self presentViewController:avVC animated:YES completion:^{
         [avVC.player play];
     }];
+}
+
+- (void)dealWithSoundPlay:(NSNotification *)notification {
+    NSString *soundURL = notification.userInfo[@"soundURL"];
+    AVPlayerItem *playerItem = [AVPlayerItem playerItemWithURL:[NSURL URLWithString:soundURL]];
+    //判断音频对象是否为空，若为空，代表未播放过，直接播放。
+    if (self.soundPlayer.currentItem == nil ) {
+        self.soundPlayer = [AVPlayer playerWithPlayerItem:playerItem];
+        [self.soundPlayer play];
+        
+        self.soundURL = soundURL;
+        self.playing = YES;
+    } else {//音频对象不为空，代表之前播放过
+        //判断当前是否正在播放
+        if (self.isPlaying) {
+            //判断点击的是否是同一个音频
+            if ([self.soundURL isEqualToString:soundURL]) {
+                //是同一个音频，直接暂停
+                [self.soundPlayer pause];
+                self.playing = NO;
+            } else {//不是同一个音频，停止之前的，替换掉音频对象，播放新的音频
+                [self.soundPlayer pause];
+                [self.soundPlayer replaceCurrentItemWithPlayerItem:playerItem];
+                [self.soundPlayer play];
+                
+                self.soundURL = soundURL;
+            }
+        } else {
+            if ([self.soundURL isEqualToString:soundURL]) {
+                //是同一个音频，直接恢复播放
+                [self.soundPlayer play];
+            } else {//不是同一个音频，替换掉音频对象，播放新的音频
+                [self.soundPlayer replaceCurrentItemWithPlayerItem:playerItem];
+                [self.soundPlayer play];
+                self.soundURL = soundURL;
+            }
+            self.playing = YES;
+        }
+    }
+}
+
+- (void)soundPlayEnd:(NSNotification *)notification {
+    self.playing = NO;
 }
 
 

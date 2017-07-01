@@ -17,19 +17,19 @@
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
 @property (weak, nonatomic) IBOutlet UIButton *playButton;
 
-@property (strong, nonatomic) AVPlayer *player;
 @property (assign, nonatomic, getter=isPlaying) BOOL playing;
 
 @end
 
 @implementation BDJTopicCellSoundView
 
-- (AVPlayer *)player {
-    if (!_player) {
-        AVPlayerItem *item = [AVPlayerItem playerItemWithURL:[NSURL URLWithString:self.item.voiceuri]];
-        _player = [AVPlayer playerWithPlayerItem:item];
+- (void)setPlaying:(BOOL)playing {
+    _playing = playing;
+    if (playing) {
+        [self.playButton setImage:[UIImage imageNamed:@"playButtonPause"] forState:UIControlStateNormal];
+    } else {
+        [self.playButton setImage:[UIImage imageNamed:@"playButtonPlay"] forState:UIControlStateNormal];
     }
-    return _player;
 }
 
 - (void)awakeFromNib {
@@ -55,13 +55,11 @@
 
 - (IBAction)playButtonClick:(UIButton *)sender {
     if (self.isPlaying) {
-        [self.player pause];
-        [self.playButton setImage:[UIImage imageNamed:@"playButtonPlay"] forState:UIControlStateNormal];
         self.playing = NO;
+        [[NSNotificationCenter defaultCenter] postNotificationName:BDJSoundButtonDidClickNotification object:nil userInfo:@{@"cell":self,@"soundURL":self.item.voiceuri}];
     } else {
-        [self.player play];
-        [self.playButton setImage:[UIImage imageNamed:@"playButtonPause"] forState:UIControlStateNormal];
         self.playing = YES;
+        [[NSNotificationCenter defaultCenter] postNotificationName:BDJSoundButtonDidClickNotification object:nil userInfo:@{@"cell":self,@"soundURL":self.item.voiceuri}];
     }
 }
 

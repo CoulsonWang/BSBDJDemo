@@ -16,5 +16,7 @@ NSNotificationName const BDJTitleButtonDidRepeatClickNotification = @"BDJTitleBu
 
 NSNotificationName const BDJVideoButtonDidClickNotification = @"BDJVideoButtonDidClickNotification";
 
+NSNotificationName const BDJSoundButtonDidClickNotification = @"BDJSoundButtonDidClickNotification";
+
 NSString *const CommonURL = @"http://api.budejie.com/api/api_open.php";
 
