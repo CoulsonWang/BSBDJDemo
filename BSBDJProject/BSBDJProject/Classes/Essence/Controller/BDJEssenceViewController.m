@@ -66,6 +66,8 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(dealWithSoundPlay:) name:BDJSoundButtonDidClickNotification object:nil];
     //监听音频播放完毕
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(soundPlayEnd:) name:AVPlayerItemDidPlayToEndTimeNotification object:nil];
+    //监听tabBar按钮被重复点击
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(tabBarButtonDidRepeatClick) name:BDJTabBarButtonDidRepeatClickNotification object:nil];
 }
 
 - (void)dealloc {
@@ -75,6 +77,8 @@
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
     [self.soundPlayer pause];
+    self.lastSoundViewItem.soundPlayStatus = NO;
+    self.soundPlayer = nil;
 }
 
 #pragma mark - 初始化设置
@@ -200,6 +204,8 @@
     }
     //取消音频播放
     [self.soundPlayer pause];
+    self.lastSoundViewItem.soundPlayStatus = NO;
+    self.soundPlayer = nil;
     
     //处理标题按钮选中状态
     self.selectedTitleButton.selected = NO;
@@ -332,5 +338,17 @@
     self.lastSoundViewItem.soundPlayStatus = NO;
 }
 
+/**
+ 处理tabBar按钮被重复点击
+ */
+- (void)tabBarButtonDidRepeatClick {
+    //如果重复点击的不是精华按钮，则不处理
+    if (self.view.window == nil) return;
+    
+    //取消音乐播放
+    [self.soundPlayer pause];
+    self.lastSoundViewItem.soundPlayStatus = NO;
+    self.soundPlayer = nil;
+}
 
 @end
