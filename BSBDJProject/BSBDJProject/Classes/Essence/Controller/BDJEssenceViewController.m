@@ -14,7 +14,6 @@
 #import "BDJEssenceSoundViewController.h"
 #import "BDJEssencePhotoViewController.h"
 #import "BDJEssenceCrossTalkViewController.h"
-#import "BDJTopicCellSoundView.h"
 #import "BDJEssenceTopicItem.h"
 #import <AVFoundation/AVFoundation.h>
 #import <AVKit/AVKit.h>
@@ -71,6 +70,11 @@
 
 - (void)dealloc {
     [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    [self.soundPlayer pause];
 }
 
 #pragma mark - 初始化设置
@@ -190,10 +194,14 @@
  处理标题按钮点击
  */
 - (void)titleButtonClick:(BDJEssenceTitleButton *)btn {
+    //如果是重复点击，则发送通知
     if (self.selectedTitleButton == btn) {
         [[NSNotificationCenter defaultCenter] postNotificationName:BDJTitleButtonDidRepeatClickNotification object:nil];
     }
+    //取消音频播放
+    [self.soundPlayer pause];
     
+    //处理标题按钮选中状态
     self.selectedTitleButton.selected = NO;
     btn.selected = YES;
     self.selectedTitleButton = btn;
@@ -279,16 +287,16 @@
 
 - (void)dealWithSoundPlay:(NSNotification *)notification {
     
-    BDJTopicCellSoundView *soundView = notification.userInfo[@"view"];
-    NSString *soundURL = soundView.item.voiceuri;
+    BDJEssenceTopicItem *soundViewItem = notification.userInfo[@"soundItem"];
+    NSString *soundURL = soundViewItem.voiceuri;
     AVPlayerItem *playerItem = [AVPlayerItem playerItemWithURL:[NSURL URLWithString:soundURL]];
     //判断音频对象是否为空，若为空，代表未播放过，直接播放。
     if (self.soundPlayer.currentItem == nil ) {
         self.soundPlayer = [AVPlayer playerWithPlayerItem:playerItem];
         [self.soundPlayer play];
         
-        soundView.item.soundPlayStatus = YES;
-        self.lastSoundViewItem = soundView.item;
+        soundViewItem.soundPlayStatus = YES;
+        self.lastSoundViewItem = soundViewItem;
     } else {//音频对象不为空，代表之前播放过
         //判断当前是否正在播放
         if (self.lastSoundViewItem.soundPlayStatus) {
@@ -302,19 +310,19 @@
                 [self.soundPlayer replaceCurrentItemWithPlayerItem:playerItem];
                 [self.soundPlayer play];
                 self.lastSoundViewItem.soundPlayStatus = NO;
-                soundView.item.soundPlayStatus = YES;
-                self.lastSoundViewItem = soundView.item;
+                soundViewItem.soundPlayStatus = YES;
+                self.lastSoundViewItem = soundViewItem;
             }
         } else {
             if ([self.lastSoundViewItem.voiceuri isEqualToString:soundURL]) {
                 //是同一个音频，直接恢复播放
                 [self.soundPlayer play];
-                soundView.item.soundPlayStatus = YES;
+                soundViewItem.soundPlayStatus = YES;
             } else {//不是同一个音频，替换掉音频对象，播放新的音频
                 [self.soundPlayer replaceCurrentItemWithPlayerItem:playerItem];
                 [self.soundPlayer play];
-                soundView.item.soundPlayStatus = YES;
-                self.lastSoundViewItem = soundView.item;
+                soundViewItem.soundPlayStatus = YES;
+                self.lastSoundViewItem = soundViewItem;
             }
         }
     }

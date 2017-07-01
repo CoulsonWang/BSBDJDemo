@@ -124,6 +124,7 @@
         self.photoView.hidden = NO;
         self.soundView.hidden = YES;
         self.videoView.hidden = YES;
+        self.photoView.item = item;
     } else if (item.type == BDJTopicTypeSound) {
         self.photoView.hidden = YES;
         self.soundView.hidden = NO;

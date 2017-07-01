@@ -35,7 +35,6 @@
 - (void)awakeFromNib {
     [super awakeFromNib];
     self.autoresizingMask = UIViewAutoresizingNone;
-    
 }
 
 - (void)dealloc
@@ -44,9 +43,9 @@
 }
 
 - (void)setItem:(BDJEssenceTopicItem *)item {
+    [_item removeObserver:self forKeyPath:@"soundPlayStatus"];
+    [item addObserver:self forKeyPath:@"soundPlayStatus" options:NSKeyValueObservingOptionNew context:nil];
     _item = item;
-    
-    [_item addObserver:self forKeyPath:@"soundPlayStatus" options:NSKeyValueObservingOptionNew context:nil];
     
     [self.imageView YY_setOriginalImage:item.image1 thumbnailImage:item.image0 placeholderImage:nil];
     
@@ -71,7 +70,7 @@
 - (IBAction)playButtonClick:(UIButton *)sender {
 
     NSDictionary *userInfo = @{
-                               @"view":self
+                               @"soundItem":self.item
                                };
     [[NSNotificationCenter defaultCenter] postNotificationName:BDJSoundButtonDidClickNotification
                                                         object:nil
