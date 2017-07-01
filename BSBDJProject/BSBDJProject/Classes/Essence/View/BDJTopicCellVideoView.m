@@ -45,7 +45,7 @@
 }
 
 - (IBAction)playButtonClick:(UIButton *)sender {
-    
+    [[NSNotificationCenter defaultCenter] postNotificationName:BDJVideoButtonDidClickNotification object:nil userInfo:@{@"videoURL":self.item.videouri}];
 }
 
 @end

@@ -14,6 +14,9 @@
 #import "BDJEssenceSoundViewController.h"
 #import "BDJEssencePhotoViewController.h"
 #import "BDJEssenceCrossTalkViewController.h"
+#import <AVFoundation/AVFoundation.h>
+#import <AVKit/AVKit.h>
+
 
 #define titles @[@"全部",@"视频",@"声音",@"图片",@"段子"]
 #define titleCount titles.count
@@ -25,6 +28,7 @@
 @property (weak, nonatomic) BDJEssenceTitleButton *selectedTitleButton;
 @property (weak, nonatomic) UIView *titleUnderlineView;
 @property (weak, nonatomic) UITableView *onScreenTableView;
+
 
 @end
 
@@ -42,6 +46,12 @@
     [self setUpTitlesView];
     
     [self setUpFirstTableView];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(playVideo:) name:BDJVideoButtonDidClickNotification object:nil];
+}
+
+- (void)dealloc {
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 #pragma mark - 初始化设置
@@ -235,6 +245,17 @@
     if (button != self.selectedTitleButton) {
         [self titleButtonClick:button];
     }
+}
+
+#pragma mark - 处理通知事件
+- (void)playVideo:(NSNotification *)notification {
+    AVPlayerViewController *avVC = [[AVPlayerViewController alloc] init];
+    NSString *videoURL = notification.userInfo[@"videoURL"];
+    AVPlayer *player = [AVPlayer playerWithURL:[NSURL URLWithString:videoURL]];
+    avVC.player = player;
+    [self presentViewController:avVC animated:YES completion:^{
+        [avVC.player play];
+    }];
 }
 
 

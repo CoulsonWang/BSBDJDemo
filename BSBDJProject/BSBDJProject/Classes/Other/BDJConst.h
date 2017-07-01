@@ -13,4 +13,6 @@ UIKIT_EXTERN NSNotificationName const BDJTabBarButtonDidRepeatClickNotification;
 
 UIKIT_EXTERN NSNotificationName const BDJTitleButtonDidRepeatClickNotification;
 
+UIKIT_EXTERN NSNotificationName const BDJVideoButtonDidClickNotification;;
+
 UIKIT_EXTERN NSString *const CommonURL;
