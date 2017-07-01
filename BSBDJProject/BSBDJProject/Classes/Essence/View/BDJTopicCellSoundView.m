@@ -35,10 +35,18 @@
 - (void)awakeFromNib {
     [super awakeFromNib];
     self.autoresizingMask = UIViewAutoresizingNone;
+    
+}
+
+- (void)dealloc
+{
+    [_item removeObserver:self forKeyPath:@"soundPlayStatus"];
 }
 
 - (void)setItem:(BDJEssenceTopicItem *)item {
     _item = item;
+    
+    [_item addObserver:self forKeyPath:@"soundPlayStatus" options:NSKeyValueObservingOptionNew context:nil];
     
     [self.imageView YY_setOriginalImage:item.image1 thumbnailImage:item.image0 placeholderImage:nil];
     
@@ -51,15 +59,31 @@
     
     //音频时长
     self.voiceTimeLabel.text = [NSString stringWithFormat:@"%02ld:%02ld",item.voicetime / 60,item.voicetime % 60];
+    
+    if (item.soundPlayStatus) {
+        [self.playButton setImage:[UIImage imageNamed:@"playButtonPause"] forState:UIControlStateNormal];
+    } else {
+        [self.playButton setImage:[UIImage imageNamed:@"playButtonPlay"] forState:UIControlStateNormal];
+    }
+    
 }
 
 - (IBAction)playButtonClick:(UIButton *)sender {
-    if (self.isPlaying) {
-        self.playing = NO;
-        [[NSNotificationCenter defaultCenter] postNotificationName:BDJSoundButtonDidClickNotification object:nil userInfo:@{@"cell":self,@"soundURL":self.item.voiceuri}];
-    } else {
-        self.playing = YES;
-        [[NSNotificationCenter defaultCenter] postNotificationName:BDJSoundButtonDidClickNotification object:nil userInfo:@{@"cell":self,@"soundURL":self.item.voiceuri}];
+
+    NSDictionary *userInfo = @{
+                               @"view":self
+                               };
+    [[NSNotificationCenter defaultCenter] postNotificationName:BDJSoundButtonDidClickNotification
+                                                        object:nil
+                                                      userInfo:userInfo];
+}
+
+//监听item中属性变化
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSKeyValueChangeKey,id> *)change context:(void *)context {
+    if ([keyPath isEqualToString:@"soundPlayStatus"]) {
+        NSNumber *status = change[@"new"];
+        BOOL playStatus = [status boolValue];
+        self.playing = playStatus;
     }
 }
 

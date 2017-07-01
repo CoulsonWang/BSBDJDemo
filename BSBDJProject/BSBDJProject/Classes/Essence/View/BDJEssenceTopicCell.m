@@ -92,6 +92,7 @@
 
 - (void)setItem:(BDJEssenceTopicItem *)item {
     _item = item;
+    
     [self.profileImageView sd_setImageWithURL:[NSURL URLWithString:item.profile_image] placeholderImage:[UIImage imageNamed:@"defaultUserIcon"]];
     self.nameLabel.text = item.name;
     self.passtimeLabel.text = item.passtime;

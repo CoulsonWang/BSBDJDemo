@@ -64,4 +64,6 @@ typedef NS_ENUM(NSUInteger, BDJTopicType) {
 
 @property (assign, nonatomic) CGRect middelFrame;
 
+@property (assign, nonatomic) BOOL soundPlayStatus;
+
 @end
