@@ -11,6 +11,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="BDJCheckPicktureController">
             <connections>
+                <outlet property="saveButton" destination="eQM-5c-Czf" id="OTf-Xl-psE"/>
                 <outlet property="scrollView" destination="8Ec-yD-RqF" id="MNt-ZV-mea"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
