@@ -15,6 +15,7 @@
 #import "BDJEssencePhotoViewController.h"
 #import "BDJEssenceCrossTalkViewController.h"
 #import "BDJEssenceTopicItem.h"
+#import "BDJCheckPicktureController.h"
 #import <AVFoundation/AVFoundation.h>
 #import <AVKit/AVKit.h>
 
@@ -367,7 +368,10 @@
  处理内容图片被点击
  */
 - (void)pictureDidBeenClick:(NSNotification *)notification {
-    
+    BDJEssenceTopicItem *item = notification.userInfo[@"topicItem"];
+    BDJCheckPicktureController *checkPictureVC = [[BDJCheckPicktureController alloc] init];
+    checkPictureVC.item = item;
+    [self presentViewController:checkPictureVC animated:YES completion:nil];
 }
 
 @end

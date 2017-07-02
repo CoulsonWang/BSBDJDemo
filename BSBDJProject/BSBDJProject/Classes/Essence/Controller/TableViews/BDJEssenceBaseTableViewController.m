@@ -10,8 +10,7 @@
 #import "BDJEssenceRefreshHeaderView.h"
 #import "UIColor+RGB.h"
 #import <AFNetworking.h>
-
-
+#import <SDImageCache.h>
 #import "BDJEssenceTopicItem.h"
 #import "BDJTopicUserInfoItem.h"
 #import "BDJEssenceTopicCell.h"
@@ -208,22 +207,7 @@ static NSString *const topicCellID = @"topicCellID";
 }
 
 
-- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
-    //处理上拉加载
-    [self dealWithFooter];
-    
-    //处理下拉刷新
-    [self dealWithHeader];
-}
 
-- (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate {
-    if (self.isRefreshing) return;
-    
-    CGFloat offsetY = - (NavigationBarHeight + TitleHeight + RefreshHeaderHeight);
-    if (scrollView.contentOffset.y <= offsetY) {
-        [self headerRefreshBegin];
-    }
-}
 
 - (void)dealWithFooter {
     if (self.isLoading) return;
@@ -275,6 +259,27 @@ static NSString *const topicCellID = @"topicCellID";
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     BDJEssenceTopicItem *item = self.topicItems[indexPath.row];
     return item.cellHeight;
+}
+
+#pragma mark - UIScrollViewDelegate 
+
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+    //处理上拉加载
+    [self dealWithFooter];
+    
+    //处理下拉刷新
+    [self dealWithHeader];
+    
+
+}
+
+- (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate {
+    if (self.isRefreshing) return;
+    
+    CGFloat offsetY = - (NavigationBarHeight + TitleHeight + RefreshHeaderHeight);
+    if (scrollView.contentOffset.y <= offsetY) {
+        [self headerRefreshBegin];
+    }
 }
 
 

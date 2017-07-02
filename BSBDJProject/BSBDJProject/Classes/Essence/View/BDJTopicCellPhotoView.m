@@ -75,6 +75,7 @@
 
 //添加点击手势
 - (void)setUpGesture {
+    self.imageView.userInteractionEnabled = YES;
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapPicture)];
     [self.imageView addGestureRecognizer:tap];
 }
