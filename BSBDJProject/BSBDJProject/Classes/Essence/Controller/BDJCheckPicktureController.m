@@ -8,6 +8,8 @@
 
 #import "BDJCheckPicktureController.h"
 #import <FLAnimatedImageView+WebCache.h>
+#import <SVProgressHUD.h>
+#import <Photos/Photos.h>
 #import "BDJEssenceTopicItem.h"
 
 @interface BDJCheckPicktureController () <UIScrollViewDelegate>
@@ -51,11 +53,22 @@
 }
 
 - (IBAction)saveButtonClick:(UIButton *)sender {
+    [[PHPhotoLibrary sharedPhotoLibrary] performChanges:^{
+        [PHAssetChangeRequest creationRequestForAssetFromImage:self.imageView.image];
+    } completionHandler:^(BOOL success, NSError * _Nullable error) {
+        if (error) {
+            [SVProgressHUD showErrorWithStatus:@"保存失败"];
+        } else {
+            [SVProgressHUD showSuccessWithStatus:@"保存成功"];
+        }
+    }];
+    [PHAssetChangeRequest creationRequestForAssetFromImage:self.imageView.image];
 }
 
 - (IBAction)backButtonClick:(UIButton *)sender {
     [self dismissViewControllerAnimated:NO completion:nil];
 }
+
 
 #pragma makr - UIScrollViewDelegate
 
