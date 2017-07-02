@@ -58,6 +58,8 @@ typedef NS_ENUM(NSUInteger, BDJTopicType) {
 
 @property (strong, nonatomic) NSString *videouri;
 
+@property (strong, nonatomic) NSString *is_gif;
+
 //额外属性，并非服务器返回的属性
 /** 根据当前模型计算出的cell的高度 */
 @property (assign, nonatomic) CGFloat cellHeight;
