@@ -11,6 +11,7 @@
 @interface BDJEssenceRefreshHeaderView : UIView
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activeIndicator;
 
 + (instancetype)refreshHeader;
 

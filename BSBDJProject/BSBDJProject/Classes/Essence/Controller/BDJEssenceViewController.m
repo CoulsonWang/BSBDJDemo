@@ -371,7 +371,7 @@
     BDJEssenceTopicItem *item = notification.userInfo[@"topicItem"];
     BDJCheckPicktureController *checkPictureVC = [[BDJCheckPicktureController alloc] init];
     checkPictureVC.item = item;
-    [self presentViewController:checkPictureVC animated:YES completion:nil];
+    [self presentViewController:checkPictureVC animated:NO completion:nil];
 }
 
 @end

@@ -189,6 +189,8 @@ static NSString *const topicCellID = @"topicCellID";
     _headerRefreshing = headerRefreshing;
     if (headerRefreshing) {
         self.header.titleLabel.text = @"正在刷新...";
+        self.header.activeIndicator.hidden = NO;
+        [self.header.activeIndicator startAnimating];
         self.tableView.contentInset = UIEdgeInsetsMake(NavigationBarHeight+TitleHeight+RefreshHeaderHeight, 0, self.tableView.contentInset.bottom, 0);
         
         CGPoint offset = self.tableView.contentOffset;
@@ -200,6 +202,8 @@ static NSString *const topicCellID = @"topicCellID";
         
     } else {
         self.header.titleLabel.text = @"下拉刷新";
+        [self.header.activeIndicator stopAnimating];
+        self.header.activeIndicator.hidden = YES;
         [UIView animateWithDuration:0.35 animations:^{
             self.tableView.contentInset = UIEdgeInsetsMake(NavigationBarHeight+TitleHeight, 0, self.tableView.contentInset.bottom, 0);
         }];

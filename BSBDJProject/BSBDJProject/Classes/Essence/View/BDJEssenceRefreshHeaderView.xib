@@ -21,16 +21,22 @@
                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="jVo-rb-5uG">
+                    <rect key="frame" x="158" y="12" width="20" height="20"/>
+                </activityIndicatorView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
             <constraints>
+                <constraint firstItem="Too-aT-sga" firstAttribute="leading" secondItem="jVo-rb-5uG" secondAttribute="trailing" constant="8" id="WZf-gr-riS"/>
                 <constraint firstItem="Too-aT-sga" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="f4e-RM-ngZ"/>
                 <constraint firstItem="Too-aT-sga" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="okk-46-umR"/>
+                <constraint firstItem="jVo-rb-5uG" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="wPh-tV-AdC"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <nil key="simulatedTopBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
+                <outlet property="activeIndicator" destination="jVo-rb-5uG" id="vAF-hO-h0T"/>
                 <outlet property="titleLabel" destination="Too-aT-sga" id="pOl-pq-HYS"/>
             </connections>
             <point key="canvasLocation" x="36" y="50"/>
