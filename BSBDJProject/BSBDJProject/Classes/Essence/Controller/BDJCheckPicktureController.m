@@ -29,11 +29,10 @@
     
     //实现点击返回
     [self.scrollView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(backButtonClick:)]];
-    
+    self.scrollView.delegate = self;
     CGFloat currentScale = self.scrollView.YY_width /self.item.width;
     if (currentScale < 1) {
         self.scrollView.maximumZoomScale = 1/currentScale;
-        self.scrollView.delegate = self;
     }
 }
 - (void)setUpImageView {
@@ -66,7 +65,7 @@
     } error:&error];
     
     //取得照片对象
-    PHAsset *asset = [PHAsset fetchAssetsWithLocalIdentifiers:@[assetID] options:nil].firstObject;
+    PHFetchResult<PHAsset *> *assets = [PHAsset fetchAssetsWithLocalIdentifiers:@[assetID] options:nil];
     if (error) {
         [SVProgressHUD showErrorWithStatus:@"保存失败"];
         return;
@@ -77,7 +76,7 @@
         //将图片与自定义相册关联起来
         [[PHPhotoLibrary sharedPhotoLibrary] performChangesAndWait:^{
             PHAssetCollectionChangeRequest *request = [PHAssetCollectionChangeRequest changeRequestForAssetCollection:collection];
-            [request insertAssets:@[asset] atIndexes:[NSIndexSet indexSetWithIndex:0]];
+            [request insertAssets:assets atIndexes:[NSIndexSet indexSetWithIndex:0]];
         } error:nil];
     }
 }
