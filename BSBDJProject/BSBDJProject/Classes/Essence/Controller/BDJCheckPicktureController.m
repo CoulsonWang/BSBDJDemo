@@ -25,7 +25,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setUpImageView];
-    [SVProgressHUD setMaximumDismissTimeInterval:2.0];
+    
     
     //实现点击返回
     [self.scrollView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(backButtonClick:)]];
@@ -54,31 +54,22 @@
         self.saveButton.enabled = YES;
     }];
 }
-
+#pragma mark - IBAction
 - (IBAction)saveButtonClick:(UIButton *)sender {
+    //检查相册权限,若未请求过，则请求权限
+    [PHPhotoLibrary requestAuthorization:^(PHAuthorizationStatus status) {
+        if (status == PHAuthorizationStatusDenied) {
+            [SVProgressHUD setMaximumDismissTimeInterval:5.0];
+            [SVProgressHUD showErrorWithStatus:@"无法访问您的相册，请在\"设置\"-\"隐私\"中开启权限后再试"];
+        } else if (status == PHAuthorizationStatusAuthorized) {
+            [self savePhotoToAlbum];
+        } else if (status == PHAuthorizationStatusRestricted) {
+            [SVProgressHUD setMaximumDismissTimeInterval:3.0];
+            [SVProgressHUD showErrorWithStatus:@"因系统原因，无法访问相册！"];
+        }
+    }];
     
-    //保存图片到相机胶卷
-    NSError *error = nil;
-    __block NSString *assetID = nil;
-    [[PHPhotoLibrary sharedPhotoLibrary] performChangesAndWait:^{
-        assetID = [PHAssetChangeRequest creationRequestForAssetFromImage:self.imageView.image].placeholderForCreatedAsset.localIdentifier;
-    } error:&error];
     
-    //取得照片对象
-    PHFetchResult<PHAsset *> *assets = [PHAsset fetchAssetsWithLocalIdentifiers:@[assetID] options:nil];
-    if (error) {
-        [SVProgressHUD showErrorWithStatus:@"保存失败"];
-        return;
-    } else {
-        [SVProgressHUD showSuccessWithStatus:@"保存成功"];
-        //获得自定义相册
-        PHAssetCollection *collection = [self getTheCollection];
-        //将图片与自定义相册关联起来
-        [[PHPhotoLibrary sharedPhotoLibrary] performChangesAndWait:^{
-            PHAssetCollectionChangeRequest *request = [PHAssetCollectionChangeRequest changeRequestForAssetCollection:collection];
-            [request insertAssets:assets atIndexes:[NSIndexSet indexSetWithIndex:0]];
-        } error:nil];
-    }
 }
 
 - (IBAction)backButtonClick:(UIButton *)sender {
@@ -87,11 +78,13 @@
 }
 
 
-#pragma makr - UIScrollViewDelegate
+#pragma mark - UIScrollViewDelegate
 
 - (UIView *)viewForZoomingInScrollView:(UIScrollView *)scrollView {
     return self.imageView;
 }
+
+#pragma mark - 处理图片保存功能
 
 - (PHAssetCollection *)getTheCollection {
     //查找是否已有与项目名同名的自定义相册
@@ -110,6 +103,36 @@
     } error:nil];
     //根据唯一标识符获得刚才创建的相册
     return [PHAssetCollection fetchAssetCollectionsWithLocalIdentifiers:@[collectionID] options:nil].firstObject;
+}
+
+/**
+ 保存图片到相册
+ */
+- (void)savePhotoToAlbum {
+    //保存图片到相机胶卷
+    NSError *error = nil;
+    __block NSString *assetID = nil;
+    [[PHPhotoLibrary sharedPhotoLibrary] performChangesAndWait:^{
+        assetID = [PHAssetChangeRequest creationRequestForAssetFromImage:self.imageView.image].placeholderForCreatedAsset.localIdentifier;
+    } error:&error];
+    
+    if (error) {
+        [SVProgressHUD setMaximumDismissTimeInterval:2.0];
+        [SVProgressHUD showErrorWithStatus:@"保存失败"];
+        return;
+    } else {
+        [SVProgressHUD setMaximumDismissTimeInterval:1.0];
+        [SVProgressHUD showSuccessWithStatus:@"保存成功"];
+        //获得自定义相册
+        PHAssetCollection *collection = [self getTheCollection];
+        //取得照片对象
+        PHFetchResult<PHAsset *> *assets = [PHAsset fetchAssetsWithLocalIdentifiers:@[assetID] options:nil];
+        //将图片与自定义相册关联起来
+        [[PHPhotoLibrary sharedPhotoLibrary] performChangesAndWait:^{
+            PHAssetCollectionChangeRequest *request = [PHAssetCollectionChangeRequest changeRequestForAssetCollection:collection];
+            [request insertAssets:assets atIndexes:[NSIndexSet indexSetWithIndex:0]];
+        } error:nil];
+    }
 }
 
 @end
