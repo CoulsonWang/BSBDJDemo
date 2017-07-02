@@ -68,4 +68,6 @@ typedef NS_ENUM(NSUInteger, BDJTopicType) {
 
 @property (assign, nonatomic) BOOL soundPlayStatus;
 
+@property (assign, nonatomic, getter=isLongPicture) BOOL longPicture;
+
 @end

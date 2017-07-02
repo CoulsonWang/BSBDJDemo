@@ -31,7 +31,7 @@
 - (void)setItem:(BDJEssenceTopicItem *)item {
     _item = item;
     
-    [self.imageView YY_setOriginalImage:item.image1 thumbnailImage:item.image0 placeholderImage:nil];
+    [self.imageView YY_setOriginalImage:item.image1 thumbnailImage:item.image0 placeholderImage:nil completion:nil];
     
     //播放数量
     if (item.playcount >= 10000) {

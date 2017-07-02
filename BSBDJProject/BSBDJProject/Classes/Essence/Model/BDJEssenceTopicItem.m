@@ -29,6 +29,11 @@
     if (self.type != BDJTopicTypeCrossTalk) {
         //需要显示的图片的高度
         CGFloat imageHeight = contentWidth / self.width * self.height;
+        //如果图片的高度超过了控制器view的高度，且图片不是gif
+        if (self.type == BDJTopicTypePhoto && imageHeight >= screenH - NavigationBarHeight - TitleHeight - TabBarHeight && ![self.is_gif boolValue]) {
+            imageHeight = 250;
+            self.longPicture = YES;
+        }
         self.middelFrame = CGRectMake(SpaceOfMargin, _cellHeight, contentWidth, imageHeight);
         //加上图片高度
         _cellHeight += imageHeight;

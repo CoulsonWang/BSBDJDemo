@@ -7,9 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <SDWebImageManager.h>
 
 @interface UIImageView (Download)
 
-- (void)YY_setOriginalImage:(NSString *)originalImageURL thumbnailImage:(NSString *)thumbnailImageURL placeholderImage:(UIImage *)placeholderImage;
+- (void)YY_setOriginalImage:(NSString *)originalImageURL thumbnailImage:(NSString *)thumbnailImageURL placeholderImage:(UIImage *)placeholderImage completion:(SDExternalCompletionBlock)completionBlock;
 
 @end

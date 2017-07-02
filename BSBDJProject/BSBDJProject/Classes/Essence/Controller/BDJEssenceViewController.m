@@ -68,6 +68,8 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(soundPlayEnd:) name:AVPlayerItemDidPlayToEndTimeNotification object:nil];
     //监听tabBar按钮被重复点击
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(tabBarButtonDidRepeatClick) name:BDJTabBarButtonDidRepeatClickNotification object:nil];
+    //监听图片被点击
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(pictureDidBeenClick:) name:BDJPhotoViewDidClickNotification object:nil];
 }
 
 - (void)dealloc {
@@ -281,6 +283,10 @@
 }
 
 #pragma mark - 处理通知事件
+
+/**
+ 处理视频按钮被点击
+ */
 - (void)playVideo:(NSNotification *)notification {
     AVPlayerViewController *avVC = [[AVPlayerViewController alloc] init];
     NSString *videoURL = notification.userInfo[@"videoURL"];
@@ -291,6 +297,9 @@
     }];
 }
 
+/**
+ 处理声音按钮被点击
+ */
 - (void)dealWithSoundPlay:(NSNotification *)notification {
     
     BDJEssenceTopicItem *soundViewItem = notification.userInfo[@"soundItem"];
@@ -334,6 +343,9 @@
     }
 }
 
+/**
+ 处理音频播放完毕
+ */
 - (void)soundPlayEnd:(NSNotification *)notification {
     self.lastSoundViewItem.soundPlayStatus = NO;
 }
@@ -349,6 +361,13 @@
     [self.soundPlayer pause];
     self.lastSoundViewItem.soundPlayStatus = NO;
     self.soundPlayer = nil;
+}
+
+/**
+ 处理内容图片被点击
+ */
+- (void)pictureDidBeenClick:(NSNotification *)notification {
+    
 }
 
 @end
