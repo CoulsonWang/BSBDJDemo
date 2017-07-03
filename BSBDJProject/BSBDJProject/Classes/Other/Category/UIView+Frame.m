@@ -10,6 +10,10 @@
 
 @implementation UIView (Frame)
 
++ (instancetype)YY_viewFromNib {
+    return [[NSBundle mainBundle] loadNibNamed:NSStringFromClass(self) owner:nil options:nil].firstObject;
+}
+
 - (CGFloat)YY_width {
     return self.frame.size.width;
 }

@@ -12,7 +12,7 @@
 @implementation BDJQuickLoginView
 
 + (instancetype)quickLoginView {
-    BDJQuickLoginView *quickView = [[[NSBundle mainBundle] loadNibNamed:NSStringFromClass(self) owner:nil options:nil] firstObject];
+    BDJQuickLoginView *quickView = [self YY_viewFromNib];
     
     return quickView;
 }

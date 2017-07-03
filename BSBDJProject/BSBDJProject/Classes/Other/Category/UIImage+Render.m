@@ -16,4 +16,26 @@
     return image;
 }
 
+- (instancetype)circleImage {
+    UIGraphicsBeginImageContext(self.size);
+    
+    UIBezierPath *path = [UIBezierPath bezierPathWithOvalInRect:CGRectMake(0, 0, self.size.width, self.size.height)];
+    
+    [path addClip];
+    
+    [self drawAtPoint:CGPointZero];
+    
+    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
+    
+    UIGraphicsEndImageContext();
+    
+    return image;
+    
+}
+
++ (instancetype)circleImageWithName:(NSString *)imageName {
+    UIImage *image = [self imageNamed:imageName];
+    return [image circleImage];
+}
+
 @end

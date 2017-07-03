@@ -6,8 +6,7 @@
 //  Copyright © 2017年 Coulson_Wang. All rights reserved.
 //
 
-//请求URL头
-#define urlPrefix @"http://api.budejie.com/api/api_open.php"
+
 //广告请求参数名
 #define requestKey_1 @"a"
 #define requestKey_2 @"action"
@@ -65,7 +64,7 @@ static NSString *const cellID = @"cellID";
                              requestKey_3 : requestParameter_3
                              };
     
-    [mgr GET:urlPrefix parameters:params progress:nil success:^(NSURLSessionDataTask * _Nonnull task, NSArray *_Nullable responseObject) {
+    [mgr GET:CommonURL parameters:params progress:nil success:^(NSURLSessionDataTask * _Nonnull task, NSArray *_Nullable responseObject) {
         [SVProgressHUD dismiss];
          self.suggestTagItems = [BDJSuggestTapItem mj_objectArrayWithKeyValuesArray:responseObject];
         [self.tableView reloadData];

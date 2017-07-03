@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "BDJAdvertisementViewController.h"
+#import <AFNetworking.h>
 
 @interface AppDelegate ()
 
@@ -22,6 +23,8 @@
     BDJAdvertisementViewController *adVC = [[BDJAdvertisementViewController alloc] init];
     self.window.rootViewController = adVC;
     [self.window makeKeyAndVisible];
+    
+    [[AFNetworkReachabilityManager sharedManager] startMonitoring];
     
     return YES;
 }

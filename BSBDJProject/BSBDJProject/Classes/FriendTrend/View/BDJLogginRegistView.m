@@ -18,12 +18,12 @@
 @implementation BDJLogginRegistView
 
 + (instancetype)loginView {
-    BDJLogginRegistView *loginView = [[[NSBundle mainBundle] loadNibNamed:NSStringFromClass(self) owner:nil options:nil] firstObject];
+    BDJLogginRegistView *loginView = [self YY_viewFromNib];
     return loginView;
 }
 
 + (instancetype)registView {
-    BDJLogginRegistView *registView = [[[NSBundle mainBundle] loadNibNamed:NSStringFromClass(self) owner:nil options:nil] lastObject];
+    BDJLogginRegistView *registView = [self YY_viewFromNib];
     return registView;
 }
 

@@ -105,7 +105,7 @@ static CGFloat const margin = 1;
                              @"c" : @"topic"
                              };
     
-    [mgr GET:@"http://api.budejie.com/api/api_open.php" parameters:params progress:nil success:^(NSURLSessionDataTask * _Nonnull task, NSDictionary *_Nullable responseObject) {
+    [mgr GET:CommonURL parameters:params progress:nil success:^(NSURLSessionDataTask * _Nonnull task, NSDictionary *_Nullable responseObject) {
         NSArray *dictArr = responseObject[@"square_list"];
         self.squareItems= [BDJSquareItem mj_objectArrayWithKeyValuesArray:dictArr];
         NSInteger rows = (self.squareItems.count - 1) / colums + 1;

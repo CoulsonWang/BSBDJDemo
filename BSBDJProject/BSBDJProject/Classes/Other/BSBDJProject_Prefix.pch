@@ -8,6 +8,7 @@
 
 #import "UIView+Frame.h"
 #import "UIImage+Render.h"
+#import "BDJConst.h"
 
 #define screenW [UIScreen mainScreen].bounds.size.width
 #define screenH [UIScreen mainScreen].bounds.size.height
@@ -17,3 +18,11 @@
 #define iPhone5 screenH == 568
 #define iPhone4 screenH == 480
 
+#define RandomColor [UIColor colorWithRed:arc4random_uniform(256)/255.0 green:arc4random_uniform(256)/255.0 blue:arc4random_uniform(256)/255.0 alpha:1.0]
+
+#define AFNWriteToPlist(filename) [responseObject writeToFile:[NSString stringWithFormat:@"/Users/Tidehunter/Desktop/%@.plist",@#filename] atomically:YES];
+
+
+#define SpaceOfMargin 10.0
+
+#define SpaceBetweenCells 10.0

@@ -36,6 +36,7 @@ static NSString *const cellID = @"cellID";
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
     [SVProgressHUD dismiss];
 }
 
