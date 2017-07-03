@@ -7,9 +7,7 @@
 //
 
 #import "BDJEssenceSoundViewController.h"
-#import "BDJEssenceTopicCell.h"
 #import "BDJEssenceTopicItem.h"
-#import "BDJTopicUserInfoItem.h"
 
 @interface BDJEssenceSoundViewController ()
 

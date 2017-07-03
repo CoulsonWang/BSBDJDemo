@@ -7,9 +7,7 @@
 //
 
 #import "BDJEssenceCrossTalkViewController.h"
-#import "BDJEssenceTopicCell.h"
 #import "BDJEssenceTopicItem.h"
-#import "BDJTopicUserInfoItem.h"
 
 @interface BDJEssenceCrossTalkViewController ()
 

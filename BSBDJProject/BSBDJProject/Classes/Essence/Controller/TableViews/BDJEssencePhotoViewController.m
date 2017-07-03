@@ -7,9 +7,7 @@
 //
 
 #import "BDJEssencePhotoViewController.h"
-#import "BDJEssenceTopicCell.h"
 #import "BDJEssenceTopicItem.h"
-#import "BDJTopicUserInfoItem.h"
 
 @interface BDJEssencePhotoViewController ()
 

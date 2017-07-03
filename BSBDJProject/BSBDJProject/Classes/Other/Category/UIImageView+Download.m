@@ -20,10 +20,7 @@
     UIImage *originalImage = [[SDImageCache sharedImageCache] imageFromDiskCacheForKey:originalImageURL];
     //如果缓存中已经有高清图片，则直接赋值不再下载
     if (originalImage) {
-        self.image = originalImage;
-        if (completionBlock) {
-            completionBlock(originalImage,nil,0,[NSURL URLWithString:originalImageURL]);
-        }
+        [self sd_setImageWithURL:[NSURL URLWithString:originalImageURL] placeholderImage:placeholderImage completed:completionBlock];
     } else {
         //如果缓存中没有高清图片，再去判断当前网络状态。如果是WIFI直接下载高清图片
         if (mgr.isReachableViaWiFi) {
@@ -43,13 +40,11 @@
             UIImage *thumbnailImage = [[SDImageCache sharedImageCache] imageFromDiskCacheForKey:thumbnailImageURL];;
             if (thumbnailImage) {
                 //如果缓存中有缩略图，则显示缩略图
-                self.image = thumbnailImage;
-                if (completionBlock) {
-                    completionBlock(originalImage,nil,0,[NSURL URLWithString:originalImageURL]);
-                }
+                [self sd_setImageWithURL:[NSURL URLWithString:originalImageURL] placeholderImage:placeholderImage completed:completionBlock];
+
             } else {
                 //如果缓存中没有，显示占位图片
-                self.image = placeholderImage;
+                [self sd_setImageWithURL:nil placeholderImage:placeholderImage completed:completionBlock];
             }
         }
     }
