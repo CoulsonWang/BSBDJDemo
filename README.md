@@ -1,4 +1,4 @@
-# BSBDJProject
+# CWBaisibudejie
 百思不得姐项目
 
-跟随小码哥项目实战视频逐步完成该练习项目
+模仿百思不得姐
