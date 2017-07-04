@@ -9,12 +9,8 @@
 #import "BDJEssenceViewController.h"
 #import "UIBarButtonItem+CreateItem.h"
 #import "BDJEssenceTitleButton.h"
-#import "BDJEssenceAllViewController.h"
-#import "BDJEssenceVideoViewController.h"
-#import "BDJEssenceSoundViewController.h"
-#import "BDJEssencePhotoViewController.h"
-#import "BDJEssenceCrossTalkViewController.h"
 #import "BDJEssenceTopicItem.h"
+#import "BDJEssenceCollectionViewCell.h"
 #import "BDJCheckPicktureController.h"
 #import <AVFoundation/AVFoundation.h>
 #import <AVKit/AVKit.h>
@@ -23,14 +19,12 @@
 #define titles @[@"全部",@"视频",@"声音",@"图片",@"段子"]
 #define titleCount titles.count
 
-@interface BDJEssenceViewController () <UIScrollViewDelegate>
+@interface BDJEssenceViewController () <UICollectionViewDelegate,UICollectionViewDataSource>
 
 @property (weak, nonatomic) UIView *titlesView;
-@property (weak, nonatomic) UIScrollView *scrollView;
 @property (weak, nonatomic) BDJEssenceTitleButton *selectedTitleButton;
 @property (weak, nonatomic) UIView *titleUnderlineView;
-@property (weak, nonatomic) UITableView *onScreenTableView;
-
+@property (weak, nonatomic) UICollectionView *collectionView;
 @property (strong, nonatomic) AVPlayer *soundPlayer;
 @property (strong, nonatomic) BDJEssenceTopicItem *lastSoundViewItem;
 
@@ -51,15 +45,12 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    [self setUpAllChildViewController];
-    
     [self setUpNavigationBar];
-    
-    [self setUpScrollView];
+
+    [self setUpCollectionView];
     
     [self setUpTitlesView];
     
-    [self setUpFirstTableView];
     
     //监听视频播放按钮被点击
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(playVideo:) name:BDJVideoButtonDidClickNotification object:nil];
@@ -95,47 +86,65 @@
     self.navigationItem.titleView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"MainTitle"]];
 }
 
-- (void)setUpAllChildViewController {
-    [self addChildViewController:[[BDJEssenceAllViewController alloc] init]];
-    [self addChildViewController:[[BDJEssenceVideoViewController alloc] init]];
-    [self addChildViewController:[[BDJEssenceSoundViewController alloc] init]];
-    [self addChildViewController:[[BDJEssencePhotoViewController alloc] init]];
-    [self addChildViewController:[[BDJEssenceCrossTalkViewController alloc] init]];
+
+
+
+
+- (void)setUpCollectionView {
+    UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
+    layout.minimumLineSpacing = 0;
+    layout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
+    layout.itemSize = self.view.bounds.size;
+    
+    UICollectionView *collectionView = [[UICollectionView alloc] initWithFrame:self.view.bounds collectionViewLayout:layout];
+    self.collectionView = collectionView;
+    [collectionView registerNib:[UINib nibWithNibName:NSStringFromClass([BDJEssenceCollectionViewCell class]) bundle:nil] forCellWithReuseIdentifier:@"collectionViewCell"];
+    
+    CGFloat collectionViewWidth = collectionView.YY_width;
+    collectionView.delegate = self;
+    collectionView.dataSource = self;
+    collectionView.backgroundColor = [UIColor whiteColor];
+    collectionView.contentSize = CGSizeMake(self.childViewControllers.count * collectionViewWidth, 0);
+    collectionView.pagingEnabled = YES;
+    collectionView.scrollsToTop = NO;
+    collectionView.showsHorizontalScrollIndicator = NO;
+    
+    [self.view addSubview:collectionView];
 }
 
-/**
- 设置主滚动视图
- */
-- (void)setUpScrollView {
-    self.automaticallyAdjustsScrollViewInsets = NO;
-    
-    UIScrollView *scrollView = [[UIScrollView alloc] initWithFrame:self.view.bounds];
-    
-    CGFloat scrollViewWidth = scrollView.YY_width;
-    
-    scrollView.backgroundColor = [UIColor whiteColor];
-    scrollView.contentSize = CGSizeMake(self.childViewControllers.count * scrollViewWidth, 0);
-    scrollView.showsHorizontalScrollIndicator = NO;
-    scrollView.showsVerticalScrollIndicator = NO;
-    scrollView.pagingEnabled = YES;
-    scrollView.bounces = NO;
-    scrollView.delegate = self;
-    scrollView.scrollsToTop = NO;
-    
-    [self.view addSubview:scrollView];
-    self.scrollView = scrollView;
+#pragma mark - CollectionViewDataSource
+
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
+    return titleCount;
 }
 
-/**
- 初始化第一个tableView
- */
-- (void)setUpFirstTableView {
-    [self addChildViewControllerView:0];
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
+    BDJEssenceCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"collectionViewCell" forIndexPath:indexPath];
+    switch (indexPath.item) {
+        case 0:
+            cell.topicType = BDJTopicTypeAll;
+            break;
+        case 1:
+            cell.topicType = BDJTopicTypeVideo;
+            break;
+        case 2:
+            cell.topicType = BDJTopicTypeSound;
+            break;
+        case 3:
+            cell.topicType = BDJTopicTypePhoto;
+            break;
+        case 4:
+            cell.topicType = BDJTopicTypeCrossTalk;
+            break;
+        default:
+            break;
+    }
     
-    UITableView *firstView = (UITableView *)self.childViewControllers[0].view;
-    firstView.scrollsToTop = YES;
-    self.onScreenTableView = firstView;
+    
+    return cell;
 }
+
+
 
 /**
  设置标题视图
@@ -224,36 +233,15 @@
         self.titleUnderlineView.YY_centerX = btn.YY_centerX;
         
         //滚动scrollView
-        self.scrollView.contentOffset = CGPointMake(index * self.scrollView.YY_width, self.scrollView.contentOffset.y);
+        self.collectionView.contentOffset = CGPointMake(index * self.collectionView.YY_width, self.collectionView.contentOffset.y);
     } completion:^(BOOL finished) {
-        [self addChildViewControllerView:index];
-        [self changeTableViewStatue:index];
+        
     }];
 }
 
-/**
- 添加子控制器视图
 
- @param childControllerIndex 控制器索引
- */
-- (void)addChildViewControllerView:(NSInteger)childControllerIndex {
-    UITableView *childView = (UITableView *)self.childViewControllers[childControllerIndex].view;
-    if (childView.superview) return;
-    childView.frame = CGRectMake(childControllerIndex * self.scrollView.YY_width, 0, self.scrollView.YY_width, self.scrollView.YY_height);
-    [self.scrollView addSubview:childView];
-}
 
-/**
- 修改tableView是否可通过点击状态栏滚动到顶部
 
- @param index 控制器索引
- */
-- (void)changeTableViewStatue:(NSInteger)index {
-    UITableView *childView = (UITableView *)self.childViewControllers[index].view;
-    self.onScreenTableView.scrollsToTop = NO;
-    childView.scrollsToTop = YES;
-    self.onScreenTableView = childView;
-}
 
 /**
  处理左侧导航条按钮点击事件
@@ -275,7 +263,7 @@
  */
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
     CGFloat x = scrollView.contentOffset.x;
-    NSInteger index = x / self.scrollView.YY_width;
+    NSInteger index = x / self.collectionView.YY_width;
     BDJEssenceTitleButton *button = self.titlesView.subviews[index];
     
     if (button != self.selectedTitleButton) {

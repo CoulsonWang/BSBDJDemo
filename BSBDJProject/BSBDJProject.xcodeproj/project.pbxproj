@@ -10,6 +10,8 @@
 		812AF978A7B7F97A9EB098F2 /* libPods-BSBDJProject.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B5C8284B75C6907FB091222C /* libPods-BSBDJProject.a */; };
 		B903B05D1F00D56100255FEF /* BDJSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B903B05C1F00D56100255FEF /* BDJSettingViewController.m */; };
 		B903B0601F00DB6300255FEF /* BDJNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = B903B05F1F00DB6300255FEF /* BDJNavigationController.m */; settings = {COMPILER_FLAGS = "-w"; }; };
+		B958EA5B1F0A6E42004AFF31 /* BDJEssenceCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B958EA591F0A6E42004AFF31 /* BDJEssenceCollectionViewCell.m */; };
+		B958EA5C1F0A6E42004AFF31 /* BDJEssenceCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B958EA5A1F0A6E42004AFF31 /* BDJEssenceCollectionViewCell.xib */; };
 		B9A156DF1F04CF2B0011CFA5 /* BDJEssenceRefreshHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = B9A156DE1F04CF2B0011CFA5 /* BDJEssenceRefreshHeaderView.m */; };
 		B9A156E11F04CF390011CFA5 /* BDJEssenceRefreshHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B9A156E01F04CF390011CFA5 /* BDJEssenceRefreshHeaderView.xib */; };
 		B9A156E41F04F62C0011CFA5 /* BDJEssenceTopicItem.m in Sources */ = {isa = PBXBuildFile; fileRef = B9A156E31F04F62C0011CFA5 /* BDJEssenceTopicItem.m */; };
@@ -99,6 +101,9 @@
 		B903B05C1F00D56100255FEF /* BDJSettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BDJSettingViewController.m; sourceTree = "<group>"; };
 		B903B05E1F00DB6300255FEF /* BDJNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BDJNavigationController.h; path = ../../Mine/Controller/BDJNavigationController.h; sourceTree = "<group>"; };
 		B903B05F1F00DB6300255FEF /* BDJNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BDJNavigationController.m; path = ../../Mine/Controller/BDJNavigationController.m; sourceTree = "<group>"; };
+		B958EA581F0A6E42004AFF31 /* BDJEssenceCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BDJEssenceCollectionViewCell.h; sourceTree = "<group>"; };
+		B958EA591F0A6E42004AFF31 /* BDJEssenceCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BDJEssenceCollectionViewCell.m; sourceTree = "<group>"; };
+		B958EA5A1F0A6E42004AFF31 /* BDJEssenceCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BDJEssenceCollectionViewCell.xib; sourceTree = "<group>"; };
 		B9A156DD1F04CF2B0011CFA5 /* BDJEssenceRefreshHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BDJEssenceRefreshHeaderView.h; sourceTree = "<group>"; };
 		B9A156DE1F04CF2B0011CFA5 /* BDJEssenceRefreshHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BDJEssenceRefreshHeaderView.m; sourceTree = "<group>"; };
 		B9A156E01F04CF390011CFA5 /* BDJEssenceRefreshHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BDJEssenceRefreshHeaderView.xib; sourceTree = "<group>"; };
@@ -494,6 +499,9 @@
 				B9B2A8CF1F064CF600C47089 /* BDJTopicCellPhotoView.h */,
 				B9B2A8D01F064CF600C47089 /* BDJTopicCellPhotoView.m */,
 				B9B2A8D21F064D0000C47089 /* BDJTopicCellPhotoView.xib */,
+				B958EA581F0A6E42004AFF31 /* BDJEssenceCollectionViewCell.h */,
+				B958EA591F0A6E42004AFF31 /* BDJEssenceCollectionViewCell.m */,
+				B958EA5A1F0A6E42004AFF31 /* BDJEssenceCollectionViewCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -837,6 +845,7 @@
 				B9B2A8D31F064D0000C47089 /* BDJTopicCellPhotoView.xib in Resources */,
 				B9BBED6C1F00FD76005945BE /* BDJAdvertisementViewController.xib in Resources */,
 				B9A6841E1F0147B500D350E3 /* BDJSuggestTagCell.xib in Resources */,
+				B958EA5C1F0A6E42004AFF31 /* BDJEssenceCollectionViewCell.xib in Resources */,
 				B9A156E11F04CF390011CFA5 /* BDJEssenceRefreshHeaderView.xib in Resources */,
 				B9BBED791F01032C005945BE /* LaunchImage-800-Portrait-736h@3x.png in Resources */,
 				B9A684321F02426900D350E3 /* BDJQuickLoginView.xib in Resources */,
@@ -927,6 +936,7 @@
 				B9A684521F02A77D00D350E3 /* CacheTool.m in Sources */,
 				B9B2A8D11F064CF600C47089 /* BDJTopicCellPhotoView.m in Sources */,
 				B9A684301F02425900D350E3 /* BDJQuickLoginView.m in Sources */,
+				B958EA5B1F0A6E42004AFF31 /* BDJEssenceCollectionViewCell.m in Sources */,
 				B9A6841D1F0147B500D350E3 /* BDJSuggestTagCell.m in Sources */,
 				B9A684161F012B2500D350E3 /* BDJSuggestTabController.m in Sources */,
 				B9A6845C1F039C3200D350E3 /* BDJEssenceAllViewController.m in Sources */,
